@@ -15,3 +15,8 @@ export type TypingLesson = {
   text: string
   difficulty: 1 | 2 | 3
 }
+
+export type FallingWord = {
+  word: string
+  difficulty: 1 | 2 | 3
+}

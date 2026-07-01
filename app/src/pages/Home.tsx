@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 const games = [
   { to: '/quiz', name: 'Who Wants to Be a Smarty?', icon: '🧠' },
   { to: '/typing', name: 'Typing Adventure', icon: '⌨️' },
+  { to: '/falling', name: 'Word Rain', icon: '🌧️' },
 ]
 
 export default function Home() {
