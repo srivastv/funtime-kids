@@ -1,0 +1,50 @@
+[
+  {
+    "id": "an1",
+    "category": "animals",
+    "prompt": "Which animal says \"moo\"?",
+    "choices": ["Dog", "Cow", "Cat", "Duck"],
+    "answerIndex": 1,
+    "difficulty": 1
+  },
+  {
+    "id": "an2",
+    "category": "animals",
+    "prompt": "How many legs does a spider have?",
+    "choices": ["6", "8", "4", "10"],
+    "answerIndex": 1,
+    "difficulty": 1
+  },
+  {
+    "id": "an3",
+    "category": "animals",
+    "prompt": "Which of these animals can fly?",
+    "choices": ["Penguin", "Ostrich", "Eagle", "Chicken"],
+    "answerIndex": 2,
+    "difficulty": 1
+  },
+  {
+    "id": "an4",
+    "category": "animals",
+    "prompt": "What do you call a baby dog?",
+    "choices": ["Kitten", "Puppy", "Calf", "Foal"],
+    "answerIndex": 1,
+    "difficulty": 1
+  },
+  {
+    "id": "an5",
+    "category": "animals",
+    "prompt": "Which animal is the largest on land?",
+    "choices": ["Elephant", "Giraffe", "Lion", "Horse"],
+    "answerIndex": 0,
+    "difficulty": 2
+  },
+  {
+    "id": "an6",
+    "category": "animals",
+    "prompt": "Which animal changes its color to hide?",
+    "choices": ["Frog", "Chameleon", "Rabbit", "Zebra"],
+    "answerIndex": 1,
+    "difficulty": 2
+  }
+]

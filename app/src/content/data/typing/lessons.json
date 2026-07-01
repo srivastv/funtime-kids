@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ty1",
+    "title": "Easy Words",
+    "text": "the cat can run and the dog can jump",
+    "difficulty": 1
+  },
+  {
+    "id": "ty2",
+    "title": "Fun Sentences",
+    "text": "we like to play games and read fun books",
+    "difficulty": 1
+  },
+  {
+    "id": "ty3",
+    "title": "Animal Facts",
+    "text": "a busy bee flies from flower to flower every sunny day",
+    "difficulty": 2
+  },
+  {
+    "id": "ty4",
+    "title": "Space Adventure",
+    "text": "the brave astronaut floated past the bright shining stars",
+    "difficulty": 3
+  }
+]

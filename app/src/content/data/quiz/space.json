@@ -1,0 +1,50 @@
+[
+  {
+    "id": "sp1",
+    "category": "space",
+    "prompt": "Which star is closest to Earth?",
+    "choices": ["The Moon", "The Sun", "Mars", "Pluto"],
+    "answerIndex": 1,
+    "difficulty": 1
+  },
+  {
+    "id": "sp2",
+    "category": "space",
+    "prompt": "What do we call a person who travels to space?",
+    "choices": ["Pilot", "Astronaut", "Sailor", "Driver"],
+    "answerIndex": 1,
+    "difficulty": 1
+  },
+  {
+    "id": "sp3",
+    "category": "space",
+    "prompt": "Which planet is known as the Red Planet?",
+    "choices": ["Venus", "Jupiter", "Mars", "Saturn"],
+    "answerIndex": 2,
+    "difficulty": 1
+  },
+  {
+    "id": "sp4",
+    "category": "space",
+    "prompt": "What is at the center of our Solar System?",
+    "choices": ["Earth", "The Sun", "The Moon", "A black hole"],
+    "answerIndex": 1,
+    "difficulty": 1
+  },
+  {
+    "id": "sp5",
+    "category": "space",
+    "prompt": "Which planet has beautiful rings around it?",
+    "choices": ["Mars", "Saturn", "Mercury", "Earth"],
+    "answerIndex": 1,
+    "difficulty": 2
+  },
+  {
+    "id": "sp6",
+    "category": "space",
+    "prompt": "How many planets are in our Solar System?",
+    "choices": ["7", "8", "9", "10"],
+    "answerIndex": 1,
+    "difficulty": 2
+  }
+]
