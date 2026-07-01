@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { Question } from '../../content/types'
+import { sound, startMusic, stopMusic } from '../../lib/sound'
 import {
   LADDER_AMOUNTS,
   LADDER_SIZE,
@@ -46,6 +47,14 @@ export default function MillionairePlay({ ladder, pool, onFinish }: Props) {
 
   const isCorrect = selected !== null && selected === current.answerIndex
 
+  useEffect(() => {
+    startMusic()
+    return () => {
+      stopMusic()
+      if (timerRef.current) clearTimeout(timerRef.current)
+    }
+  }, [])
+
   function resetForQuestion() {
     setPhase('asking')
     setSelected(null)
@@ -57,7 +66,13 @@ export default function MillionairePlay({ ladder, pool, onFinish }: Props) {
     if (phase !== 'asking' || hidden.includes(choice)) return
     setSelected(choice)
     setPhase('locked')
-    timerRef.current = window.setTimeout(() => setPhase('revealed'), 1300)
+    sound.tick()
+    const correct = choice === current.answerIndex
+    timerRef.current = window.setTimeout(() => {
+      setPhase('revealed')
+      if (correct) sound.correct()
+      else sound.wrong()
+    }, 1300)
   }
 
   function advance() {
@@ -69,12 +84,14 @@ export default function MillionairePlay({ ladder, pool, onFinish }: Props) {
 
   function onFifty() {
     if (used.fifty) return
+    sound.lifeline()
     setHidden(fiftyFifty(current))
     setUsed((u) => ({ ...u, fifty: true }))
   }
 
   function onAudience() {
     if (used.audience) return
+    sound.lifeline()
     setAudience(audienceVotes(current))
     setUsed((u) => ({ ...u, audience: true }))
   }
@@ -83,6 +100,7 @@ export default function MillionairePlay({ ladder, pool, onFinish }: Props) {
     if (used.swap) return
     const replacement = swapQuestion(pool, current, usedIdsRef.current)
     if (!replacement) return
+    sound.lifeline()
     usedIdsRef.current.add(replacement.id)
     setCurrent(replacement)
     setSelected(null)
@@ -158,9 +176,10 @@ export default function MillionairePlay({ ladder, pool, onFinish }: Props) {
             {phase === 'asking' && rungIndex > 0 && (
               <button
                 type="button"
-                onClick={() =>
+                onClick={() => {
+                  sound.click()
                   onFinish({ amount: walkAwayAmount(rungIndex), outcome: 'walked' })
-                }
+                }}
                 className="rounded-full bg-white/90 px-6 py-2 text-sm font-bold text-indigo-900 hover:bg-white"
               >
                 Walk away with {currentPrize}
@@ -180,9 +199,10 @@ export default function MillionairePlay({ ladder, pool, onFinish }: Props) {
             {phase === 'revealed' && isCorrect && rungIndex + 1 === LADDER_SIZE && (
               <button
                 type="button"
-                onClick={() =>
+                onClick={() => {
+                  sound.win()
                   onFinish({ amount: LADDER_AMOUNTS[rungIndex], outcome: 'won' })
-                }
+                }}
                 className="rounded-full bg-amber-400 px-8 py-3 text-lg font-extrabold text-indigo-950 hover:bg-amber-300"
               >
                 🏆 Collect {formatMoney(LADDER_AMOUNTS[rungIndex])}!

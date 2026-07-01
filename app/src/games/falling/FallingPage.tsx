@@ -6,6 +6,7 @@ import Loading from '../../components/Loading'
 import ErrorScreen from '../../components/ErrorScreen'
 import ResultScreen from '../../components/ResultScreen'
 import FallingGame from './FallingGame'
+import { sound } from '../../lib/sound'
 
 type Phase = 'intro' | 'playing' | 'result'
 
@@ -55,7 +56,10 @@ export default function FallingPage() {
       </p>
       <button
         type="button"
-        onClick={() => setPhase('playing')}
+        onClick={() => {
+          sound.click()
+          setPhase('playing')
+        }}
         className="mt-8 rounded-full bg-sky-500 px-10 py-4 text-xl font-bold text-white shadow hover:bg-sky-600"
       >
         Start!

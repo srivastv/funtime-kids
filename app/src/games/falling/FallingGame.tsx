@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { FallingWord } from '../../content/types'
+import { sound, startMusic, stopMusic } from '../../lib/sound'
 import {
   initState,
   addFaller,
@@ -64,22 +65,27 @@ export default function FallingGame({ words, onGameOver }: Props) {
         })
       }
 
+      const livesBefore = s.lives
       s = tick(s, dt)
+      if (s.lives < livesBefore && s.status === 'playing') sound.lifeLost()
       stateRef.current = s
       setState(s)
 
       if (s.status === 'playing') {
         rafRef.current = requestAnimationFrame(loop)
       } else {
+        sound.lose()
         onGameOver(s.score)
       }
     }
 
     rafRef.current = requestAnimationFrame(loop)
     inputRef.current?.focus()
+    startMusic()
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
       timeoutsRef.current.forEach(clearTimeout)
+      stopMusic()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -119,7 +125,10 @@ export default function FallingGame({ words, onGameOver }: Props) {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const typed = e.target.value.trim().toLowerCase()
     const target = stateRef.current.fallers.find((f) => f.word === typed)
-    if (target) spawnBlast(target.word, target.xPct, target.yPct)
+    if (target) {
+      sound.pop()
+      spawnBlast(target.word, target.xPct, target.yPct)
+    }
     const s = submitTyped(stateRef.current, typed)
     stateRef.current = s
     setState(s)

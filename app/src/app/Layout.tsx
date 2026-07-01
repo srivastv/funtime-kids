@@ -1,4 +1,5 @@
 import { Link, Outlet } from 'react-router-dom'
+import SoundToggle from '../components/SoundToggle'
 
 export default function Layout() {
   return (
@@ -7,6 +8,9 @@ export default function Layout() {
         <Link to="/" className="text-2xl font-extrabold tracking-tight">
           🎈 Funtime
         </Link>
+        <div className="ml-auto">
+          <SoundToggle />
+        </div>
       </header>
       <main>
         <Outlet />

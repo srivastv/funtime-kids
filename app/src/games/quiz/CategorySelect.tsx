@@ -1,5 +1,6 @@
 import { useContent } from '../../lib/useContent'
 import { staticProvider } from '../../content/staticProvider'
+import { sound } from '../../lib/sound'
 import Loading from '../../components/Loading'
 import ErrorScreen from '../../components/ErrorScreen'
 
@@ -29,7 +30,10 @@ export default function CategorySelect({ onPick, bestFor }: Props) {
             <button
               key={c.id}
               type="button"
-              onClick={() => onPick(c.id)}
+              onClick={() => {
+                sound.click()
+                onPick(c.id)
+              }}
               className="rounded-3xl bg-white p-6 text-center shadow-lg transition hover:scale-105 hover:shadow-xl"
             >
               <div className="text-5xl">{c.icon}</div>

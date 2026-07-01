@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from 'react'
 import type { TypingLesson } from '../../content/types'
 import { accuracy, correctChars, wpm } from './stats'
+import { sound } from '../../lib/sound'
 
 export type TypingResult = { wpm: number; accuracy: number }
 
@@ -25,10 +26,12 @@ export default function TypingView({ lesson, onFinish }: Props) {
     if (startRef.current === null && value.length > 0) {
       startRef.current = Date.now()
     }
+    if (value.length > typed.length) sound.key()
     setTyped(value)
 
     if (value.length === target.length) {
       const ms = startRef.current === null ? 0 : Date.now() - startRef.current
+      sound.correct()
       onFinish({
         wpm: wpm(correctChars(value, target), ms),
         accuracy: accuracy(value, target),

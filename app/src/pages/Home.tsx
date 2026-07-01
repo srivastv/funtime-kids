@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { sound } from '../lib/sound'
 
 const games = [
   { to: '/quiz', name: 'Who Wants to Be a Smarty?', icon: '🧠' },
@@ -17,6 +18,7 @@ export default function Home() {
           <Link
             key={g.to}
             to={g.to}
+            onClick={() => sound.click()}
             className="rounded-3xl bg-white p-10 text-center shadow-lg transition hover:scale-105 hover:shadow-xl"
           >
             <div className="text-7xl">{g.icon}</div>

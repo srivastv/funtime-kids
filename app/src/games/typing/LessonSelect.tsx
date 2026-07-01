@@ -1,5 +1,6 @@
 import { useContent } from '../../lib/useContent'
 import { staticProvider } from '../../content/staticProvider'
+import { sound } from '../../lib/sound'
 import type { TypingLesson } from '../../content/types'
 import Loading from '../../components/Loading'
 import ErrorScreen from '../../components/ErrorScreen'
@@ -32,7 +33,10 @@ export default function LessonSelect({ onPick, bestFor }: Props) {
             <button
               key={lesson.id}
               type="button"
-              onClick={() => onPick(lesson)}
+              onClick={() => {
+                sound.click()
+                onPick(lesson)
+              }}
               className="rounded-3xl bg-white p-6 text-left shadow-lg transition hover:scale-105 hover:shadow-xl"
             >
               <div className="text-lg font-bold text-slate-700">{lesson.title}</div>
