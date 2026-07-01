@@ -1,6 +1,7 @@
 import { useContent } from '../../lib/useContent'
 import { staticProvider } from '../../content/staticProvider'
 import { sound } from '../../lib/sound'
+import { formatMoney } from './millionaire'
 import Loading from '../../components/Loading'
 import ErrorScreen from '../../components/ErrorScreen'
 
@@ -39,7 +40,9 @@ export default function CategorySelect({ onPick, bestFor }: Props) {
               <div className="text-5xl">{c.icon}</div>
               <div className="mt-3 text-lg font-bold text-slate-700">{c.name}</div>
               {best > 0 && (
-                <div className="mt-1 text-sm text-slate-400">Best: {best}</div>
+                <div className="mt-1 text-sm text-slate-400">
+                  Best: {formatMoney(best)}
+                </div>
               )}
             </button>
           )

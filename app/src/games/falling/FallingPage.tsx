@@ -7,6 +7,7 @@ import ErrorScreen from '../../components/ErrorScreen'
 import ResultScreen from '../../components/ResultScreen'
 import FallingGame from './FallingGame'
 import { sound } from '../../lib/sound'
+import { loadBest, saveBest } from '../../lib/storage'
 
 type Phase = 'intro' | 'playing' | 'result'
 
@@ -27,6 +28,7 @@ export default function FallingPage() {
       <FallingGame
         words={data}
         onGameOver={(s) => {
+          saveBest('falling', s)
           setScore(s)
           setPhase('result')
         }}
@@ -39,6 +41,7 @@ export default function FallingPage() {
       <ResultScreen
         title="Game over!"
         lines={[`You scored ${score} points`]}
+        best={loadBest('falling') > 0 ? `Best: ${loadBest('falling')} points` : undefined}
         onPlayAgain={() => setPhase('playing')}
         onHome={() => navigate('/')}
       />
@@ -54,6 +57,11 @@ export default function FallingPage() {
         reaches the bottom. You have <strong>3 lives</strong> — don't let too many
         slip by. It gets faster as you score!
       </p>
+      {loadBest('falling') > 0 && (
+        <p className="mt-3 text-lg font-bold text-sky-600">
+          🏅 Best: {loadBest('falling')} points
+        </p>
+      )}
       <button
         type="button"
         onClick={() => {

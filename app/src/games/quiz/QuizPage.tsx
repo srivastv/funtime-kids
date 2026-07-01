@@ -8,11 +8,18 @@ import ResultScreen from '../../components/ResultScreen'
 import CategorySelect from './CategorySelect'
 import MillionairePlay, { type MillionaireResult } from './MillionairePlay'
 import { buildLadder, formatMoney } from './millionaire'
+import { loadBest, saveBest } from '../../lib/storage'
 
 export default function QuizPage() {
   const [category, setCategory] = useState<string | null>(null)
 
-  if (!category) return <CategorySelect onPick={setCategory} />
+  if (!category)
+    return (
+      <CategorySelect
+        onPick={setCategory}
+        bestFor={(id) => loadBest(`quiz:${id}`)}
+      />
+    )
   return <MillionaireRound category={category} onExit={() => setCategory(null)} />
 }
 
@@ -68,7 +75,10 @@ function MillionaireRound({
       key={roundKey}
       ladder={ladder}
       pool={data}
-      onFinish={setResult}
+      onFinish={(r) => {
+        saveBest(`quiz:${category}`, r.amount)
+        setResult(r)
+      }}
     />
   )
 }
