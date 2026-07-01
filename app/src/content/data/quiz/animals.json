@@ -18,21 +18,13 @@
   {
     "id": "an3",
     "category": "animals",
-    "prompt": "Which of these animals can fly?",
-    "choices": ["Penguin", "Ostrich", "Eagle", "Chicken"],
-    "answerIndex": 2,
-    "difficulty": 1
-  },
-  {
-    "id": "an4",
-    "category": "animals",
     "prompt": "What do you call a baby dog?",
     "choices": ["Kitten", "Puppy", "Calf", "Foal"],
     "answerIndex": 1,
     "difficulty": 1
   },
   {
-    "id": "an5",
+    "id": "an4",
     "category": "animals",
     "prompt": "Which animal is the largest on land?",
     "choices": ["Elephant", "Giraffe", "Lion", "Horse"],
@@ -40,11 +32,43 @@
     "difficulty": 2
   },
   {
-    "id": "an6",
+    "id": "an5",
     "category": "animals",
     "prompt": "Which animal changes its color to hide?",
     "choices": ["Frog", "Chameleon", "Rabbit", "Zebra"],
     "answerIndex": 1,
     "difficulty": 2
+  },
+  {
+    "id": "an6",
+    "category": "animals",
+    "prompt": "Which animal carries its home on its back?",
+    "choices": ["Snail", "Cheetah", "Eagle", "Shark"],
+    "answerIndex": 0,
+    "difficulty": 2
+  },
+  {
+    "id": "an7",
+    "category": "animals",
+    "prompt": "What is a group of lions called?",
+    "choices": ["Pack", "Pride", "Herd", "Flock"],
+    "answerIndex": 1,
+    "difficulty": 3
+  },
+  {
+    "id": "an8",
+    "category": "animals",
+    "prompt": "Which sea animal is a mammal, not a fish?",
+    "choices": ["Shark", "Dolphin", "Octopus", "Tuna"],
+    "answerIndex": 1,
+    "difficulty": 3
+  },
+  {
+    "id": "an9",
+    "category": "animals",
+    "prompt": "What is the fastest land animal?",
+    "choices": ["Cheetah", "Lion", "Horse", "Kangaroo"],
+    "answerIndex": 0,
+    "difficulty": 3
   }
 ]

@@ -46,5 +46,29 @@
     "choices": ["5", "10", "15", "20"],
     "answerIndex": 1,
     "difficulty": 2
+  },
+  {
+    "id": "ma7",
+    "category": "maths",
+    "prompt": "What is 7 x 3?",
+    "choices": ["18", "21", "24", "27"],
+    "answerIndex": 1,
+    "difficulty": 3
+  },
+  {
+    "id": "ma8",
+    "category": "maths",
+    "prompt": "What is 100 - 45?",
+    "choices": ["55", "45", "65", "50"],
+    "answerIndex": 0,
+    "difficulty": 3
+  },
+  {
+    "id": "ma9",
+    "category": "maths",
+    "prompt": "How many minutes are in one hour?",
+    "choices": ["30", "45", "60", "100"],
+    "answerIndex": 2,
+    "difficulty": 3
   }
 ]

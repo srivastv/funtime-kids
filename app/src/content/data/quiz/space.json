@@ -26,25 +26,49 @@
   {
     "id": "sp4",
     "category": "space",
-    "prompt": "What is at the center of our Solar System?",
-    "choices": ["Earth", "The Sun", "The Moon", "A black hole"],
-    "answerIndex": 1,
-    "difficulty": 1
-  },
-  {
-    "id": "sp5",
-    "category": "space",
     "prompt": "Which planet has beautiful rings around it?",
     "choices": ["Mars", "Saturn", "Mercury", "Earth"],
     "answerIndex": 1,
     "difficulty": 2
   },
   {
-    "id": "sp6",
+    "id": "sp5",
     "category": "space",
     "prompt": "How many planets are in our Solar System?",
     "choices": ["7", "8", "9", "10"],
     "answerIndex": 1,
     "difficulty": 2
+  },
+  {
+    "id": "sp6",
+    "category": "space",
+    "prompt": "Which planet is closest to the Sun?",
+    "choices": ["Mercury", "Venus", "Earth", "Mars"],
+    "answerIndex": 0,
+    "difficulty": 2
+  },
+  {
+    "id": "sp7",
+    "category": "space",
+    "prompt": "Which is the largest planet in our Solar System?",
+    "choices": ["Jupiter", "Saturn", "Earth", "Neptune"],
+    "answerIndex": 0,
+    "difficulty": 3
+  },
+  {
+    "id": "sp8",
+    "category": "space",
+    "prompt": "What do we call a space rock that lands on Earth?",
+    "choices": ["Meteorite", "Comet", "Satellite", "Star"],
+    "answerIndex": 0,
+    "difficulty": 3
+  },
+  {
+    "id": "sp9",
+    "category": "space",
+    "prompt": "What is the name of our galaxy?",
+    "choices": ["Milky Way", "Andromeda", "Orion", "Big Dipper"],
+    "answerIndex": 0,
+    "difficulty": 3
   }
 ]
