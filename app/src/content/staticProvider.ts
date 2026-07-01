@@ -1,4 +1,10 @@
-import type { Category, Question, TypingLesson, FallingWord } from './types'
+import type {
+  Category,
+  Question,
+  TypingLesson,
+  FallingWord,
+  DrawingLesson,
+} from './types'
 import type { ContentProvider } from './provider'
 import { shuffle } from '../lib/shuffle'
 import animals from './data/quiz/animals.json'
@@ -6,6 +12,7 @@ import space from './data/quiz/space.json'
 import maths from './data/quiz/maths.json'
 import lessons from './data/typing/lessons.json'
 import fallingWords from './data/falling/words.json'
+import { DRAWINGS } from './data/draw/drawings'
 
 const banks: Record<string, Question[]> = {
   animals: animals as Question[],
@@ -33,5 +40,8 @@ export const staticProvider: ContentProvider = {
   },
   async getFallingWords() {
     return fallingWords as FallingWord[]
+  },
+  async getDrawings(): Promise<DrawingLesson[]> {
+    return DRAWINGS
   },
 }

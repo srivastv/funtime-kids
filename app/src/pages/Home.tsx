@@ -5,6 +5,7 @@ const games = [
   { to: '/quiz', name: 'Who Wants to Be a Smarty?', icon: '🧠' },
   { to: '/typing', name: 'Typing Adventure', icon: '⌨️' },
   { to: '/falling', name: 'Word Rain', icon: '🌧️' },
+  { to: '/draw', name: 'Draw Along', icon: '🎨' },
 ]
 
 export default function Home() {
