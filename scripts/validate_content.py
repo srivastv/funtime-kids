@@ -17,8 +17,8 @@ import json
 import sys
 from pathlib import Path
 
-# Repo layout: <root>/scripts/validate_content.py and <root>/app/src/content/data
-DEFAULT_DATA_DIR = Path(__file__).resolve().parent.parent / "app" / "src" / "content" / "data"
+# Repo layout: <root>/scripts/validate_content.py and <root>/web/src/content/data
+DEFAULT_DATA_DIR = Path(__file__).resolve().parent.parent / "web" / "src" / "content" / "data"
 
 VALID_DIFFICULTIES = {1, 2, 3}
 

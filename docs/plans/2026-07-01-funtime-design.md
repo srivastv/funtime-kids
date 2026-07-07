@@ -69,8 +69,8 @@ interface ContentProvider {
 ## Project Structure (as built)
 
 ```
-funtime/
-├─ app/                       # the React app (runs on port 5180)
+funtime-kids/
+├─ web/                       # the React app (runs on port 5180)
 │  └─ src/
 │     ├─ app/                 # Layout (top bar + sound toggle), routing
 │     ├─ components/          # Loading, ErrorScreen, ResultScreen, SoundToggle
@@ -95,7 +95,8 @@ funtime/
 │     │                       #   shuffle  (each pure lib has tests)
 │     └─ store/               # settings (sound on/off, persisted)
 ├─ scripts/                   # validate_content.py + test_validate_content.py
-└─ docs/plans/                # this design + implementation plan
+├─ docs/plans/                # this design + implementation plan
+└─ server/                    # (future) NestJS backend — not built yet
 ```
 
 ## Content Model

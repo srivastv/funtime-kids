@@ -28,17 +28,17 @@ and drawings are especially welcome.
 Requires Node.js 20+.
 
 ```bash
-cd app
+cd web
 npm install
 npm run dev
 # open http://localhost:5180
 ```
 
-Other commands (run from `app/`):
+Other commands (run from `web/`):
 
 ```bash
 npm test          # run unit tests (Vitest)
-npm run build     # production build into app/dist
+npm run build     # production build into web/dist
 npm run preview   # preview the production build
 ```
 
@@ -49,8 +49,8 @@ Cloudflare Pages, …).
 ## Project structure
 
 ```
-funtime/
-├─ app/                       # the React app
+funtime-kids/
+├─ web/                       # the React app (frontend)
 │  └─ src/
 │     ├─ app/                 # shell + routing
 │     ├─ components/          # shared UI (Loading, ErrorScreen, ResultScreen, …)
@@ -59,17 +59,18 @@ funtime/
 │     ├─ lib/                 # hooks + helpers (sound, storage, shuffle, …)
 │     └─ store/               # settings (sound on/off)
 ├─ scripts/                   # Python content validator + tests
-└─ docs/plans/                # design & implementation notes
+├─ docs/plans/                # design & implementation notes
+└─ server/                    # (future) NestJS backend — not built yet
 ```
 
 ## Adding content
 
 Most content is plain data:
 
-- **Quiz questions:** add to (or create) a file in `app/src/content/data/quiz/`.
-- **Typing lessons:** `app/src/content/data/typing/lessons.json`.
-- **Word Rain words:** `app/src/content/data/falling/words.json`.
-- **Drawings:** `app/src/content/data/draw/drawings.ts`.
+- **Quiz questions:** add to (or create) a file in `web/src/content/data/quiz/`.
+- **Typing lessons:** `web/src/content/data/typing/lessons.json`.
+- **Word Rain words:** `web/src/content/data/falling/words.json`.
+- **Drawings:** `web/src/content/data/draw/drawings.ts`.
 
 Validate the JSON content before committing:
 
