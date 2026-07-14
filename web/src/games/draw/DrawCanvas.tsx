@@ -5,6 +5,7 @@ import { drawShape } from './render'
 import { scoreTrace, type Pt, type TraceScore } from './trace'
 import { sound } from '../../lib/sound'
 import { loadBest, saveBest } from '../../lib/storage'
+import { recordResult } from '../../lib/rewards'
 
 const SIZE = 400
 const TRACE_TOL = 24 // pixels of wiggle room when matching a stroke to the guide
@@ -135,7 +136,9 @@ export default function DrawCanvas({ lesson, stepIndex, trace }: Props) {
     if (r.stars >= 2) sound.correct()
     else if (r.stars === 1) sound.click()
     else sound.wrong()
-    if (r.score > loadBest(trace.bestKey)) saveBest(trace.bestKey, r.score)
+    const isNewBest = r.score > loadBest(trace.bestKey)
+    if (isNewBest) saveBest(trace.bestKey, r.score)
+    recordResult({ gameId: 'draw', stars: r.stars, isNewBest })
   }
 
   function save() {

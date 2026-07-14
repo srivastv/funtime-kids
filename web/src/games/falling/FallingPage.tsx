@@ -15,6 +15,7 @@ export default function FallingPage() {
   const navigate = useNavigate()
   const [phase, setPhase] = useState<Phase>('intro')
   const [score, setScore] = useState(0)
+  const [newBest, setNewBest] = useState(false)
   const { data, loading, error } = useContent(
     () => staticProvider.getFallingWords(),
     [],
@@ -28,6 +29,7 @@ export default function FallingPage() {
       <FallingGame
         words={data}
         onGameOver={(s) => {
+          setNewBest(s > loadBest('falling'))
           saveBest('falling', s)
           setScore(s)
           setPhase('result')
@@ -41,6 +43,8 @@ export default function FallingPage() {
       <ResultScreen
         title="Game over!"
         lines={[`You scored ${score} points`]}
+        starCount={score >= 20 ? 3 : score >= 12 ? 2 : score >= 5 ? 1 : 0}
+        reward={{ gameId: 'falling', stars: score >= 20 ? 3 : score >= 12 ? 2 : score >= 5 ? 1 : 0, isNewBest: newBest }}
         best={loadBest('falling') > 0 ? `Best: ${loadBest('falling')} points` : undefined}
         onPlayAgain={() => setPhase('playing')}
         onHome={() => navigate('/')}

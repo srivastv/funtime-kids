@@ -91,6 +91,7 @@ export default function TimeBomb({ onExit, onHome }: Props) {
         title="Bombs defused! ⏰"
         lines={[`${correct} of ${ROUNDS.length} clocks set correctly`, `Lives left: ${Math.max(0, lives)}`]}
         starCount={stars}
+        reward={{ gameId: 'maths', stars, isNewBest: isNew }}
         best={isNew ? `New best! Prev ${best}/${ROUNDS.length}` : best > 0 ? `Best ${best}/${ROUNDS.length}` : undefined}
         onPlayAgain={() => { setIdx(0); setLives(3); setCorrect(0); setFinished(false) }}
         onHome={onHome}

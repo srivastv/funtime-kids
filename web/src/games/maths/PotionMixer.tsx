@@ -66,6 +66,7 @@ export default function PotionMixer({ onExit, onHome }: Props) {
         title="Potions brewed! 🧪"
         lines={[`${correct} of ${ROUNDS.length} potions correct`, `Lives left: ${Math.max(0, lives)}`]}
         starCount={stars}
+        reward={{ gameId: 'maths', stars, isNewBest: isNew }}
         best={isNew ? `New best! Prev ${best}/${ROUNDS.length}` : best > 0 ? `Best ${best}/${ROUNDS.length}` : undefined}
         onPlayAgain={() => { setIdx(0); setLives(3); setCorrect(0); setFinished(false) }}
         onHome={onHome}

@@ -50,6 +50,7 @@ export default function PlantGrower({ onExit, onHome }: Props) {
         title="It bloomed! 🌸"
         lines={[`Grown in ${plant.day} days`, `Health: ${plant.health}%`]}
         starCount={stars}
+        reward={{ gameId: 'odd', stars, isNewBest: isNew }}
         best={isNew ? `New best health: ${plant.health}%` : best > 0 ? `Best health: ${best}%` : undefined}
         onPlayAgain={reset}
         onHome={onHome}
@@ -62,6 +63,7 @@ export default function PlantGrower({ onExit, onHome }: Props) {
         title="Oh no, it wilted 🥀"
         lines={[`It reached the ${STAGE_NAMES[plant.stage]} stage`, 'Try to keep water and sun in the green zones!']}
         starCount={0}
+        reward={{ gameId: 'odd', stars: 0, isNewBest: false }}
         onPlayAgain={reset}
         onHome={onHome}
       />

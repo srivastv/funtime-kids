@@ -20,6 +20,17 @@ and drawings are especially welcome.
 | 🤖 **Code Lab** | Coding concepts for ages ~8: **Robot Route** (program a robot with arrow blocks to reach the cheese — sequencing, then loops via a Repeat block) and **Debug It!** (fix an almost-right program). |
 | 🔢 **Maths Lab** | Fun Year 3 maths: **Pizza Party** (fractions — shade slices & share a fraction of a set), **Potion Mixer** (fill to a target fraction/percent — bridges fractions ↔ %), and **Time Bomb** (drag clock hands to set a time — to the minute, Roman-numeral faces, and durations). |
 
+## Rewards 🎒
+
+Every game feeds one cross-game reward loop (all stored in `localStorage`):
+
+- **🪙 Coins** — earned on every round (for effort *and* stars, with a new-best bonus), shown in the header.
+- **🧑‍🚀 Avatar shop** — spend coins on emoji avatars; your buddy shows in the header.
+- **🏆 Achievements** — milestone trophies across all games.
+- **🌟 Sticker album** — collect stickers as surprise drops (guaranteed on a new best).
+
+Open the **My Backpack 🎒** tile to spend coins and view stickers/trophies.
+
 ## Tech
 
 - **React + Vite + TypeScript** single-page app, **Tailwind CSS** for styling.

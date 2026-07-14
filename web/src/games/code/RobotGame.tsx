@@ -27,6 +27,7 @@ export default function RobotGame({ levels, title, icon, storageKey, debug, onEx
   const [result, setResult] = useState<RunResult | null>(null)
   const [solved, setSolved] = useState(false) // locks input during the win→next-level pause
   const [finished, setFinished] = useState(false)
+  const [newBest, setNewBest] = useState(false)
   const timer = useRef<number | null>(null)
 
   const level = levels[idx]
@@ -88,7 +89,9 @@ export default function RobotGame({ levels, title, icon, storageKey, debug, onEx
       setSolved(true)
       window.setTimeout(() => {
         if (idx + 1 >= levels.length) {
-          if (levels.length > loadBest(storageKey)) saveBest(storageKey, levels.length)
+          const nb = levels.length > loadBest(storageKey)
+          if (nb) saveBest(storageKey, levels.length)
+          setNewBest(nb)
           setFinished(true)
         } else {
           setIdx((n) => n + 1)
@@ -106,6 +109,7 @@ export default function RobotGame({ levels, title, icon, storageKey, debug, onEx
         title={`${icon} All solved!`}
         lines={[`You finished all ${levels.length} ${title} puzzles!`]}
         starCount={3}
+        reward={{ gameId: 'code', stars: 3, isNewBest: newBest }}
         best={best > 0 ? `Puzzles: ${best}` : undefined}
         onPlayAgain={() => { setIdx(0); setFinished(false) }}
         onHome={onHome}

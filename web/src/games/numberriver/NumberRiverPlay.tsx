@@ -87,7 +87,7 @@ export default function NumberRiverPlay({levels, difficulty, onExit, onHome}:Pro
     const prev = loadBest(key)
     const isNew = correct > prev
     if(isNew) saveBest(key, correct)
-    return <ResultScreen title="River Crossed! 🦫🌉" lines={[`${correct} out of ${pool.length} bridges built correctly`, `Lives left: ${Math.max(0,lives)}`]} starCount={stars} best={isNew?`New best! Prev ${prev}/8`: prev>0?`Best ${prev}/8`:undefined} onPlayAgain={onExit} onHome={onHome} />
+    return <ResultScreen title="River Crossed! 🦫🌉" lines={[`${correct} out of ${pool.length} bridges built correctly`, `Lives left: ${Math.max(0,lives)}`]} starCount={stars} reward={{ gameId: 'numberriver', stars, isNewBest: isNew }} best={isNew?`New best! Prev ${prev}/8`: prev>0?`Best ${prev}/8`:undefined} onPlayAgain={onExit} onHome={onHome} />
   }
 
   // Placed tracking by index is tricky due to duplicate ops; for UI fade we track by usage count:

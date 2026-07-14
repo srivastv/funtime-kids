@@ -53,6 +53,7 @@ export default function ExperimentPlay({ items, mode, difficulty, onExit, onHome
       title="Lab Complete! 🧪"
       lines={[`${correct} out of ${total} correct predictions`, `Lives left: ${Math.max(0,lives)}`]}
       starCount={stars}
+      reward={{ gameId: 'odd', stars, isNewBest: isNew }}
       best={isNew ? `New best! Previous ${prev}/8` : prev>0 ? `Best ${prev}/8` : undefined}
       onPlayAgain={onExit}
       onHome={onHome}

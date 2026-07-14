@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './app/Layout'
 import Home from './pages/Home'
+import Backpack from './pages/Backpack'
 import QuizPage from './games/quiz/QuizPage'
 import TypingPage from './games/typing/TypingPage'
 import FallingPage from './games/falling/FallingPage'
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: 'numberriver', element: <NumberRiverPage /> },
       { path: 'code', element: <CodePage /> },
       { path: 'maths', element: <MathsPage /> },
+      { path: 'backpack', element: <Backpack /> },
     ],
   },
 ])

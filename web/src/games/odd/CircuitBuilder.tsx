@@ -102,6 +102,7 @@ export default function CircuitBuilder({ onExit, onHome }: Props) {
         title="Circuit Master! ⚡"
         lines={[`${correct} of ${total} circuits lit`, `Lives left: ${Math.max(0, lives)}`]}
         starCount={stars}
+        reward={{ gameId: 'odd', stars, isNewBest: isNew }}
         best={isNew ? `New best! Prev ${best}/${total}` : best > 0 ? `Best ${best}/${total}` : undefined}
         onPlayAgain={() => { setIdx(0); setLives(3); setCorrect(0); setFinished(false) }}
         onHome={onHome}

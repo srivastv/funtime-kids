@@ -70,6 +70,7 @@ export default function GeoPlay({ items, mode, difficulty, onExit, onHome }: Pro
         title="World Hop Complete!"
         lines={[`${correctCount} out of ${total} correct`, `Lives left: ${Math.max(0, lives)}`]}
         starCount={stars}
+        reward={{ gameId: 'geo', stars, isNewBest }}
         best={isNewBest ? `New best! Previous: ${prevBest}/10` : prevBest > 0 ? `Best: ${prevBest}/10` : undefined}
         onPlayAgain={onExit}
         onHome={onHome}

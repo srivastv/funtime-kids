@@ -11,14 +11,22 @@ const games = [
   { to: '/numberriver', name: 'Number River', icon: '🌉' },
   { to: '/code', name: 'Code Lab', icon: '🤖' },
   { to: '/maths', name: 'Maths Lab', icon: '🔢' },
+  { to: '/backpack', name: 'My Backpack', icon: '🎒' },
 ]
 
 export default function Home() {
   return (
     <div className="mx-auto max-w-4xl p-8">
-      <h1 className="mb-8 text-center text-4xl font-extrabold text-sky-700">
+      <h1 className="mb-3 text-center text-4xl font-extrabold text-sky-700">
         Pick a game!
       </h1>
+      <Link
+        to="/backpack"
+        onClick={() => sound.click()}
+        className="mx-auto mb-8 block max-w-xl rounded-2xl border-2 border-amber-200 bg-amber-50 px-5 py-3 text-center font-bold text-amber-900 shadow-sm transition hover:bg-amber-100"
+      >
+        🪙 Play games to earn coins — even trying counts! Tap here to open your Backpack 🎒
+      </Link>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {games.map((g) => (
           <Link

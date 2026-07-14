@@ -1,5 +1,6 @@
 import { Link, Outlet } from 'react-router-dom'
 import SoundToggle from '../components/SoundToggle'
+import RewardBar from '../components/RewardBar'
 
 export default function Layout() {
   return (
@@ -8,7 +9,8 @@ export default function Layout() {
         <Link to="/" className="text-2xl font-extrabold tracking-tight">
           🎈 Funtime
         </Link>
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center gap-3">
+          <RewardBar />
           <SoundToggle />
         </div>
       </header>

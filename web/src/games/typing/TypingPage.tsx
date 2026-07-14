@@ -13,6 +13,7 @@ export default function TypingPage() {
   const [lesson, setLesson] = useState<TypingLesson | null>(null)
   const [result, setResult] = useState<TypingResult | null>(null)
   const [raceResult, setRaceResult] = useState<TypingRaceResult | null>(null)
+  const [isBest, setIsBest] = useState(false)
 
   if (!lesson)
     return (
@@ -36,6 +37,7 @@ export default function TypingPage() {
           raceResult.maxCombo >= 5 ? `🔥 Best combo: ${raceResult.maxCombo}` : '',
         ].filter(Boolean)}
         starCount={raceResult.won ? 3 : raceResult.accuracy >= 90 ? 2 : 1}
+        reward={{ gameId: 'typing', stars: raceResult.won ? 3 : raceResult.accuracy >= 90 ? 2 : 1, isNewBest: isBest }}
         best={best > 0 ? `Best: ${best} WPM` : undefined}
         onPlayAgain={() => setRaceResult(null)}
         onHome={() => navigate('/')}
@@ -50,6 +52,7 @@ export default function TypingPage() {
       <ResultScreen
         title="Nice typing!"
         lines={[`⚡ ${result.wpm} WPM`, `🎯 ${result.accuracy}% accuracy`]}
+        reward={{ gameId: 'typing', stars: result.accuracy >= 95 ? 3 : result.accuracy >= 80 ? 2 : 1, isNewBest: isBest }}
         best={best > 0 ? `Best: ${best} WPM` : undefined}
         onPlayAgain={() => setResult(null)}
         onHome={() => navigate('/')}
@@ -63,7 +66,9 @@ export default function TypingPage() {
         key={lesson.id}
         lesson={lesson}
         onFinish={(r) => {
-          if (r.wpm > loadBest(`typing:race:${lesson.id}`)) saveBest(`typing:race:${lesson.id}`, r.wpm)
+          const nb = r.wpm > loadBest(`typing:race:${lesson.id}`)
+          if (nb) saveBest(`typing:race:${lesson.id}`, r.wpm)
+          setIsBest(nb)
           setRaceResult(r)
         }}
       />
@@ -75,7 +80,9 @@ export default function TypingPage() {
       key={lesson.id}
       lesson={lesson}
       onFinish={(r) => {
+        const nb = r.wpm > loadBest(`typing:${lesson.id}`)
         saveBest(`typing:${lesson.id}`, r.wpm)
+        setIsBest(nb)
         setResult(r)
       }}
     />

@@ -15,6 +15,8 @@ import { ROUTE_LEVELS } from '../games/code/levels'
 import PizzaParty from '../games/maths/PizzaParty'
 import PotionMixer from '../games/maths/PotionMixer'
 import TimeBomb from '../games/maths/TimeBomb'
+import Backpack from '../pages/Backpack'
+import { recordResult, getRewards } from '../lib/rewards'
 import type { GeoQuestion, TypingLesson, DrawingLesson } from '../content/types'
 
 // jsdom has no Web Audio; stub the sound module so components can call it freely.
@@ -185,5 +187,17 @@ describe('Maths Lab', () => {
     render(<TimeBomb onExit={() => {}} onHome={() => {}} />)
     expect(screen.getByText('⏰ Time Bomb')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Defuse/ })).toBeInTheDocument()
+  })
+})
+
+describe('Rewards / Backpack', () => {
+  it('Backpack shows earned coins and lets you buy an affordable avatar', () => {
+    localStorage.clear()
+    recordResult({ gameId: 'geo', stars: 3, isNewBest: true }, () => 0.99) // earn coins, no sticker
+    render(<MemoryRouter><Backpack /></MemoryRouter>)
+    expect(screen.getByText('My Backpack 🎒')).toBeInTheDocument()
+    // Fox costs 30 — buy it, then it becomes equipped
+    fireEvent.click(screen.getByRole('button', { name: /🪙 30/ }))
+    expect(getRewards().ownedAvatars).toContain('fox')
   })
 })

@@ -69,6 +69,7 @@ export default function PizzaParty({ onExit, onHome }: Props) {
         title="Pizzeria closed! 🍕"
         lines={[`${correct} of ${ORDERS.length} orders served`, `Lives left: ${Math.max(0, lives)}`]}
         starCount={stars}
+        reward={{ gameId: 'maths', stars, isNewBest: isNew }}
         best={isNew ? `New best! Prev ${best}/${ORDERS.length}` : best > 0 ? `Best ${best}/${ORDERS.length}` : undefined}
         onPlayAgain={() => { setIdx(0); setLives(3); setCorrect(0); setFinished(false) }}
         onHome={onHome}

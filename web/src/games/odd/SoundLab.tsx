@@ -34,6 +34,7 @@ export default function SoundLab({ onExit, onHome }: Props) {
   const [inputPos, setInputPos] = useState(0)
   const [highlight, setHighlight] = useState<number | null>(null)
   const [streak, setStreak] = useState(0)
+  const [newBest, setNewBest] = useState(false)
   const timeouts = useRef<number[]>([])
 
   useEffect(() => () => timeouts.current.forEach(clearTimeout), [])
@@ -77,7 +78,9 @@ export default function SoundLab({ onExit, onHome }: Props) {
 
   function endGame() {
     setPhase('over')
-    if (streak > loadBest(BEST_KEY)) saveBest(BEST_KEY, streak)
+    const nb = streak > loadBest(BEST_KEY)
+    if (nb) saveBest(BEST_KEY, streak)
+    setNewBest(nb)
   }
 
   function tapBar(i: number) {
@@ -112,6 +115,7 @@ export default function SoundLab({ onExit, onHome }: Props) {
         title="Great ears! 🎵"
         lines={[`You copied a tune of ${streak} note${streak === 1 ? '' : 's'}`]}
         starCount={starsFor(streak)}
+        reward={{ gameId: 'odd', stars: starsFor(streak), isNewBest: newBest }}
         best={best > 0 ? `Best streak: ${best}` : undefined}
         onPlayAgain={() => { setPhase('free'); setSeq([]); setStreak(0) }}
         onHome={onHome}

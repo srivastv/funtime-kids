@@ -32,6 +32,7 @@ function MillionaireRound({
 }) {
   const navigate = useNavigate()
   const [result, setResult] = useState<MillionaireResult | null>(null)
+  const [isBest, setIsBest] = useState(false)
   const [roundKey, setRoundKey] = useState(0)
 
   // Always load the full pool so ladders have enough questions (and swaps);
@@ -61,6 +62,7 @@ function MillionaireRound({
       <ResultScreen
         title={title}
         lines={[`You take home ${formatMoney(result.amount)}`]}
+        reward={{ gameId: 'quiz', stars: result.outcome === 'won' ? 3 : result.outcome === 'walked' ? 2 : 1, isNewBest: isBest }}
         onPlayAgain={() => {
           setResult(null)
           setRoundKey((k) => k + 1)
@@ -76,7 +78,9 @@ function MillionaireRound({
       ladder={ladder}
       pool={data}
       onFinish={(r) => {
+        const nb = r.amount > loadBest(`quiz:${category}`)
         saveBest(`quiz:${category}`, r.amount)
+        setIsBest(nb)
         setResult(r)
       }}
     />
