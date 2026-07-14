@@ -12,6 +12,9 @@ import SoundLab from '../games/odd/SoundLab'
 import CodePage from '../games/code/CodePage'
 import RobotGame from '../games/code/RobotGame'
 import { ROUTE_LEVELS } from '../games/code/levels'
+import PizzaParty from '../games/maths/PizzaParty'
+import PotionMixer from '../games/maths/PotionMixer'
+import TimeBomb from '../games/maths/TimeBomb'
 import type { GeoQuestion, TypingLesson, DrawingLesson } from '../content/types'
 
 // jsdom has no Web Audio; stub the sound module so components can call it freely.
@@ -156,5 +159,31 @@ describe('Code Lab', () => {
     expect(screen.getByText(/2 blocks/)).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Run/ })).toBeInTheDocument()
   })
+})
 
+describe('Maths Lab', () => {
+  it('PizzaParty serves a correct slice order', () => {
+    render(<PizzaParty onExit={() => {}} onHome={() => {}} />)
+    expect(screen.getByText('🍕 Pizza Party')).toBeInTheDocument()
+    // first order is 1/2 — pizza is cut into 2 slices (paths). Select one, then serve.
+    const slices = document.querySelectorAll('path')
+    fireEvent.click(slices[0])
+    fireEvent.click(screen.getByRole('button', { name: /Serve/ }))
+    expect(screen.getByText(/Perfect order/)).toBeInTheDocument()
+  })
+
+  it('PotionMixer brews correctly at the target level', () => {
+    render(<PotionMixer onExit={() => {}} onHome={() => {}} />)
+    expect(screen.getByText('🧪 Potion Mixer')).toBeInTheDocument()
+    // first round is 1/2 = 50%
+    fireEvent.change(screen.getByRole('slider'), { target: { value: '50' } })
+    fireEvent.click(screen.getByRole('button', { name: /Brew/ }))
+    expect(screen.getByText(/Perfect/)).toBeInTheDocument()
+  })
+
+  it('TimeBomb renders the clock and a Defuse button', () => {
+    render(<TimeBomb onExit={() => {}} onHome={() => {}} />)
+    expect(screen.getByText('⏰ Time Bomb')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Defuse/ })).toBeInTheDocument()
+  })
 })

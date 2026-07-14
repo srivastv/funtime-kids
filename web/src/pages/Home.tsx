@@ -10,6 +10,7 @@ const games = [
   { to: '/odd', name: "Odd Science Lab", icon: '🧪' },
   { to: '/numberriver', name: 'Number River', icon: '🌉' },
   { to: '/code', name: 'Code Lab', icon: '🤖' },
+  { to: '/maths', name: 'Maths Lab', icon: '🔢' },
 ]
 
 export default function Home() {

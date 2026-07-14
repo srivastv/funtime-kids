@@ -18,6 +18,7 @@ and drawings are especially welcome.
 | 🧪 **Odd Science Lab** | Year 3-4 science — a lab hub with a **Science Quiz** (predict-then-test questions across all topics, 3 difficulty levels) plus 3 hands-on stations: **Sound & Pitch Lab** (xylophone + copy-the-tune), **Circuit Builder** (wire a battery & bulb, conductors vs insulators), and **Plant Grower** (balance water & light to grow a flower). |
 | 🌉 **Number River** | Maths bridge builder — drag logs with + − × ÷ operations to reach target number, live total updates, beaver walks across to test. No multiple choice. 3 difficulty levels covering Y3 add/sub within 1000 and Y4 tables to 12×12. |
 | 🤖 **Code Lab** | Coding concepts for ages ~8: **Robot Route** (program a robot with arrow blocks to reach the cheese — sequencing, then loops via a Repeat block) and **Debug It!** (fix an almost-right program). |
+| 🔢 **Maths Lab** | Fun Year 3 maths: **Pizza Party** (fractions — shade slices & share a fraction of a set), **Potion Mixer** (fill to a target fraction/percent — bridges fractions ↔ %), and **Time Bomb** (drag clock hands to set a time — to the minute, Roman-numeral faces, and durations). |
 
 ## Tech
 
