@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import CapitalMatchCard from '../games/geo/CapitalMatchCard'
 import TypingRace from '../games/typing/TypingRace'
 import DrawCanvas from '../games/draw/DrawCanvas'
@@ -8,6 +9,9 @@ import LabHub from '../games/odd/LabHub'
 import PlantGrower from '../games/odd/PlantGrower'
 import CircuitBuilder from '../games/odd/CircuitBuilder'
 import SoundLab from '../games/odd/SoundLab'
+import CodePage from '../games/code/CodePage'
+import RobotGame from '../games/code/RobotGame'
+import { ROUTE_LEVELS } from '../games/code/levels'
 import type { GeoQuestion, TypingLesson, DrawingLesson } from '../content/types'
 
 // jsdom has no Web Audio; stub the sound module so components can call it freely.
@@ -132,4 +136,25 @@ describe('Science Lab stations', () => {
     // eight xylophone bars (C D E F G A B C)
     expect(screen.getAllByRole('button', { name: /^Note / }).length).toBe(8)
   })
+})
+
+describe('Code Lab', () => {
+  it('CodePage hub shows the three challenges and opens one', () => {
+    render(<MemoryRouter><CodePage /></MemoryRouter>)
+    for (const name of ['Robot Route', 'Debug It!']) {
+      expect(screen.getByRole('button', { name: new RegExp(name) })).toBeInTheDocument()
+    }
+    fireEvent.click(screen.getByRole('button', { name: /Robot Route/ }))
+    expect(screen.getByText('🤖 Robot Route')).toBeInTheDocument()
+  })
+
+  it('RobotGame builds a program from the arrow palette', () => {
+    render(<RobotGame levels={ROUTE_LEVELS} title="Robot Route" icon="🤖" storageKey="test:route" onExit={() => {}} onHome={() => {}} />)
+    expect(screen.getByText(/0 blocks/)).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /Add right/ }))
+    fireEvent.click(screen.getByRole('button', { name: /Add right/ }))
+    expect(screen.getByText(/2 blocks/)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Run/ })).toBeInTheDocument()
+  })
+
 })

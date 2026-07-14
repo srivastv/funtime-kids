@@ -9,6 +9,7 @@ const games = [
   { to: '/geo', name: 'World Hop', icon: '🗺️' },
   { to: '/odd', name: "Odd Science Lab", icon: '🧪' },
   { to: '/numberriver', name: 'Number River', icon: '🌉' },
+  { to: '/code', name: 'Code Lab', icon: '🤖' },
 ]
 
 export default function Home() {

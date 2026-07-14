@@ -8,6 +8,7 @@ import DrawPage from './games/draw/DrawPage'
 import GeoPage from './games/geo/GeoPage'
 import OddSciencePage from './games/odd/OddSciencePage'
 import NumberRiverPage from './games/numberriver/NumberRiverPage'
+import CodePage from './games/code/CodePage'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: 'geo', element: <GeoPage /> },
       { path: 'odd', element: <OddSciencePage /> },
       { path: 'numberriver', element: <NumberRiverPage /> },
+      { path: 'code', element: <CodePage /> },
     ],
   },
 ])
