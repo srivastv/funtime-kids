@@ -5,6 +5,9 @@ import QuizPage from './games/quiz/QuizPage'
 import TypingPage from './games/typing/TypingPage'
 import FallingPage from './games/falling/FallingPage'
 import DrawPage from './games/draw/DrawPage'
+import GeoPage from './games/geo/GeoPage'
+import OddSciencePage from './games/odd/OddSciencePage'
+import NumberRiverPage from './games/numberriver/NumberRiverPage'
 
 const router = createBrowserRouter([
   {
@@ -16,6 +19,9 @@ const router = createBrowserRouter([
       { path: 'typing', element: <TypingPage /> },
       { path: 'falling', element: <FallingPage /> },
       { path: 'draw', element: <DrawPage /> },
+      { path: 'geo', element: <GeoPage /> },
+      { path: 'odd', element: <OddSciencePage /> },
+      { path: 'numberriver', element: <NumberRiverPage /> },
     ],
   },
 ])

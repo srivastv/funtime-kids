@@ -1,0 +1,121 @@
+[
+  {
+    "id": "rock-hard-01",
+    "topic": "rocks",
+    "title": "Scratch Test",
+    "prompt": "Which rock is hardest and will scratch the others?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": { "options": ["Granite", "Chalk", "Sand"], "correctIndex": 0 },
+    "explanation": "Granite is very hard with interlocking crystals. Chalk is soft and crumbly.",
+    "funFact": "Granite is used for kitchen worktops because it resists scratches!"
+  },
+  {
+    "id": "rock-perm-01",
+    "topic": "rocks",
+    "title": "Water Drop Test",
+    "prompt": "Which lets water through — permeable?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": { "options": ["Sandstone", "Slate", "Marble"], "correctIndex": 0 },
+    "explanation": "Sandstone has tiny gaps between sand grains so water soaks through. Slate and marble are impermeable.",
+    "funFact": "Roof tiles are often slate because rain runs off not through!"
+  },
+  {
+    "id": "rock-sort-01",
+    "topic": "rocks",
+    "title": "Rock Sorter",
+    "prompt": "Sort rocks by how they were made",
+    "type": "drag-sort",
+    "difficulty": 2,
+    "config": {
+      "categories": ["From layers squashed", "From volcano cooled", "Changed by heat pressure"],
+      "items": [
+        {"label":"Sandstone", "category":"From layers squashed", "emoji":"🟫"},
+        {"label":"Limestone", "category":"From layers squashed", "emoji":"⬜"},
+        {"label":"Granite", "category":"From volcano cooled", "emoji":"⬛"},
+        {"label":"Basalt", "category":"From volcano cooled", "emoji":"🌋"},
+        {"label":"Marble", "category":"Changed by heat pressure", "emoji":"⚪"},
+        {"label":"Slate", "category":"Changed by heat pressure", "emoji":"⬜"}
+      ]
+    },
+    "explanation": "Sedimentary rocks form from layers squashed, igneous from cooled magma, metamorphic changed by heat and pressure.",
+    "funFact": "Marble is limestone that got cooked deep underground!"
+  },
+  {
+    "id": "rock-fossil-01",
+    "topic": "rocks",
+    "title": "Fossil Formation",
+    "prompt": "What is the first step to make a fossil?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": { "options": ["Animal dies and gets buried quickly in mud", "Animal walks on beach", "Animal eats leaves"], "correctIndex": 0 },
+    "explanation": "Quick burial stops rotting. Layers harden to rock around bones or shells over millions of years.",
+    "funFact": "Mary Anning found amazing fossils on Dorset cliffs when she was only 12!"
+  },
+  {
+    "id": "rock-soil-01",
+    "topic": "rocks",
+    "title": "Soil Shake",
+    "prompt": "After shaking soil in water jar and waiting, which settles at bottom?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": { "options": ["Heavy sand grains", "Light humus bits", "Clay"], "correctIndex": 0 },
+    "explanation": "Heaviest sand sinks first, then silt, then light clay on top, humus floats.",
+    "funFact": "Soil is made from tiny rock bits plus dead plants and animals — humus!"
+  },
+  {
+    "id": "states-sort-01",
+    "topic": "rocks",
+    "title": "Solid Liquid Gas Sort",
+    "prompt": "Sort these into solid liquid gas",
+    "type": "drag-sort",
+    "difficulty": 1,
+    "config": {
+      "categories": ["Solid keeps shape", "Liquid flows pours", "Gas spreads fills"],
+      "items": [
+        {"label":"Ice cube", "category":"Solid keeps shape", "emoji":"🧊"},
+        {"label":"Wooden block", "category":"Solid keeps shape", "emoji":"🪵"},
+        {"label":"Water", "category":"Liquid flows pours", "emoji":"💧"},
+        {"label":"Orange juice", "category":"Liquid flows pours", "emoji":"🧃"},
+        {"label":"Steam from kettle", "category":"Gas spreads fills", "emoji":"♨️"},
+        {"label":"Air in balloon", "category":"Gas spreads fills", "emoji":"🎈"}
+      ]
+    },
+    "explanation": "Solids keep shape, liquids flow and take container shape, gases spread out to fill space.",
+    "funFact": "You cannot pour a solid but you can pour a liquid — try pouring a chair!"
+  },
+  {
+    "id": "states-melt-01",
+    "topic": "rocks",
+    "title": "Melt Race",
+    "prompt": "Where will ice melt fastest?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": { "options": ["In warm sunny spot", "In fridge", "Wrapped in foil in shade"], "correctIndex": 0 },
+    "explanation": "Higher temperature means faster melting. Ice melts at 0 degrees Celsius.",
+    "funFact": "Foil reflects heat so it actually slows melting — great for ice lollies!"
+  },
+  {
+    "id": "states-cycle-01",
+    "topic": "rocks",
+    "title": "Water Cycle Step",
+    "prompt": "What is it called when water vapour turns to droplets on cold glass?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": { "options": ["Condensation", "Evaporation", "Melting"], "correctIndex": 0 },
+    "explanation": "Evaporation is liquid to gas when heated. Condensation is gas to liquid when cooled.",
+    "funFact": "Clouds are billions of tiny condensation droplets floating!"
+  },
+  {
+    "id": "states-temp-01",
+    "topic": "rocks",
+    "title": "Thermometer Read",
+    "prompt": "Water boils at what temperature in Celsius?",
+    "type": "slider-predict",
+    "difficulty": 3,
+    "config": { "min": 0, "max": 200, "correctValue": 100, "tolerance": 5, "unit": "°C" },
+    "explanation": "Water freezes at 0°C and boils at 100°C at sea level. In between it is liquid.",
+    "funFact": "On Mount Everest water boils at about 71°C because air pressure is lower!"
+  }
+]

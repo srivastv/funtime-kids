@@ -162,6 +162,49 @@ export const sound = {
     if (muted) return
     blip(1000, getCtx().currentTime, 0.03, 'square', 0.05)
   },
+  sizzle() {
+    if (muted) return
+    // fizzy evaporation sound - filtered noise sweep down
+    noise(0.35, 0.18)
+    sweep(1200, 300, 0.3, 0.1)
+  },
+  zap() {
+    if (muted) return
+    // electric spark - sharp square burst
+    const t = getCtx().currentTime
+    blip(2000, t, 0.04, 'square', 0.25)
+    blip(1500, t+0.05, 0.06, 'sawtooth', 0.18)
+    noise(0.08, 0.2)
+  },
+  boing() {
+    if (muted) return
+    // springy bounce for wrong drop
+    const c = getCtx()
+    const t = c.currentTime
+    blip(400, t, 0.12, 'sine', 0.2)
+    blip(300, t+0.12, 0.18, 'sine', 0.18)
+    blip(500, t+0.3, 0.1, 'sine', 0.12)
+  },
+  magnetSnap() {
+    if (muted) return
+    // metallic click
+    blip(1200, getCtx().currentTime, 0.04, 'triangle', 0.22)
+    blip(2400, getCtx().currentTime+0.03, 0.05, 'triangle', 0.12)
+  },
+  whoosh() {
+    if (muted) return
+    sweep(200, 900, 0.25, 0.15)
+  },
+  drip() {
+    if (muted) return
+    blip(1200, getCtx().currentTime, 0.08, 'sine', 0.15)
+    blip(900, getCtx().currentTime+0.12, 0.12, 'sine', 0.1)
+  },
+  /** Play a single musical note (used by the Sound & Pitch Lab). */
+  tone(freq: number, dur = 0.5) {
+    if (muted) return
+    blip(freq, getCtx().currentTime, dur, 'triangle', 0.22)
+  },
 }
 
 // Gentle looping background music -----------------------------------------

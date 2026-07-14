@@ -38,3 +38,93 @@ export type DrawingLesson = {
   icon: string
   steps: DrawStep[]
 }
+
+export type GeoItem = {
+  id: string
+  name: string
+  capital: string
+  continent: 'Europe' | 'Asia' | 'Africa' | 'North America' | 'South America' | 'Oceania' | 'Antarctica'
+  flagEmoji?: string
+  flagSvg?: string
+  landmarkClues: string[]
+  funFact: string
+  latitude: number
+  longitude: number
+  difficulty: 1 | 2 | 3
+  aliases?: string[]
+}
+
+export type GeoQuestionType = 'flag' | 'capital' | 'landmark' | 'map' | 'landmarkmap' | 'capitalmatch'
+
+/** A candidate country for the Map Drop game, carrying real coordinates. */
+export type GeoMapItem = { name: string; lat: number; lon: number; flagEmoji?: string }
+
+export type GeoQuestion = {
+  type: GeoQuestionType
+  prompt: string
+  visual?: {
+    flagEmoji?: string
+    flagSvg?: string
+    /** A decorative emoji for the question (e.g. a clue-specific landmark icon). */
+    icon?: string
+  }
+  choices: string[]
+  answerIndex: number
+  itemId: string
+  funFact: string
+  /** Candidates with real lat/lon — used by Map Drop / Landmark Hunt (d3-geo renderer). */
+  mapItems?: GeoMapItem[]
+  /** Country↔capital pairs — used by the Capital Match round. */
+  pairs?: CapitalPair[]
+}
+
+export type GeoMode = 'mixed' | 'flags' | 'capitals' | 'landmarks' | 'maps' | 'landmarkmap' | 'capitalmatch'
+
+/** One country↔capital pairing shown in a Capital Match round. */
+export type CapitalPair = { country: string; capital: string; flagEmoji?: string }
+
+export type OddTopic = 'plants' | 'rocks' | 'light-sound'
+export type OddExperimentType = 'predict-choice' | 'drag-sort' | 'slider-predict'
+
+export type OddExperiment = {
+  id: string
+  topic: OddTopic
+  title: string
+  prompt: string
+  type: OddExperimentType
+  difficulty: 1 | 2 | 3
+  config: {
+    options?: string[]
+    correctIndex?: number
+    categories?: string[]
+    items?: { label: string; category: string; emoji?: string }[]
+    min?: number
+    max?: number
+    correctValue?: number
+    tolerance?: number
+    unit?: string
+  }
+  explanation: string
+  funFact: string
+}
+
+export type OddMode = OddTopic | 'mixed'
+
+export type NumberRiverOpType = '+' | '-' | '×' | '÷' | 'missing'
+
+export type NumberRiverOp = {
+  type: NumberRiverOpType
+  value?: number
+  display: string
+}
+
+export type NumberRiverLevel = {
+  id: string
+  target: number
+  start?: number
+  slots: number
+  availableOps: NumberRiverOp[]
+  difficulty: 1 | 2 | 3
+  description?: string
+  allowNegative?: boolean
+}

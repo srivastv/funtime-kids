@@ -2,9 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 import type { DrawingLesson } from '../../content/types'
 import { shapesUpTo } from './guide'
 import { drawShape } from './render'
+import { scoreTrace, type Pt, type TraceScore } from './trace'
 import { sound } from '../../lib/sound'
+import { loadBest, saveBest } from '../../lib/storage'
 
 const SIZE = 400
+const TRACE_TOL = 24 // pixels of wiggle room when matching a stroke to the guide
 const COLORS = ['#1e293b', '#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#a855f7', '#92400e', '#ec4899']
 const BRUSHES = [4, 8, 14]
 
@@ -14,9 +17,11 @@ type Stroke = { color: string; size: number; points: Point[] }
 type Props = {
   lesson: DrawingLesson
   stepIndex: number
+  /** When set, the canvas is a Trace Challenge: shows a "Score" button and rates the trace. */
+  trace?: { target: Pt[]; bestKey: string }
 }
 
-export default function DrawCanvas({ lesson, stepIndex }: Props) {
+export default function DrawCanvas({ lesson, stepIndex, trace }: Props) {
   const guideRef = useRef<HTMLCanvasElement>(null)
   const drawRef = useRef<HTMLCanvasElement>(null)
 
@@ -30,6 +35,7 @@ export default function DrawCanvas({ lesson, stepIndex }: Props) {
   const strokesRef = useRef<Stroke[]>([])
   const drawingRef = useRef(false)
   const [, force] = useState(0) // used to refresh undo/clear button state
+  const [result, setResult] = useState<TraceScore | null>(null)
 
   // Redraw the guide layer whenever the lesson or step changes.
   useEffect(() => {
@@ -116,8 +122,20 @@ export default function DrawCanvas({ lesson, stepIndex }: Props) {
   function clear() {
     strokesRef.current = []
     redraw()
+    setResult(null)
     sound.click()
     force((n) => n + 1)
+  }
+
+  function scoreNow() {
+    if (!trace) return
+    const strokes = strokesRef.current.map((s) => s.points)
+    const r = scoreTrace(trace.target, strokes, TRACE_TOL)
+    setResult(r)
+    if (r.stars >= 2) sound.correct()
+    else if (r.stars === 1) sound.click()
+    else sound.wrong()
+    if (r.score > loadBest(trace.bestKey)) saveBest(trace.bestKey, r.score)
   }
 
   function save() {
@@ -161,6 +179,40 @@ export default function DrawCanvas({ lesson, stepIndex }: Props) {
           onPointerLeave={pointerUp}
         />
       </div>
+
+      {/* Trace Challenge: score button + result */}
+      {trace && (
+        <div className="mt-4 w-full max-w-[400px]">
+          {!result ? (
+            <button
+              type="button"
+              onClick={scoreNow}
+              disabled={!hasStrokes}
+              className="w-full rounded-full bg-gradient-to-r from-fuchsia-500 to-pink-600 py-3 text-lg font-extrabold text-white shadow-lg transition hover:scale-[1.01] disabled:opacity-30"
+            >
+              ✨ Score my drawing!
+            </button>
+          ) : (
+            <div className="rounded-3xl border-2 border-pink-200 bg-pink-50 p-4 text-center">
+              <div className="text-3xl">{'⭐'.repeat(result.stars)}{'☆'.repeat(3 - result.stars)}</div>
+              <div className="mt-1 text-2xl font-black text-pink-700">{result.score}%</div>
+              <div className="mt-1 text-sm font-semibold text-pink-900">
+                {result.stars === 3 ? 'Amazing tracing! 🎉' : result.stars === 2 ? 'Great job! 👏' : result.stars === 1 ? 'Good start — try to stay on the lines!' : 'Keep tracing over the dotted shape!'}
+              </div>
+              <div className="mt-1 text-xs text-slate-500">
+                Best: {Math.max(result.score, loadBest(trace.bestKey))}%
+              </div>
+              <button
+                type="button"
+                onClick={clear}
+                className="mt-3 rounded-full bg-white px-6 py-2 text-sm font-bold text-pink-700 shadow"
+              >
+                ↺ Try again
+              </button>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Colors */}
       <div className="mt-4 flex flex-wrap justify-center gap-2">

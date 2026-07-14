@@ -1,0 +1,106 @@
+[
+  {
+    "id": "plant-needs-01",
+    "topic": "plants",
+    "title": "Thirsty Bean",
+    "prompt": "Which bean will grow tallest after a week?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": { "options": ["Lots of water and light ☀️💧", "No water but lots of light ☀️🚫", "Lots of water but in dark cupboard 🌑💧"], "correctIndex": 0 },
+    "explanation": "Plants need both water and light to make food and grow tall.",
+    "funFact": "A bean seed carries a tiny packed lunch to start growing!"
+  },
+  {
+    "id": "plant-needs-02",
+    "topic": "plants",
+    "title": "Sun Seeker",
+    "prompt": "Where should we put the plant to help it grow best?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": { "options": ["Sunny windowsill", "Dark cupboard", "Fridge"], "correctIndex": 0 },
+    "explanation": "Light gives plants energy to make food. No light means no growth.",
+    "funFact": "Plants lean towards light — try it with cress on a windowsill!"
+  },
+  {
+    "id": "plant-parts-01",
+    "topic": "plants",
+    "title": "Flower Doctor",
+    "prompt": "Sort these flower parts into the right groups",
+    "type": "drag-sort",
+    "difficulty": 1,
+    "config": {
+      "categories": ["Protects bud", "Attracts insects", "Makes pollen", "Receives pollen"],
+      "items": [
+        {"label": "Sepal", "category": "Protects bud", "emoji": "🌿"},
+        {"label": "Petal", "category": "Attracts insects", "emoji": "🌸"},
+        {"label": "Stamen anther", "category": "Makes pollen", "emoji": "🌾"},
+        {"label": "Stigma", "category": "Receives pollen", "emoji": "🎯"}
+      ]
+    },
+    "explanation": "Sepals protect, petals attract, stamen makes pollen, stigma catches it for seeds.",
+    "funFact": "Bees can see ultraviolet patterns on petals we cannot!"
+  },
+  {
+    "id": "plant-transport-01",
+    "topic": "plants",
+    "title": "Celery Straw",
+    "prompt": "How long to see blue water reach the celery leaves?",
+    "type": "slider-predict",
+    "difficulty": 2,
+    "config": { "min": 1, "max": 24, "correctValue": 4, "tolerance": 3, "unit": "hours" },
+    "explanation": "Water travels up tiny tubes called xylem in the stem, like drinking straws.",
+    "funFact": "You can split a celery stalk and put each half in different colours!"
+  },
+  {
+    "id": "plant-seed-01",
+    "topic": "plants",
+    "title": "Seed Flinger",
+    "prompt": "How does a dandelion seed travel?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": { "options": ["Wind parachute", "Explodes", "Sinks in water", "Eaten then pooped"], "correctIndex": 0 },
+    "explanation": "Dandelion seeds have fluffy parachutes to float on wind far away.",
+    "funFact": "Some seeds can fly over 30 kilometres on wind!"
+  },
+  {
+    "id": "plant-seed-02",
+    "topic": "plants",
+    "title": "Burr Stick",
+    "prompt": "How does a burdock burr spread?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": { "options": ["Sticks to animal fur", "Floats on water", "Wind parachute", "Explodes"], "correctIndex": 0 },
+    "explanation": "Burrs have tiny hooks that cling to fur or socks for a free ride.",
+    "funFact": "Velcro was invented after looking at burdock burrs under a microscope!"
+  },
+  {
+    "id": "plant-cycle-01",
+    "topic": "plants",
+    "title": "Life Cycle Sort",
+    "prompt": "Put the plant life cycle in order",
+    "type": "drag-sort",
+    "difficulty": 1,
+    "config": {
+      "categories": ["1st","2nd","3rd","4th"],
+      "items": [
+        {"label":"Seed","category":"1st","emoji":"🌰"},
+        {"label":"Germination sprout","category":"2nd","emoji":"🌱"},
+        {"label":"Seedling growing","category":"3rd","emoji":"🌿"},
+        {"label":"Adult flowering plant","category":"4th","emoji":"🌻"}
+      ]
+    },
+    "explanation": "Seed → sprout → seedling → adult plant that makes flowers and new seeds.",
+    "funFact": "The oldest seed ever grown was 2,000 years old — a date palm from Israel!"
+  },
+  {
+    "id": "plant-needs-03",
+    "topic": "plants",
+    "title": "Space Check",
+    "prompt": "What else do plants need besides water light air?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": { "options": ["Nutrients and space to grow", "Loud music", "Chocolate"], "correctIndex": 0 },
+    "explanation": "Plants need nutrients from soil and room for roots and leaves to spread.",
+    "funFact": "Too many plants crowded together compete and stay small, like in a busy playground!"
+  }
+]

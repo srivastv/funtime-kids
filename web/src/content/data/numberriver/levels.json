@@ -1,0 +1,200 @@
+[
+  {
+    "id": "nr-001",
+    "target": 15,
+    "start": 0,
+    "slots": 3,
+    "difficulty": 1,
+    "description": "Benny needs 15 berries for breakfast",
+    "availableOps": [
+      {"type": "+", "value": 7, "display": "+7"},
+      {"type": "+", "value": 8, "display": "+8"},
+      {"type": "+", "value": 5, "display": "+5"},
+      {"type": "-", "value": 2, "display": "-2"}
+    ]
+  },
+  {
+    "id": "nr-002",
+    "target": 20,
+    "slots": 3,
+    "difficulty": 1,
+    "availableOps": [
+      {"type": "+", "value": 10, "display": "+10"},
+      {"type": "+", "value": 6, "display": "+6"},
+      {"type": "+", "value": 4, "display": "+4"},
+      {"type": "-", "value": 3, "display": "-3"}
+    ]
+  },
+  {
+    "id": "nr-003",
+    "target": 12,
+    "slots": 3,
+    "difficulty": 1,
+    "availableOps": [
+      {"type": "+", "value": 9, "display": "+9"},
+      {"type": "+", "value": 5, "display": "+5"},
+      {"type": "-", "value": 2, "display": "-2"},
+      {"type": "+", "value": 3, "display": "+3"}
+    ]
+  },
+  {
+    "id": "nr-004",
+    "target": 30,
+    "slots": 3,
+    "difficulty": 1,
+    "description": "Three logs to reach island 30",
+    "availableOps": [
+      {"type": "+", "value": 15, "display": "+15"},
+      {"type": "+", "value": 10, "display": "+10"},
+      {"type": "+", "value": 5, "display": "+5"},
+      {"type": "+", "value": 12, "display": "+12"}
+    ]
+  },
+  {
+    "id": "nr-005",
+    "target": 25,
+    "slots": 3,
+    "difficulty": 1,
+    "availableOps": [
+      {"type": "+", "value": 20, "display": "+20"},
+      {"type": "+", "value": 8, "display": "+8"},
+      {"type": "-", "value": 3, "display": "-3"},
+      {"type": "+", "value": 7, "display": "+7"}
+    ]
+  },
+  {
+    "id": "nr-006",
+    "target": 18,
+    "slots": 3,
+    "difficulty": 1,
+    "availableOps": [
+      {"type": "+", "value": 10, "display": "+10"},
+      {"type": "+", "value": 9, "display": "+9"},
+      {"type": "-", "value": 1, "display": "-1"},
+      {"type": "+", "value": 4, "display": "+4"}
+    ]
+  },
+  {
+    "id": "nr-101",
+    "target": 48,
+    "slots": 4,
+    "difficulty": 2,
+    "description": "Use times tables to cross faster",
+    "availableOps": [
+      {"type": "×", "value": 2, "display": "×2"},
+      {"type": "+", "value": 20, "display": "+20"},
+      {"type": "+", "value": 4, "display": "+4"},
+      {"type": "×", "value": 3, "display": "×3"},
+      {"type": "-", "value": 6, "display": "-6"}
+    ]
+  },
+  {
+    "id": "nr-102",
+    "target": 60,
+    "slots": 4,
+    "difficulty": 2,
+    "availableOps": [
+      {"type": "+", "value": 30, "display": "+30"},
+      {"type": "×", "value": 2, "display": "×2"},
+      {"type": "-", "value": 5, "display": "-5"},
+      {"type": "+", "value": 15, "display": "+15"},
+      {"type": "÷", "value": 2, "display": "÷2"}
+    ]
+  },
+  {
+    "id": "nr-103",
+    "target": 36,
+    "slots": 4,
+    "difficulty": 2,
+    "availableOps": [
+      {"type": "+", "value": 12, "display": "+12"},
+      {"type": "×", "value": 3, "display": "×3"},
+      {"type": "-", "value": 4, "display": "-4"},
+      {"type": "+", "value": 8, "display": "+8"},
+      {"type": "÷", "value": 2, "display": "÷2"}
+    ]
+  },
+  {
+    "id": "nr-104",
+    "target": 72,
+    "slots": 4,
+    "difficulty": 2,
+    "availableOps": [
+      {"type": "+", "value": 40, "display": "+40"},
+      {"type": "×", "value": 2, "display": "×2"},
+      {"type": "-", "value": 8, "display": "-8"},
+      {"type": "+", "value": 12, "display": "+12"},
+      {"type": "÷", "value": 3, "display": "÷3"}
+    ]
+  },
+  {
+    "id": "nr-105",
+    "target": 100,
+    "slots": 4,
+    "difficulty": 2,
+    "availableOps": [
+      {"type": "+", "value": 50, "display": "+50"},
+      {"type": "×", "value": 2, "display": "×2"},
+      {"type": "-", "value": 10, "display": "-10"},
+      {"type": "+", "value": 25, "display": "+25"},
+      {"type": "÷", "value": 5, "display": "÷5"}
+    ]
+  },
+  {
+    "id": "nr-201",
+    "target": 250,
+    "slots": 4,
+    "difficulty": 3,
+    "description": "Inventor challenge with brackets hint",
+    "availableOps": [
+      {"type": "+", "value": 100, "display": "+100"},
+      {"type": "×", "value": 3, "display": "×3"},
+      {"type": "-", "value": 50, "display": "-50"},
+      {"type": "+", "value": 75, "display": "+75"},
+      {"type": "÷", "value": 2, "display": "÷2"},
+      {"type": "×", "value": 4, "display": "×4"}
+    ]
+  },
+  {
+    "id": "nr-202",
+    "target": 360,
+    "slots": 5,
+    "difficulty": 3,
+    "availableOps": [
+      {"type": "+", "value": 120, "display": "+120"},
+      {"type": "×", "value": 3, "display": "×3"},
+      {"type": "-", "value": 20, "display": "-20"},
+      {"type": "÷", "value": 2, "display": "÷2"},
+      {"type": "+", "value": 80, "display": "+80"},
+      {"type": "×", "value": 2, "display": "×2"}
+    ]
+  },
+  {
+    "id": "nr-203",
+    "target": 144,
+    "slots": 4,
+    "difficulty": 3,
+    "availableOps": [
+      {"type": "+", "value": 60, "display": "+60"},
+      {"type": "×", "value": 2, "display": "×2"},
+      {"type": "+", "value": 24, "display": "+24"},
+      {"type": "÷", "value": 3, "display": "÷3"},
+      {"type": "×", "value": 4, "display": "×4"},
+      {"type": "-", "value": 12, "display": "-12"}
+    ]
+  },
+  {
+    "id": "nr-204",
+    "target": 500,
+    "slots": 5,
+    "difficulty": 3,
+    "availableOps": [
+      {"type": "+", "value": 200, "display": "+200"},
+      {"type": "×", "value": 2, "display": "×2"},
+      {"type": "+", "value": 150, "display": "+150"},
+      {"type": "-", "value": 50, "display": "-50"},
+      {"type": "÷", "value": 2, "display": "÷2"},
+      {"type": "+", "value": 100, "display": "+100"}
+    ]
+  }
+]

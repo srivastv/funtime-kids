@@ -1,0 +1,642 @@
+[
+  {
+    "id": "england",
+    "name": "England",
+    "capital": "London",
+    "continent": "Europe",
+    "flagEmoji": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "landmarkClues": [
+      "Big Ben clock tower",
+      "Tower Bridge",
+      "Buckingham Palace"
+    ],
+    "funFact": "England is part of the United Kingdom and London has a giant clock called Big Ben.",
+    "difficulty": 1,
+    "latitude": 51.5,
+    "longitude": -0.12
+  },
+  {
+    "id": "scotland",
+    "name": "Scotland",
+    "capital": "Edinburgh",
+    "continent": "Europe",
+    "flagEmoji": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "landmarkClues": [
+      "Edinburgh Castle",
+      "Loch Ness monster legend",
+      "bagpipes"
+    ],
+    "funFact": "Scotland has over 790 islands!",
+    "difficulty": 1,
+    "latitude": 55.95,
+    "longitude": -3.19
+  },
+  {
+    "id": "wales",
+    "name": "Wales",
+    "capital": "Cardiff",
+    "continent": "Europe",
+    "flagEmoji": "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+    "landmarkClues": [
+      "red dragon on flag",
+      "lots of castles",
+      "Snowdon mountain"
+    ],
+    "funFact": "Wales has more castles per square mile than any other country.",
+    "difficulty": 1,
+    "latitude": 51.48,
+    "longitude": -3.18
+  },
+  {
+    "id": "ireland",
+    "name": "Ireland",
+    "capital": "Dublin",
+    "continent": "Europe",
+    "flagEmoji": "🇮🇪",
+    "landmarkClues": [
+      "green shamrock",
+      "Cliffs of Moher",
+      "leprechaun stories"
+    ],
+    "funFact": "Ireland is called the Emerald Isle because it is so green.",
+    "difficulty": 1,
+    "latitude": 53.34,
+    "longitude": -6.26
+  },
+  {
+    "id": "france",
+    "name": "France",
+    "capital": "Paris",
+    "continent": "Europe",
+    "flagEmoji": "🇫🇷",
+    "landmarkClues": [
+      "Eiffel Tower",
+      "baguette and croissant",
+      "Louvre Museum"
+    ],
+    "funFact": "France is the most visited country in the world!",
+    "difficulty": 1,
+    "latitude": 48.85,
+    "longitude": 2.35
+  },
+  {
+    "id": "spain",
+    "name": "Spain",
+    "capital": "Madrid",
+    "continent": "Europe",
+    "flagEmoji": "🇪🇸",
+    "landmarkClues": [
+      "Sagrada Familia church",
+      "bull running festival",
+      "paella rice dish"
+    ],
+    "funFact": "Spain has a tomato throwing festival called La Tomatina!",
+    "difficulty": 1,
+    "latitude": 40.41,
+    "longitude": -3.7
+  },
+  {
+    "id": "germany",
+    "name": "Germany",
+    "capital": "Berlin",
+    "continent": "Europe",
+    "flagEmoji": "🇩🇪",
+    "landmarkClues": [
+      "Brandenburg Gate",
+      "fairy tale castles",
+      "pretzels"
+    ],
+    "funFact": "Germany has over 20,000 castles.",
+    "difficulty": 1,
+    "latitude": 52.52,
+    "longitude": 13.4
+  },
+  {
+    "id": "italy",
+    "name": "Italy",
+    "capital": "Rome",
+    "continent": "Europe",
+    "flagEmoji": "🇮🇹",
+    "landmarkClues": [
+      "Leaning Tower of Pisa",
+      "Colosseum arena",
+      "pizza and pasta"
+    ],
+    "funFact": "Italy is shaped like a boot!",
+    "difficulty": 1,
+    "latitude": 41.9,
+    "longitude": 12.49
+  },
+  {
+    "id": "usa",
+    "name": "United States",
+    "capital": "Washington D.C.",
+    "continent": "North America",
+    "flagEmoji": "🇺🇸",
+    "landmarkClues": [
+      "Statue of Liberty",
+      "Grand Canyon",
+      "Golden Gate Bridge"
+    ],
+    "funFact": "The United States has 50 states and is home to Hollywood movies.",
+    "difficulty": 1,
+    "latitude": 38.89,
+    "longitude": -77.03
+  },
+  {
+    "id": "canada",
+    "name": "Canada",
+    "capital": "Ottawa",
+    "continent": "North America",
+    "flagEmoji": "🇨🇦",
+    "landmarkClues": [
+      "maple leaf flag",
+      "Niagara Falls",
+      "ice hockey"
+    ],
+    "funFact": "Canada has the longest coastline in the world.",
+    "difficulty": 1,
+    "latitude": 45.42,
+    "longitude": -75.69
+  },
+  {
+    "id": "mexico",
+    "name": "Mexico",
+    "capital": "Mexico City",
+    "continent": "North America",
+    "flagEmoji": "🇲🇽",
+    "landmarkClues": [
+      "ancient pyramids at Chichen Itza",
+      "tacos",
+      "Day of the Dead skulls"
+    ],
+    "funFact": "Mexico introduced chocolate and tomatoes to the world.",
+    "difficulty": 1,
+    "latitude": 19.43,
+    "longitude": -99.13
+  },
+  {
+    "id": "brazil",
+    "name": "Brazil",
+    "capital": "Brasília",
+    "continent": "South America",
+    "flagEmoji": "🇧🇷",
+    "landmarkClues": [
+      "Amazon rainforest",
+      "Christ the Redeemer statue",
+      "Carnival in Rio"
+    ],
+    "funFact": "Brazil borders every South American country except Ecuador and Chile.",
+    "difficulty": 1,
+    "latitude": -15.79,
+    "longitude": -47.89
+  },
+  {
+    "id": "argentina",
+    "name": "Argentina",
+    "capital": "Buenos Aires",
+    "continent": "South America",
+    "flagEmoji": "🇦🇷",
+    "landmarkClues": [
+      "tango dancing",
+      "Iguazu waterfalls",
+      "penguins in Patagonia"
+    ],
+    "funFact": "Argentina is famous for tango dancing and delicious steak.",
+    "difficulty": 2,
+    "latitude": -34.6,
+    "longitude": -58.38
+  },
+  {
+    "id": "peru",
+    "name": "Peru",
+    "capital": "Lima",
+    "continent": "South America",
+    "flagEmoji": "🇵🇪",
+    "landmarkClues": [
+      "Machu Picchu mountain city",
+      "llamas",
+      "ancient Incas"
+    ],
+    "funFact": "Machu Picchu is hidden high in the Andes mountains.",
+    "difficulty": 2,
+    "latitude": -12.04,
+    "longitude": -77.03
+  },
+  {
+    "id": "japan",
+    "name": "Japan",
+    "capital": "Tokyo",
+    "continent": "Asia",
+    "flagEmoji": "🇯🇵",
+    "landmarkClues": [
+      "Mount Fuji volcano",
+      "bullet trains",
+      "cherry blossom festivals"
+    ],
+    "funFact": "Japan has more than 6,800 islands.",
+    "difficulty": 1,
+    "latitude": 35.68,
+    "longitude": 139.65
+  },
+  {
+    "id": "china",
+    "name": "China",
+    "capital": "Beijing",
+    "continent": "Asia",
+    "flagEmoji": "🇨🇳",
+    "landmarkClues": [
+      "Great Wall",
+      "giant pandas",
+      "Terracotta Army"
+    ],
+    "funFact": "The Great Wall of China is over 13,000 miles long!",
+    "difficulty": 1,
+    "latitude": 39.9,
+    "longitude": 116.4
+  },
+  {
+    "id": "india",
+    "name": "India",
+    "capital": "New Delhi",
+    "continent": "Asia",
+    "flagEmoji": "🇮🇳",
+    "landmarkClues": [
+      "Taj Mahal palace",
+      "tigers",
+      "spicy curry"
+    ],
+    "funFact": "India is home to the Bengal tiger and over a billion people.",
+    "difficulty": 1,
+    "latitude": 28.61,
+    "longitude": 77.2
+  },
+  {
+    "id": "thailand",
+    "name": "Thailand",
+    "capital": "Bangkok",
+    "continent": "Asia",
+    "flagEmoji": "🇹🇭",
+    "landmarkClues": [
+      "golden temples",
+      "elephants",
+      "floating markets"
+    ],
+    "funFact": "Thailand's capital Bangkok has the longest city name in the world in Thai!",
+    "difficulty": 2,
+    "latitude": 13.75,
+    "longitude": 100.5
+  },
+  {
+    "id": "southkorea",
+    "name": "South Korea",
+    "capital": "Seoul",
+    "continent": "Asia",
+    "flagEmoji": "🇰🇷",
+    "landmarkClues": [
+      "K-pop music",
+      "high tech cities",
+      "kimchi food"
+    ],
+    "funFact": "South Korea invented the smart phone screen you might be using!",
+    "difficulty": 2,
+    "latitude": 37.56,
+    "longitude": 126.97
+  },
+  {
+    "id": "australia",
+    "name": "Australia",
+    "capital": "Canberra",
+    "continent": "Oceania",
+    "flagEmoji": "🇦🇺",
+    "landmarkClues": [
+      "Sydney Opera House",
+      "kangaroos",
+      "Great Barrier Reef"
+    ],
+    "funFact": "Australia is both a country and a continent!",
+    "difficulty": 1,
+    "latitude": -35.3,
+    "longitude": 149.12
+  },
+  {
+    "id": "newzealand",
+    "name": "New Zealand",
+    "capital": "Wellington",
+    "continent": "Oceania",
+    "flagEmoji": "🇳🇿",
+    "landmarkClues": [
+      "hobbit movie hills",
+      "kiwi bird",
+      "rugby All Blacks"
+    ],
+    "funFact": "New Zealand has more sheep than people.",
+    "difficulty": 1,
+    "latitude": -41.29,
+    "longitude": 174.77
+  },
+  {
+    "id": "egypt",
+    "name": "Egypt",
+    "capital": "Cairo",
+    "continent": "Africa",
+    "flagEmoji": "🇪🇬",
+    "landmarkClues": [
+      "Great Pyramids of Giza",
+      "River Nile",
+      "Sphinx"
+    ],
+    "funFact": "The Great Pyramid was the tallest building in the world for almost 4,000 years.",
+    "difficulty": 1,
+    "latitude": 30.04,
+    "longitude": 31.23
+  },
+  {
+    "id": "southafrica",
+    "name": "South Africa",
+    "capital": "Pretoria",
+    "continent": "Africa",
+    "flagEmoji": "🇿🇦",
+    "landmarkClues": [
+      "Table Mountain",
+      "penguins at the beach",
+      "safari animals"
+    ],
+    "funFact": "South Africa has three capital cities!",
+    "difficulty": 1,
+    "latitude": -25.74,
+    "longitude": 28.18
+  },
+  {
+    "id": "kenya",
+    "name": "Kenya",
+    "capital": "Nairobi",
+    "continent": "Africa",
+    "flagEmoji": "🇰🇪",
+    "landmarkClues": [
+      "lions on safari",
+      "Mount Kenya",
+      "great migration of wildebeest"
+    ],
+    "funFact": "Kenya is famous for long distance runners.",
+    "difficulty": 2,
+    "latitude": -1.28,
+    "longitude": 36.82
+  },
+  {
+    "id": "nigeria",
+    "name": "Nigeria",
+    "capital": "Abuja",
+    "continent": "Africa",
+    "flagEmoji": "🇳🇬",
+    "landmarkClues": [
+      "green white green flag",
+      "Nollywood movies",
+      "drums and music"
+    ],
+    "funFact": "Nigeria has the biggest population in Africa.",
+    "difficulty": 2,
+    "latitude": 9.07,
+    "longitude": 7.39
+  },
+  {
+    "id": "morocco",
+    "name": "Morocco",
+    "capital": "Rabat",
+    "continent": "Africa",
+    "flagEmoji": "🇲🇦",
+    "landmarkClues": [
+      "Sahara desert camels",
+      "colourful markets",
+      "mint tea"
+    ],
+    "funFact": "Morocco is just across the sea from Spain.",
+    "difficulty": 2,
+    "latitude": 34.02,
+    "longitude": -6.83
+  },
+  {
+    "id": "norway",
+    "name": "Norway",
+    "capital": "Oslo",
+    "continent": "Europe",
+    "flagEmoji": "🇳🇴",
+    "landmarkClues": [
+      "fjords and mountains",
+      "northern lights",
+      "vikings"
+    ],
+    "funFact": "In summer the sun never sets in northern Norway!",
+    "difficulty": 2,
+    "latitude": 59.91,
+    "longitude": 10.75
+  },
+  {
+    "id": "sweden",
+    "name": "Sweden",
+    "capital": "Stockholm",
+    "continent": "Europe",
+    "flagEmoji": "🇸🇪",
+    "landmarkClues": [
+      "ABBA music group",
+      "IKEA furniture",
+      "snow and forests"
+    ],
+    "funFact": "Sweden gives out the Nobel Prizes.",
+    "difficulty": 2,
+    "latitude": 59.33,
+    "longitude": 18.06
+  },
+  {
+    "id": "greece",
+    "name": "Greece",
+    "capital": "Athens",
+    "continent": "Europe",
+    "flagEmoji": "🇬🇷",
+    "landmarkClues": [
+      "Parthenon temple",
+      "Greek gods stories",
+      "blue and white islands"
+    ],
+    "funFact": "The Olympic Games started in ancient Greece.",
+    "difficulty": 2,
+    "latitude": 37.98,
+    "longitude": 23.72
+  },
+  {
+    "id": "turkey",
+    "name": "Turkey",
+    "capital": "Ankara",
+    "continent": "Asia",
+    "flagEmoji": "🇹🇷",
+    "landmarkClues": [
+      "hot air balloons in Cappadocia",
+      "Hagia Sophia",
+      "part in Europe part in Asia"
+    ],
+    "funFact": "Istanbul is the only city on two continents.",
+    "difficulty": 2,
+    "latitude": 39.93,
+    "longitude": 32.85
+  },
+  {
+    "id": "poland",
+    "name": "Poland",
+    "capital": "Warsaw",
+    "continent": "Europe",
+    "flagEmoji": "🇵🇱",
+    "landmarkClues": [
+      "pierogi dumplings",
+      "European bison",
+      "old town squares"
+    ],
+    "funFact": "Poland is home to the world's biggest castle by area.",
+    "difficulty": 2,
+    "latitude": 52.23,
+    "longitude": 21.01
+  },
+  {
+    "id": "portugal",
+    "name": "Portugal",
+    "capital": "Lisbon",
+    "continent": "Europe",
+    "flagEmoji": "🇵🇹",
+    "landmarkClues": [
+      "explorers and ships",
+      "pasteis de nata custard tarts",
+      "Atlantic waves"
+    ],
+    "funFact": "Portugal started the age of exploration.",
+    "difficulty": 2,
+    "latitude": 38.72,
+    "longitude": -9.13
+  },
+  {
+    "id": "iceland",
+    "name": "Iceland",
+    "capital": "Reykjavik",
+    "continent": "Europe",
+    "flagEmoji": "🇮🇸",
+    "landmarkClues": [
+      "volcanoes and geysers",
+      "northern lights",
+      "puffins"
+    ],
+    "funFact": "Iceland runs almost entirely on clean geothermal energy.",
+    "difficulty": 3,
+    "latitude": 64.13,
+    "longitude": -21.82
+  },
+  {
+    "id": "vietnam",
+    "name": "Vietnam",
+    "capital": "Hanoi",
+    "continent": "Asia",
+    "flagEmoji": "🇻🇳",
+    "landmarkClues": [
+      "Ha Long Bay limestone islands",
+      "rice fields",
+      "pho noodle soup"
+    ],
+    "funFact": "Vietnam is shaped like a long letter S.",
+    "difficulty": 3,
+    "latitude": 21.02,
+    "longitude": 105.84
+  },
+  {
+    "id": "nepal",
+    "name": "Nepal",
+    "capital": "Kathmandu",
+    "continent": "Asia",
+    "flagEmoji": "🇳🇵",
+    "landmarkClues": [
+      "Mount Everest tallest mountain",
+      "prayer flags",
+      "Himalayas"
+    ],
+    "funFact": "Nepal's flag is the only national flag that is not a rectangle.",
+    "difficulty": 3,
+    "latitude": 27.71,
+    "longitude": 85.31
+  },
+  {
+    "id": "bhutan",
+    "name": "Bhutan",
+    "capital": "Thimphu",
+    "continent": "Asia",
+    "flagEmoji": "🇧🇹",
+    "landmarkClues": [
+      "dragon on flag",
+      "mountain kingdom",
+      "happiness index"
+    ],
+    "funFact": "Bhutan measures Gross National Happiness instead of just money.",
+    "difficulty": 3,
+    "latitude": 27.47,
+    "longitude": 89.63
+  },
+  {
+    "id": "fiji",
+    "name": "Fiji",
+    "capital": "Suva",
+    "continent": "Oceania",
+    "flagEmoji": "🇫🇯",
+    "landmarkClues": [
+      "tropical islands",
+      "coral reefs",
+      "coconuts"
+    ],
+    "funFact": "Fiji is made of more than 300 islands.",
+    "difficulty": 3,
+    "latitude": -18.14,
+    "longitude": 178.44
+  },
+  {
+    "id": "malta",
+    "name": "Malta",
+    "capital": "Valletta",
+    "continent": "Europe",
+    "flagEmoji": "🇲🇹",
+    "landmarkClues": [
+      "tiny island in Mediterranean",
+      "knights castles",
+      "blue sea caves"
+    ],
+    "funFact": "Malta is one of the smallest countries in the world.",
+    "difficulty": 3,
+    "latitude": 35.89,
+    "longitude": 14.51
+  },
+  {
+    "id": "luxembourg",
+    "name": "Luxembourg",
+    "capital": "Luxembourg City",
+    "continent": "Europe",
+    "flagEmoji": "🇱🇺",
+    "landmarkClues": [
+      "tiny landlocked country",
+      "castles",
+      "between Belgium Germany France"
+    ],
+    "funFact": "Luxembourg is smaller than many cities but very rich.",
+    "difficulty": 3,
+    "latitude": 49.61,
+    "longitude": 6.13
+  },
+  {
+    "id": "mongolia",
+    "name": "Mongolia",
+    "capital": "Ulaanbaatar",
+    "continent": "Asia",
+    "flagEmoji": "🇲🇳",
+    "landmarkClues": [
+      "Genghis Khan empire",
+      "yurt tents called gers",
+      "vast grass steppe"
+    ],
+    "funFact": "Mongolia is the least crowded country with huge open spaces.",
+    "difficulty": 3,
+    "latitude": 47.92,
+    "longitude": 106.92
+  }
+]

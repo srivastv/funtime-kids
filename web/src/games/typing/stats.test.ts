@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { accuracy, wpm, correctChars } from './stats'
+import { accuracy, wpm, correctChars, correctPrefix, botProgress } from './stats'
 
 describe('typing stats', () => {
   it('computes accuracy %', () => {
@@ -18,5 +18,20 @@ describe('typing stats', () => {
     expect(correctChars('hello', 'hello')).toBe(5)
     expect(correctChars('helXo', 'hello')).toBe(4)
     expect(correctChars('', 'hello')).toBe(0)
+  })
+
+  it('correctPrefix stops at the first mistake', () => {
+    expect(correctPrefix('hello', 'hello')).toBe(5)
+    expect(correctPrefix('helXo', 'hello')).toBe(3)
+    expect(correctPrefix('Xello', 'hello')).toBe(0)
+    expect(correctPrefix('hel', 'hello')).toBe(3)
+  })
+
+  it('botProgress advances with time and clamps to 0..1', () => {
+    // 10 wpm = 50 chars/min. In 60s over a 50-char target => 100%.
+    expect(botProgress(10, 60000, 50)).toBeCloseTo(1, 5)
+    expect(botProgress(10, 30000, 50)).toBeCloseTo(0.5, 5)
+    expect(botProgress(10, 0, 50)).toBe(0)
+    expect(botProgress(10, 999999, 50)).toBe(1) // clamped
   })
 })

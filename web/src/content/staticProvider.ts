@@ -4,6 +4,9 @@ import type {
   TypingLesson,
   FallingWord,
   DrawingLesson,
+  GeoItem,
+  OddExperiment,
+  NumberRiverLevel,
 } from './types'
 import type { ContentProvider } from './provider'
 import { shuffle } from '../lib/shuffle'
@@ -13,6 +16,11 @@ import maths from './data/quiz/maths.json'
 import lessons from './data/typing/lessons.json'
 import fallingWords from './data/falling/words.json'
 import { DRAWINGS } from './data/draw/drawings'
+import geographyItems from './data/geography/items.json'
+import plants from './data/odd/plants.json'
+import rocks from './data/odd/rocks.json'
+import lightSound from './data/odd/light_sound.json'
+import numberRiverLevels from './data/numberriver/levels.json'
 
 const banks: Record<string, Question[]> = {
   animals: animals as Question[],
@@ -43,5 +51,18 @@ export const staticProvider: ContentProvider = {
   },
   async getDrawings(): Promise<DrawingLesson[]> {
     return DRAWINGS
+  },
+  async getGeographyItems(): Promise<GeoItem[]> {
+    return geographyItems as GeoItem[]
+  },
+  async getOddExperiments(): Promise<OddExperiment[]> {
+    return [
+      ...(plants as OddExperiment[]),
+      ...(rocks as OddExperiment[]),
+      ...(lightSound as OddExperiment[]),
+    ]
+  },
+  async getNumberRiverLevels(): Promise<NumberRiverLevel[]> {
+    return numberRiverLevels as NumberRiverLevel[]
   },
 }

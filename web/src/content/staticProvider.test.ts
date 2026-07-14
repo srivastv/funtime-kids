@@ -28,4 +28,27 @@ describe('staticProvider', () => {
     const lessons = await staticProvider.getTypingLessons()
     expect(lessons.length).toBeGreaterThan(0)
   })
+
+  it('returns geography items', async () => {
+    const items = await staticProvider.getGeographyItems()
+    expect(items.length).toBeGreaterThan(0)
+    expect(items[0]).toHaveProperty('name')
+    expect(items[0]).toHaveProperty('capital')
+    expect(items[0]).toHaveProperty('continent')
+  })
+
+  it('returns odd experiments', async () => {
+    const exps = await staticProvider.getOddExperiments()
+    expect(exps.length).toBeGreaterThan(0)
+    expect(exps[0]).toHaveProperty('topic')
+    expect(exps[0]).toHaveProperty('prompt')
+    expect(['plants','rocks','light-sound']).toContain(exps[0].topic)
+  })
+
+  it('returns number river levels', async () => {
+    const levels = await staticProvider.getNumberRiverLevels()
+    expect(levels.length).toBeGreaterThan(0)
+    expect(levels[0]).toHaveProperty('target')
+    expect(levels[0]).toHaveProperty('availableOps')
+  })
 })

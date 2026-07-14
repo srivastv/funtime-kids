@@ -5,14 +5,18 @@ import type { TypingLesson } from '../../content/types'
 import Loading from '../../components/Loading'
 import ErrorScreen from '../../components/ErrorScreen'
 
+export type TypingMode = 'practice' | 'race'
+
 type Props = {
   onPick: (lesson: TypingLesson) => void
   bestFor?: (lessonId: string) => number
+  mode: TypingMode
+  onModeChange: (mode: TypingMode) => void
 }
 
 const difficultyLabel = ['', 'Easy', 'Medium', 'Hard']
 
-export default function LessonSelect({ onPick, bestFor }: Props) {
+export default function LessonSelect({ onPick, bestFor, mode, onModeChange }: Props) {
   const { data, loading, error } = useContent(
     () => staticProvider.getTypingLessons(),
     [],
@@ -23,9 +27,33 @@ export default function LessonSelect({ onPick, bestFor }: Props) {
 
   return (
     <div className="mx-auto max-w-2xl p-8">
-      <h1 className="mb-8 text-center text-3xl font-extrabold text-sky-700">
+      <h1 className="mb-2 text-center text-3xl font-extrabold text-sky-700">
         Pick a lesson!
       </h1>
+
+      <div className="mb-2 flex justify-center gap-2">
+        {([
+          { id: 'practice', label: '⌨️ Practice' },
+          { id: 'race', label: '🚀 Race Robo' },
+        ] as const).map((m) => (
+          <button
+            key={m.id}
+            type="button"
+            onClick={() => {
+              sound.click()
+              onModeChange(m.id)
+            }}
+            className={`rounded-full px-5 py-2 font-bold shadow transition ${
+              mode === m.id ? 'bg-sky-500 text-white' : 'bg-white text-sky-700 hover:bg-sky-50'
+            }`}
+          >
+            {m.label}
+          </button>
+        ))}
+      </div>
+      <p className="mb-8 text-center text-sm text-slate-500">
+        {mode === 'race' ? 'Beat the robot to the finish line!' : 'Copy the text — build speed and accuracy.'}
+      </p>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {data.map((lesson) => {
           const best = bestFor?.(lesson.id) ?? 0

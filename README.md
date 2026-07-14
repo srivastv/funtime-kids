@@ -11,9 +11,12 @@ and drawings are especially welcome.
 | Game | What it teaches |
 | --- | --- |
 | 🧠 **Who Wants to Be a Smarty?** | A kid-friendly "Who Wants to Be a Millionaire" quiz — 15-rung money ladder to £1,000,000, safe havens, walk away, and 50:50 / Ask the Audience / Swap lifelines. |
-| ⌨️ **Typing Adventure** | Touch typing — copy short passages with live WPM and accuracy. |
+| ⌨️ **Typing Adventure** | Touch typing — **Practice** (copy passages with live WPM/accuracy) or **Race** (beat a pace-bot to the finish line with combo streaks). |
 | 🌧️ **Word Rain** | Fast typing — pop falling words before they land (3 lives, speeds up with score). |
-| 🎨 **Draw Along** | Step-by-step guided drawing on a canvas, with colors, brushes, undo/clear, and save-as-PNG. |
+| 🎨 **Draw Along** | Guided drawing on a canvas (colors, brushes, undo/clear, save-as-PNG) — plus a **Trace & Score** mode that rates how neatly you traced the picture. |
+| 🗺️ **World Hop** | Geography — 7 modes: flags, capitals, landmarks, **Map Drop** (drag the flag onto an accurate d3-geo map that auto-zooms to the region), **Landmark Hunt** (drag a pin to the country), **Capital Match** (connect countries to capitals), and Mixed. 3 difficulty levels, 40 countries. |
+| 🧪 **Odd Science Lab** | Year 3-4 science — a lab hub with a **Science Quiz** (predict-then-test questions across all topics, 3 difficulty levels) plus 3 hands-on stations: **Sound & Pitch Lab** (xylophone + copy-the-tune), **Circuit Builder** (wire a battery & bulb, conductors vs insulators), and **Plant Grower** (balance water & light to grow a flower). |
+| 🌉 **Number River** | Maths bridge builder — drag logs with + − × ÷ operations to reach target number, live total updates, beaver walks across to test. No multiple choice. 3 difficulty levels covering Y3 add/sub within 1000 and Y4 tables to 12×12. |
 
 ## Tech
 
@@ -71,11 +74,14 @@ Most content is plain data:
 - **Typing lessons:** `web/src/content/data/typing/lessons.json`.
 - **Word Rain words:** `web/src/content/data/falling/words.json`.
 - **Drawings:** `web/src/content/data/draw/drawings.ts`.
+- **World Hop geography:** `web/src/content/data/geography/items.json`.
+- **Odd Science Lab:** `web/src/content/data/odd/` — plants.json, rocks.json, light_sound.json.
+- **Number River:** `web/src/content/data/numberriver/levels.json` — curated levels, procedural generator fills rest.
 
 Validate the JSON content before committing:
 
 ```bash
-python3 scripts/validate_content.py     # checks quiz / typing / falling data
+python3 scripts/validate_content.py     # checks quiz / typing / falling / geography / odd science / number river data
 python3 -m pytest scripts/ -q           # runs the validator's own tests
 ```
 

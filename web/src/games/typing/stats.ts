@@ -23,3 +23,17 @@ export function correctChars(typed: string, target: string): number {
   }
   return n
 }
+
+/** Length of the leading run of correct characters — the racer's position. */
+export function correctPrefix(typed: string, target: string): number {
+  let n = 0
+  while (n < typed.length && typed[n] === target[n]) n++
+  return n
+}
+
+/** How far a pace-bot typing at `botWpm` has progressed (0..1) after `elapsedMs`. */
+export function botProgress(botWpm: number, elapsedMs: number, targetLen: number): number {
+  if (targetLen <= 0) return 1
+  const chars = (botWpm * 5 * elapsedMs) / 60000
+  return Math.max(0, Math.min(1, chars / targetLen))
+}
