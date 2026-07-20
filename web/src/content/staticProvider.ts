@@ -11,8 +11,14 @@ import type {
 import type { ContentProvider } from './provider'
 import { shuffle } from '../lib/shuffle'
 import animals from './data/quiz/animals.json'
-import space from './data/quiz/space.json'
 import maths from './data/quiz/maths.json'
+import english from './data/quiz/english.json'
+import plantsQuiz from './data/quiz/plants.json'
+import rocksQuiz from './data/quiz/rocks.json'
+import lightQuiz from './data/quiz/light.json'
+import forcesQuiz from './data/quiz/forces.json'
+import geographyQuiz from './data/quiz/geography.json'
+import computing from './data/quiz/computing.json'
 import lessons from './data/typing/lessons.json'
 import fallingWords from './data/falling/words.json'
 import { DRAWINGS } from './data/draw/drawings'
@@ -24,14 +30,26 @@ import numberRiverLevels from './data/numberriver/levels.json'
 
 const banks: Record<string, Question[]> = {
   animals: animals as Question[],
-  space: space as Question[],
   maths: maths as Question[],
+  english: english as Question[],
+  plants: plantsQuiz as Question[],
+  rocks: rocksQuiz as Question[],
+  light: lightQuiz as Question[],
+  forces: forcesQuiz as Question[],
+  geography: geographyQuiz as Question[],
+  computing: computing as Question[],
 }
 
 const categories: Category[] = [
-  { id: 'animals', name: 'Animals', icon: '🐾' },
-  { id: 'space', name: 'Space', icon: '🚀' },
   { id: 'maths', name: 'Maths', icon: '➕' },
+  { id: 'english', name: 'English', icon: '📚' },
+  { id: 'animals', name: 'Animals & Humans', icon: '🐾' },
+  { id: 'plants', name: 'Plants', icon: '🌱' },
+  { id: 'rocks', name: 'Rocks', icon: '🪨' },
+  { id: 'light', name: 'Light', icon: '💡' },
+  { id: 'forces', name: 'Forces & Magnets', icon: '🧲' },
+  { id: 'geography', name: 'Geography', icon: '🗺️' },
+  { id: 'computing', name: 'Computing', icon: '💻' },
   { id: 'mixed', name: 'Mixed', icon: '🎲' },
 ]
 
