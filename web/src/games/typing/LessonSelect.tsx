@@ -14,7 +14,11 @@ type Props = {
   onModeChange: (mode: TypingMode) => void
 }
 
-const difficultyLabel = ['', 'Easy', 'Medium', 'Hard']
+const difficulties = [
+  { level: 1, label: 'Easy', icon: '🌱', desc: 'Short words, no punctuation. Perfect to start!' },
+  { level: 2, label: 'Medium', icon: '🌿', desc: 'Capitals, commas, question marks and numbers.' },
+  { level: 3, label: 'Hard', icon: '🌳', desc: 'Quotes, brackets, long sentences and tricky spellings.' },
+] as const
 
 export default function LessonSelect({ onPick, bestFor, mode, onModeChange }: Props) {
   const { data, loading, error } = useContent(
@@ -25,10 +29,30 @@ export default function LessonSelect({ onPick, bestFor, mode, onModeChange }: Pr
   if (loading) return <Loading />
   if (error || !data) return <ErrorScreen />
 
+  function pickRandom(level: 1 | 2 | 3) {
+    const pool = data!.filter((l) => l.difficulty === level)
+    if (pool.length === 0) return
+    const choice = pool[Math.floor(Math.random() * pool.length)]
+    sound.click()
+    onPick(choice)
+  }
+
+  function bestForLevel(level: number): number {
+    if (!bestFor || !data) return 0
+    let max = 0
+    for (const l of data) {
+      if (l.difficulty === level) {
+        const b = bestFor(l.id) ?? 0
+        if (b > max) max = b
+      }
+    }
+    return max
+  }
+
   return (
     <div className="mx-auto max-w-2xl p-8">
       <h1 className="mb-2 text-center text-3xl font-extrabold text-sky-700">
-        Pick a lesson!
+        Pick a difficulty!
       </h1>
 
       <div className="mb-2 flex justify-center gap-2">
@@ -54,28 +78,29 @@ export default function LessonSelect({ onPick, bestFor, mode, onModeChange }: Pr
       <p className="mb-8 text-center text-sm text-slate-500">
         {mode === 'race' ? 'Beat the robot to the finish line!' : 'Copy the text — build speed and accuracy.'}
       </p>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {data.map((lesson) => {
-          const best = bestFor?.(lesson.id) ?? 0
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+        {difficulties.map((d) => {
+          const best = bestForLevel(d.level)
           return (
             <button
-              key={lesson.id}
+              key={d.level}
               type="button"
-              onClick={() => {
-                sound.click()
-                onPick(lesson)
-              }}
-              className="rounded-3xl bg-white p-6 text-left shadow-lg transition hover:scale-105 hover:shadow-xl"
+              onClick={() => pickRandom(d.level as 1 | 2 | 3)}
+              className="rounded-3xl bg-white p-8 text-center shadow-lg transition hover:scale-105 hover:shadow-xl"
             >
-              <div className="text-lg font-bold text-slate-700">{lesson.title}</div>
-              <div className="mt-1 text-sm text-slate-400">
-                {difficultyLabel[lesson.difficulty]}
-                {best > 0 && ` · Best: ${best} WPM`}
-              </div>
+              <div className="text-6xl">{d.icon}</div>
+              <div className="mt-3 text-2xl font-extrabold text-slate-700">{d.label}</div>
+              <div className="mt-1 text-sm text-slate-500">{d.desc}</div>
+              {best > 0 && (
+                <div className="mt-2 text-xs font-bold text-sky-600">Best: {best} WPM</div>
+              )}
             </button>
           )
         })}
       </div>
+      <p className="mt-6 text-center text-xs text-slate-400">
+        We will pick a random lesson from that level each time — keep practising!
+      </p>
     </div>
   )
 }

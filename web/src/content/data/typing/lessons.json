@@ -1,26 +1,452 @@
 [
   {
     "id": "ty1",
-    "title": "Easy Words",
-    "text": "the cat can run and the dog can jump",
+    "title": "Easy 1",
+    "text": "asdf asdf asdf sad fad dad lad",
     "difficulty": 1
   },
   {
     "id": "ty2",
-    "title": "Fun Sentences",
-    "text": "we like to play games and read fun books",
+    "title": "Easy 2",
+    "text": "jkl jkl jkl jill kill hill",
     "difficulty": 1
   },
   {
     "id": "ty3",
-    "title": "Animal Facts",
-    "text": "a busy bee flies from flower to flower every sunny day",
-    "difficulty": 2
+    "title": "Easy 3",
+    "text": "the cat can run and the dog can jump",
+    "difficulty": 1
   },
   {
     "id": "ty4",
-    "title": "Space Adventure",
-    "text": "the brave astronaut floated past the bright shining stars",
+    "title": "Easy 4",
+    "text": "we like to play games and read fun books",
+    "difficulty": 1
+  },
+  {
+    "id": "ty5",
+    "title": "Easy 5",
+    "text": "big pig dig wig fig rig",
+    "difficulty": 1
+  },
+  {
+    "id": "ty6",
+    "title": "Easy 6",
+    "text": "a pet cat sat on a mat and had a nap",
+    "difficulty": 1
+  },
+  {
+    "id": "ty7",
+    "title": "Easy 7",
+    "text": "red blue green yellow pink black white",
+    "difficulty": 1
+  },
+  {
+    "id": "ty8",
+    "title": "Easy 8",
+    "text": "one two three four five six seven eight nine ten",
+    "difficulty": 1
+  },
+  {
+    "id": "ty9",
+    "title": "Easy 9",
+    "text": "cow pig sheep hen duck horse goat",
+    "difficulty": 1
+  },
+  {
+    "id": "ty10",
+    "title": "Easy 10",
+    "text": "bread milk fish cake egg jam bun",
+    "difficulty": 1
+  },
+  {
+    "id": "ty11",
+    "title": "Easy 11",
+    "text": "pen book desk chair bag ruler",
+    "difficulty": 1
+  },
+  {
+    "id": "ty12",
+    "title": "Easy 12",
+    "text": "head arm leg hand foot eye ear nose",
+    "difficulty": 1
+  },
+  {
+    "id": "ty13",
+    "title": "Easy 13",
+    "text": "sun rain cloud wind snow hot cold",
+    "difficulty": 1
+  },
+  {
+    "id": "ty14",
+    "title": "Easy 14",
+    "text": "run jump walk skip hop swim climb",
+    "difficulty": 1
+  },
+  {
+    "id": "ty15",
+    "title": "Easy 15",
+    "text": "mum dad sister brother gran grandad baby",
+    "difficulty": 1
+  },
+  {
+    "id": "ty16",
+    "title": "Easy 16",
+    "text": "tree flower grass leaf seed root soil",
+    "difficulty": 1
+  },
+  {
+    "id": "ty17",
+    "title": "Easy 17",
+    "text": "circle square triangle rectangle oval star",
+    "difficulty": 1
+  },
+  {
+    "id": "ty18",
+    "title": "Easy 18",
+    "text": "car bus train bike boat plane lorry",
+    "difficulty": 1
+  },
+  {
+    "id": "ty19",
+    "title": "Easy 19",
+    "text": "hat coat shoe sock shirt dress skirt",
+    "difficulty": 1
+  },
+  {
+    "id": "ty20",
+    "title": "Easy 20",
+    "text": "big small hot cold up down in out",
+    "difficulty": 1
+  },
+  {
+    "id": "ty21",
+    "title": "Easy 21",
+    "text": "the quick fox jumps over lazy dog",
+    "difficulty": 1
+  },
+  {
+    "id": "ty22",
+    "title": "Easy 22",
+    "text": "apple banana orange grape pear plum",
+    "difficulty": 1
+  },
+  {
+    "id": "ty23",
+    "title": "Easy 23",
+    "text": "lion tiger bear monkey zebra giraffe",
+    "difficulty": 1
+  },
+  {
+    "id": "ty24",
+    "title": "Easy 24",
+    "text": "sand sea shell crab wave beach rock pool",
+    "difficulty": 1
+  },
+  {
+    "id": "ty25",
+    "title": "Easy 25",
+    "text": "ball doll car train puzzle game block",
+    "difficulty": 1
+  },
+  {
+    "id": "ty26",
+    "title": "Medium 1",
+    "text": "The cat sat on the mat. The dog ran fast.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty27",
+    "title": "Medium 2",
+    "text": "Where is the big red ball? Can you see it near the tree?",
+    "difficulty": 2
+  },
+  {
+    "id": "ty28",
+    "title": "Medium 3",
+    "text": "We bought apples, bananas, oranges, grapes, and pears.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty29",
+    "title": "Medium 4",
+    "text": "I can't find my book. Don't worry, it's on the desk.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty30",
+    "title": "Medium 5",
+    "text": "The dog wagged its tail. It's very happy today.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty31",
+    "title": "Medium 6",
+    "text": "There are 7 days in a week and 12 months in a year.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty32",
+    "title": "Medium 7",
+    "text": "I believe the calendar shows February and accident happened on Tuesday.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty33",
+    "title": "Medium 8",
+    "text": "Please write your address and answer the question carefully.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty34",
+    "title": "Medium 9",
+    "text": "We went to the library to learn about history and natural science.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty35",
+    "title": "Medium 10",
+    "text": "My favourite animal is an elephant because it is huge and clever.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty36",
+    "title": "Medium 11",
+    "text": "Plants need light, water, air, nutrients, and space to grow tall.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty37",
+    "title": "Medium 12",
+    "text": "The River Thames flows through London, the capital of England.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty38",
+    "title": "Medium 13",
+    "text": "Ben Nevis is in Scotland, Snowdon is in Wales, and Scafell Pike is in England.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty39",
+    "title": "Medium 14",
+    "text": "Half of 20 is 10, and a quarter of 12 is 3. Can you work it out?",
+    "difficulty": 2
+  },
+  {
+    "id": "ty40",
+    "title": "Medium 15",
+    "text": "Quarter past three is 3:15. Half past six is 6:30. What time is it now?",
+    "difficulty": 2
+  },
+  {
+    "id": "ty41",
+    "title": "Medium 16",
+    "text": "Granite is hard, chalk is soft, and sandstone lets water through.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty42",
+    "title": "Medium 17",
+    "text": "We see because light reflects off objects into our eyes. Darkness is absence of light.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty43",
+    "title": "Medium 18",
+    "text": "Friction slows things down. Ice has low friction, carpet has high friction.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty44",
+    "title": "Medium 19",
+    "text": "Iron, nickel, cobalt, and steel are magnetic. Copper and aluminium are not.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty45",
+    "title": "Medium 20",
+    "text": "Eat a balanced diet with carbohydrates, protein, fruit and vegetables, dairy, and healthy fats.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty46",
+    "title": "Medium 21",
+    "text": "Our skeleton supports us, protects organs, and helps us move with muscles.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty47",
+    "title": "Medium 22",
+    "text": "Paris is the capital of France, Berlin is the capital of Germany, Rome is the capital of Italy.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty48",
+    "title": "Medium 23",
+    "text": "Never share your password or address online. Tell a trusted adult if worried.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty49",
+    "title": "Medium 24",
+    "text": "I won't forget my coat because it might rain later today.",
+    "difficulty": 2
+  },
+  {
+    "id": "ty50",
+    "title": "Medium 25",
+    "text": "Who, what, where, when, why, and how are question words we use every day?",
+    "difficulty": 2
+  },
+  {
+    "id": "ty51",
+    "title": "Hard 1",
+    "text": "\"Look out!\" shouted Sam. \"The ball is coming towards us fast!\"",
+    "difficulty": 3
+  },
+  {
+    "id": "ty52",
+    "title": "Hard 2",
+    "text": "Wow! What an amazing rainbow after the heavy rain storm!",
+    "difficulty": 3
+  },
+  {
+    "id": "ty53",
+    "title": "Hard 3",
+    "text": "London, Edinburgh, Cardiff, and Belfast are capitals of the four countries in the United Kingdom.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty54",
+    "title": "Hard 4",
+    "text": "You need three things for plants: light, water, and air plus nutrients and space.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty55",
+    "title": "Hard 5",
+    "text": "Ben Nevis (1,345 metres high) is the tallest mountain in the United Kingdom.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty56",
+    "title": "Hard 6",
+    "text": "One half equals 50 percent, one quarter equals 25 percent, and three quarters equals 75 percent.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty57",
+    "title": "Hard 7",
+    "text": "14:25 in 24-hour time is 2:25 pm. Midnight is 00:00 and noon is 12:00.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty58",
+    "title": "Hard 8",
+    "text": "Roman numerals: I is 1, V is 5, X is 10, L is 50. Clock faces use I to XII.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty59",
+    "title": "Hard 9",
+    "text": "A rectangle 7 cm long and 3 cm wide has perimeter 20 cm because 7+3+7+3 equals 20.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty60",
+    "title": "Hard 10",
+    "text": "There are 100 centimetres in a metre, 1000 millimetres in a metre, and 1000 grams in a kilogram.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty61",
+    "title": "Hard 11",
+    "text": "Photosynthesis: carbon dioxide plus water plus light makes glucose plus oxygen in leaves.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty62",
+    "title": "Hard 12",
+    "text": "Seeds travel by wind (dandelion), animal hooks (burr), water (coconut), and explosion (pea pod).",
+    "difficulty": 3
+  },
+  {
+    "id": "ty63",
+    "title": "Hard 13",
+    "text": "Sedimentary rocks form from layers squashed, igneous from cooled magma, metamorphic changed by heat and pressure.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty64",
+    "title": "Hard 14",
+    "text": "Light travels in straight lines. Shadows form where light is blocked. Mirror angle in equals angle out.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty65",
+    "title": "Hard 15",
+    "text": "Friction opposes motion. Air resistance is friction with air. Parachutes increase air resistance to slow fall.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty66",
+    "title": "Hard 16",
+    "text": "Magnets have north and south poles. Like poles repel, opposite poles attract. Magnetic field works at a distance.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty67",
+    "title": "Hard 17",
+    "text": "An algorithm is precise step-by-step instructions. Debugging means finding and fixing errors.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty68",
+    "title": "Hard 18",
+    "text": "The Pyrenees separate France and Spain. The Alps run through France, Switzerland, Italy, Austria, and more.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty69",
+    "title": "Hard 19",
+    "text": "Occasionally, separate, definite, accommodation, and embarrass are tricky Year 3 and 4 words to practise.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty70",
+    "title": "Hard 20",
+    "text": "The girl's book means one girl owns it. The girls' books means many girls own them.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty71",
+    "title": "Hard 21",
+    "text": "A strong password is long with mix of letters, numbers, and symbols. Never share personal information online.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty72",
+    "title": "Hard 22",
+    "text": "Evaporation turns liquid to gas, condensation turns gas to droplets forming clouds, precipitation falls as rain.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty73",
+    "title": "Hard 23",
+    "text": "Muscles work in pairs to pull bones. Tendons attach muscle to bone. The skeleton protects brain, heart, lungs.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty74",
+    "title": "Hard 24",
+    "text": "Three eighths of forty is fifteen because divide by eight then times three. Equivalent fractions have same value.",
+    "difficulty": 3
+  },
+  {
+    "id": "ty75",
+    "title": "Hard 25",
+    "text": "\"Well done!\" cheered the teacher. \"You typed 75 lessons with capitals, commas, apostrophes, quotes, numbers, and brackets!\"",
     "difficulty": 3
   }
 ]
