@@ -42,7 +42,7 @@ describe('staticProvider', () => {
     expect(exps.length).toBeGreaterThan(0)
     expect(exps[0]).toHaveProperty('topic')
     expect(exps[0]).toHaveProperty('prompt')
-    expect(['plants','rocks','light-sound']).toContain(exps[0].topic)
+    expect(['plants','rocks','light','sound','forces','animals']).toContain(exps[0].topic)
   })
 
   it('returns number river levels', async () => {

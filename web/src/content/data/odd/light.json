@@ -1,0 +1,187 @@
+[
+  {
+    "id": "light-see-01",
+    "topic": "light",
+    "title": "Dark Room",
+    "prompt": "Why can we not see in a dark cupboard?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "No light to reflect into eyes",
+        "Eyes closed",
+        "Too noisy"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "We need light sources. Light reflects off objects into our eyes so we see. Darkness is absence of light.",
+    "funFact": "Cats can see in much dimmer light than us \u2014 but not total darkness either!"
+  },
+  {
+    "id": "light-shadow-01",
+    "topic": "light",
+    "title": "Shadow Size",
+    "prompt": "Move torch closer to hand puppet \u2014 what happens to shadow size?",
+    "type": "slider-predict",
+    "difficulty": 1,
+    "config": {
+      "min": 1,
+      "max": 3,
+      "correctValue": 3,
+      "tolerance": 0.5,
+      "unit": "bigger scale"
+    },
+    "explanation": "Closer light source makes bigger shadow because light is blocked at wider angle.",
+    "funFact": "Your shadow at noon is shortest because sun is highest!"
+  },
+  {
+    "id": "light-reflect-01",
+    "topic": "light",
+    "title": "Mirror Maze",
+    "prompt": "Which material reflects light best?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Shiny mirror",
+        "Black paper",
+        "Cardboard"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Shiny smooth surfaces reflect well. Dark rough surfaces absorb light.",
+    "funFact": "The Moon shines because it reflects sunlight \u2014 it makes no light of its own!"
+  },
+  {
+    "id": "light-sun-01",
+    "topic": "light",
+    "title": "Sun Safety",
+    "prompt": "What should you never do with bright sunlight?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Look directly at sun",
+        "Wear hat",
+        "Look away"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Sunlight can damage eyes. Never look directly at sun even with sunglasses.",
+    "funFact": "Astronauts wear gold visors to protect eyes from harsh sunlight in space!"
+  },
+  {
+    "id": "light-trans-01",
+    "topic": "light",
+    "title": "Transparent Test",
+    "prompt": "Which lets light through clearly so you see sharp image?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Clear glass clear plastic",
+        "Tracing paper",
+        "Wood",
+        "Cardboard"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Transparent means clear see-through. Translucent blurry lets some through. Opaque blocks.",
+    "funFact": "Clean window glass lets about 90 percent of light through!"
+  },
+  {
+    "id": "light-trans-02",
+    "topic": "light",
+    "title": "Opaque Block",
+    "prompt": "Which blocks light completely making dark shadow?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Wood brick metal cardboard",
+        "Clear glass",
+        "Clear plastic",
+        "Water clear"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Opaque materials block light completely. Transparent lets through clearly. Translucent lets some through blurry.",
+    "funFact": "A brick wall makes a very dark sharp shadow on sunny day!"
+  },
+  {
+    "id": "light-travel-01",
+    "topic": "light",
+    "title": "Straight Lines",
+    "prompt": "How does light travel?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": {
+      "options": [
+        "In straight lines",
+        "In curves always",
+        "In circles only",
+        "Random zigzag"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Light travels in straight lines until it hits something then reflects or bends or stops.",
+    "funFact": "You cannot bend light around corner without mirror!"
+  },
+  {
+    "id": "light-reflect-02",
+    "topic": "light",
+    "title": "Best Reflector",
+    "prompt": "Which surface reflects best for safety strip on coat at night?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": {
+      "options": [
+        "Shiny silver reflective tape",
+        "Black velvet",
+        "Brown cardboard",
+        "Clear plastic"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Shiny smooth light surfaces reflect well. Dark rough absorb.",
+    "funFact": "Cats eyes shine at night because reflective layer behind retina!"
+  },
+  {
+    "id": "light-daynight-01",
+    "topic": "light",
+    "title": "Day and Night Why",
+    "prompt": "Why do we have day and night?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": {
+      "options": [
+        "Earth spins on its axis once every 24 hours",
+        "Sun moves around Earth",
+        "Moon blocks sun every night",
+        "Clouds"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Earth rotation causes day night cycle. Day side faces sun, night side faces away.",
+    "funFact": "At North Pole sun does not set for 6 months in summer!"
+  },
+  {
+    "id": "light-colour-01",
+    "topic": "light",
+    "title": "Hot Colours",
+    "prompt": "Which colour absorbs most light and gets hottest in sun?",
+    "type": "predict-choice",
+    "difficulty": 3,
+    "config": {
+      "options": [
+        "Black matt",
+        "White",
+        "Silver shiny",
+        "Pale yellow"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Dark matt surfaces absorb most light turning to heat. White shiny reflect most staying cooler.",
+    "funFact": "Bedouins wear white robes in desert to reflect heat!"
+  }
+]

@@ -83,7 +83,7 @@ export type GeoMode = 'mixed' | 'flags' | 'capitals' | 'landmarks' | 'maps' | 'l
 /** One country↔capital pairing shown in a Capital Match round. */
 export type CapitalPair = { country: string; capital: string; flagEmoji?: string }
 
-export type OddTopic = 'plants' | 'rocks' | 'light-sound'
+export type OddTopic = 'plants' | 'rocks' | 'light' | 'sound' | 'forces' | 'animals'
 export type OddExperimentType = 'predict-choice' | 'drag-sort' | 'slider-predict'
 
 export type OddExperiment = {

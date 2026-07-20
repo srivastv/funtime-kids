@@ -2,9 +2,12 @@ import { shuffle } from '../../lib/shuffle'
 import type { OddExperiment, OddMode, OddTopic } from '../../content/types'
 
 export const TOPICS: { id: OddTopic; name: string; icon: string; desc: string }[] = [
-  { id: 'plants', name: 'Green Fingers', icon: '🌱', desc: 'Plants grow, need light water, flower parts, seeds' },
+  { id: 'plants', name: 'Green Fingers', icon: '🌱', desc: 'Plants grow, need light water, flower parts, seeds dispersal' },
   { id: 'rocks', name: 'Rock Stars', icon: '🪨', desc: 'Rocks properties fossils soil states of matter water cycle' },
-  { id: 'light-sound', name: 'Light & Sound Studio', icon: '💡', desc: 'Seeing light shadows reflection, sound vibration pitch volume' },
+  { id: 'light', name: 'Light Lab', icon: '💡', desc: 'Seeing light shadows reflection transparent translucent opaque' },
+  { id: 'sound', name: 'Sound Studio', icon: '🔊', desc: 'Vibration pitch volume how sound travels' },
+  { id: 'forces', name: 'Forces & Magnets', icon: '🧲', desc: 'Push pull friction gravity magnets attract repel' },
+  { id: 'animals', name: 'Animals & Humans', icon: '🐾', desc: 'Skeleton muscles nutrition balanced diet food groups' },
 ]
 
 export const MODES: { id: OddMode; name: string; icon: string; desc: string }[] = [

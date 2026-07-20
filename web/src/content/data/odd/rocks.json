@@ -6,7 +6,14 @@
     "prompt": "Which rock is hardest and will scratch the others?",
     "type": "predict-choice",
     "difficulty": 1,
-    "config": { "options": ["Granite", "Chalk", "Sand"], "correctIndex": 0 },
+    "config": {
+      "options": [
+        "Granite",
+        "Chalk",
+        "Sand"
+      ],
+      "correctIndex": 0
+    },
     "explanation": "Granite is very hard with interlocking crystals. Chalk is soft and crumbly.",
     "funFact": "Granite is used for kitchen worktops because it resists scratches!"
   },
@@ -14,10 +21,17 @@
     "id": "rock-perm-01",
     "topic": "rocks",
     "title": "Water Drop Test",
-    "prompt": "Which lets water through — permeable?",
+    "prompt": "Which lets water through \u2014 permeable?",
     "type": "predict-choice",
     "difficulty": 1,
-    "config": { "options": ["Sandstone", "Slate", "Marble"], "correctIndex": 0 },
+    "config": {
+      "options": [
+        "Sandstone",
+        "Slate",
+        "Marble"
+      ],
+      "correctIndex": 0
+    },
     "explanation": "Sandstone has tiny gaps between sand grains so water soaks through. Slate and marble are impermeable.",
     "funFact": "Roof tiles are often slate because rain runs off not through!"
   },
@@ -29,14 +43,42 @@
     "type": "drag-sort",
     "difficulty": 2,
     "config": {
-      "categories": ["From layers squashed", "From volcano cooled", "Changed by heat pressure"],
+      "categories": [
+        "From layers squashed",
+        "From volcano cooled",
+        "Changed by heat pressure"
+      ],
       "items": [
-        {"label":"Sandstone", "category":"From layers squashed", "emoji":"🟫"},
-        {"label":"Limestone", "category":"From layers squashed", "emoji":"⬜"},
-        {"label":"Granite", "category":"From volcano cooled", "emoji":"⬛"},
-        {"label":"Basalt", "category":"From volcano cooled", "emoji":"🌋"},
-        {"label":"Marble", "category":"Changed by heat pressure", "emoji":"⚪"},
-        {"label":"Slate", "category":"Changed by heat pressure", "emoji":"⬜"}
+        {
+          "label": "Sandstone",
+          "category": "From layers squashed",
+          "emoji": "\ud83d\udfeb"
+        },
+        {
+          "label": "Limestone",
+          "category": "From layers squashed",
+          "emoji": "\u2b1c"
+        },
+        {
+          "label": "Granite",
+          "category": "From volcano cooled",
+          "emoji": "\u2b1b"
+        },
+        {
+          "label": "Basalt",
+          "category": "From volcano cooled",
+          "emoji": "\ud83c\udf0b"
+        },
+        {
+          "label": "Marble",
+          "category": "Changed by heat pressure",
+          "emoji": "\u26aa"
+        },
+        {
+          "label": "Slate",
+          "category": "Changed by heat pressure",
+          "emoji": "\u2b1c"
+        }
       ]
     },
     "explanation": "Sedimentary rocks form from layers squashed, igneous from cooled magma, metamorphic changed by heat and pressure.",
@@ -49,7 +91,14 @@
     "prompt": "What is the first step to make a fossil?",
     "type": "predict-choice",
     "difficulty": 1,
-    "config": { "options": ["Animal dies and gets buried quickly in mud", "Animal walks on beach", "Animal eats leaves"], "correctIndex": 0 },
+    "config": {
+      "options": [
+        "Animal dies and gets buried quickly in mud",
+        "Animal walks on beach",
+        "Animal eats leaves"
+      ],
+      "correctIndex": 0
+    },
     "explanation": "Quick burial stops rotting. Layers harden to rock around bones or shells over millions of years.",
     "funFact": "Mary Anning found amazing fossils on Dorset cliffs when she was only 12!"
   },
@@ -60,9 +109,16 @@
     "prompt": "After shaking soil in water jar and waiting, which settles at bottom?",
     "type": "predict-choice",
     "difficulty": 2,
-    "config": { "options": ["Heavy sand grains", "Light humus bits", "Clay"], "correctIndex": 0 },
+    "config": {
+      "options": [
+        "Heavy sand grains",
+        "Light humus bits",
+        "Clay"
+      ],
+      "correctIndex": 0
+    },
     "explanation": "Heaviest sand sinks first, then silt, then light clay on top, humus floats.",
-    "funFact": "Soil is made from tiny rock bits plus dead plants and animals — humus!"
+    "funFact": "Soil is made from tiny rock bits plus dead plants and animals \u2014 humus!"
   },
   {
     "id": "states-sort-01",
@@ -72,18 +128,46 @@
     "type": "drag-sort",
     "difficulty": 1,
     "config": {
-      "categories": ["Solid keeps shape", "Liquid flows pours", "Gas spreads fills"],
+      "categories": [
+        "Solid keeps shape",
+        "Liquid flows pours",
+        "Gas spreads fills"
+      ],
       "items": [
-        {"label":"Ice cube", "category":"Solid keeps shape", "emoji":"🧊"},
-        {"label":"Wooden block", "category":"Solid keeps shape", "emoji":"🪵"},
-        {"label":"Water", "category":"Liquid flows pours", "emoji":"💧"},
-        {"label":"Orange juice", "category":"Liquid flows pours", "emoji":"🧃"},
-        {"label":"Steam from kettle", "category":"Gas spreads fills", "emoji":"♨️"},
-        {"label":"Air in balloon", "category":"Gas spreads fills", "emoji":"🎈"}
+        {
+          "label": "Ice cube",
+          "category": "Solid keeps shape",
+          "emoji": "\ud83e\uddca"
+        },
+        {
+          "label": "Wooden block",
+          "category": "Solid keeps shape",
+          "emoji": "\ud83e\udeb5"
+        },
+        {
+          "label": "Water",
+          "category": "Liquid flows pours",
+          "emoji": "\ud83d\udca7"
+        },
+        {
+          "label": "Orange juice",
+          "category": "Liquid flows pours",
+          "emoji": "\ud83e\uddc3"
+        },
+        {
+          "label": "Steam from kettle",
+          "category": "Gas spreads fills",
+          "emoji": "\u2668\ufe0f"
+        },
+        {
+          "label": "Air in balloon",
+          "category": "Gas spreads fills",
+          "emoji": "\ud83c\udf88"
+        }
       ]
     },
     "explanation": "Solids keep shape, liquids flow and take container shape, gases spread out to fill space.",
-    "funFact": "You cannot pour a solid but you can pour a liquid — try pouring a chair!"
+    "funFact": "You cannot pour a solid but you can pour a liquid \u2014 try pouring a chair!"
   },
   {
     "id": "states-melt-01",
@@ -92,9 +176,16 @@
     "prompt": "Where will ice melt fastest?",
     "type": "predict-choice",
     "difficulty": 2,
-    "config": { "options": ["In warm sunny spot", "In fridge", "Wrapped in foil in shade"], "correctIndex": 0 },
+    "config": {
+      "options": [
+        "In warm sunny spot",
+        "In fridge",
+        "Wrapped in foil in shade"
+      ],
+      "correctIndex": 0
+    },
     "explanation": "Higher temperature means faster melting. Ice melts at 0 degrees Celsius.",
-    "funFact": "Foil reflects heat so it actually slows melting — great for ice lollies!"
+    "funFact": "Foil reflects heat so it actually slows melting \u2014 great for ice lollies!"
   },
   {
     "id": "states-cycle-01",
@@ -103,7 +194,14 @@
     "prompt": "What is it called when water vapour turns to droplets on cold glass?",
     "type": "predict-choice",
     "difficulty": 2,
-    "config": { "options": ["Condensation", "Evaporation", "Melting"], "correctIndex": 0 },
+    "config": {
+      "options": [
+        "Condensation",
+        "Evaporation",
+        "Melting"
+      ],
+      "correctIndex": 0
+    },
     "explanation": "Evaporation is liquid to gas when heated. Condensation is gas to liquid when cooled.",
     "funFact": "Clouds are billions of tiny condensation droplets floating!"
   },
@@ -114,8 +212,101 @@
     "prompt": "Water boils at what temperature in Celsius?",
     "type": "slider-predict",
     "difficulty": 3,
-    "config": { "min": 0, "max": 200, "correctValue": 100, "tolerance": 5, "unit": "°C" },
-    "explanation": "Water freezes at 0°C and boils at 100°C at sea level. In between it is liquid.",
-    "funFact": "On Mount Everest water boils at about 71°C because air pressure is lower!"
+    "config": {
+      "min": 0,
+      "max": 200,
+      "correctValue": 100,
+      "tolerance": 5,
+      "unit": "\u00b0C"
+    },
+    "explanation": "Water freezes at 0\u00b0C and boils at 100\u00b0C at sea level. In between it is liquid.",
+    "funFact": "On Mount Everest water boils at about 71\u00b0C because air pressure is lower!"
+  },
+  {
+    "id": "rock-group-01",
+    "topic": "rocks",
+    "title": "Rock Groups",
+    "prompt": "Sort rocks into three main groups correctly",
+    "type": "drag-sort",
+    "difficulty": 2,
+    "config": {
+      "categories": [
+        "Sedimentary layers squashed",
+        "Igneous volcano cooled",
+        "Metamorphic heat pressure"
+      ],
+      "items": [
+        {
+          "label": "Chalk",
+          "category": "Sedimentary layers squashed",
+          "emoji": "\u2b1c"
+        },
+        {
+          "label": "Sandstone",
+          "category": "Sedimentary layers squashed",
+          "emoji": "\ud83d\udfeb"
+        },
+        {
+          "label": "Basalt",
+          "category": "Igneous volcano cooled",
+          "emoji": "\ud83c\udf0b"
+        },
+        {
+          "label": "Granite",
+          "category": "Igneous volcano cooled",
+          "emoji": "\u2b1b"
+        },
+        {
+          "label": "Marble",
+          "category": "Metamorphic heat pressure",
+          "emoji": "\u26aa"
+        },
+        {
+          "label": "Slate",
+          "category": "Metamorphic heat pressure",
+          "emoji": "\ud83e\udea8"
+        }
+      ]
+    },
+    "explanation": "Three rock families: sedimentary from layers, igneous from cooled magma, metamorphic changed by heat pressure.",
+    "funFact": "The oldest rocks on Earth are over 4 billion years old!"
+  },
+  {
+    "id": "rock-soil-02",
+    "topic": "rocks",
+    "title": "Best Soil for Plants",
+    "prompt": "Which soil is best for most plants to grow?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": {
+      "options": [
+        "Loam mix balanced",
+        "Pure sand drains too fast",
+        "Pure clay waterlogs",
+        "Pure gravel"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Loam has balanced sand silt clay humus holding water and air and nutrients just right.",
+    "funFact": "Good loam feels crumbly like chocolate cake crumbs!"
+  },
+  {
+    "id": "rock-fossil-02",
+    "topic": "rocks",
+    "title": "Fossil Clues",
+    "prompt": "Why are fossils mostly found in sedimentary rock not igneous?",
+    "type": "predict-choice",
+    "difficulty": 3,
+    "config": {
+      "options": [
+        "Sedimentary forms gently around remains igneous heat destroys organic",
+        "Igneous is softer",
+        "Sedimentary is younger always",
+        "No reason"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Sedimentary layers bury remains gently. Igneous heat from magma would burn fossils away.",
+    "funFact": "Mary Anning discovered ichthyosaur fossils aged 12 on Dorset Jurassic Coast!"
   }
 ]

@@ -197,7 +197,7 @@ def validate_geography(path: Path, errors: list[str]) -> None:
             )
 
 
-VALID_ODD_TOPICS = {"plants", "rocks", "light-sound"}
+VALID_ODD_TOPICS = {"plants", "rocks", "light", "sound", "forces", "animals"}
 VALID_ODD_TYPES = {
     "predict-choice",
     "drag-sort",

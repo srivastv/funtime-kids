@@ -1,0 +1,192 @@
+[
+  {
+    "id": "animals-01",
+    "topic": "animals",
+    "title": "Skeleton Job",
+    "prompt": "Why do we need skeleton besides support? Choose best.",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Protect organs like brain heart lungs and help move and make blood cells",
+        "Digest food only",
+        "Breathe only",
+        "Pump blood only"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Skeleton supports body shape, protects vital organs inside ribcage skull spine pelvis, helps movement with muscles, makes blood cells in bone marrow.",
+    "funFact": "Adult human has 206 bones but baby born with about 270 that fuse together!"
+  },
+  {
+    "id": "animals-02",
+    "topic": "animals",
+    "title": "Muscles Pull",
+    "prompt": "What do muscles do to move bones?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Pull bones they cannot push only pull",
+        "Push bones",
+        "Grow bones",
+        "Protect bones only"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Muscles contract pulling bones at joints. They work in pairs one contracts while other relaxes.",
+    "funFact": "It takes 17 muscles to smile and 43 to frown!"
+  },
+  {
+    "id": "animals-03",
+    "topic": "animals",
+    "title": "Food Groups Energy",
+    "prompt": "Which food group gives us main energy to play and learn?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Carbohydrates like bread rice pasta potatoes",
+        "Sweets only",
+        "Water only",
+        "Salt only"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Carbohydrates provide energy. Protein builds growth repair. Fats store energy insulate. Vitamins minerals keep healthy. Fibre helps digestion. Water hydrates.",
+    "funFact": "One slice bread gives energy to run about 400 metres!"
+  },
+  {
+    "id": "animals-04",
+    "topic": "animals",
+    "title": "Balanced Plate",
+    "prompt": "What is balanced diet simplified?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Right amounts from all food groups each day",
+        "Only sweets",
+        "Only meat",
+        "Skipping meals"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Balanced means variety proportion not too much fat sugar salt plenty fruit vegetables.",
+    "funFact": "Eat rainbow colours of fruit veg to get range vitamins!"
+  },
+  {
+    "id": "animals-05",
+    "topic": "animals",
+    "title": "Protein Builders",
+    "prompt": "Which foods are high in protein for growth repair muscles?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": {
+      "options": [
+        "Chicken beans lentils eggs fish meat nuts",
+        "White bread only",
+        "Apple only",
+        "Water"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Protein builds body tissues muscles skin hair. Found in meat fish eggs dairy beans lentils nuts.",
+    "funFact": "Spider silk is made of protein stronger than steel same thickness!"
+  },
+  {
+    "id": "animals-06",
+    "topic": "animals",
+    "title": "Calcium Strong",
+    "prompt": "Which nutrient helps build strong bones and teeth?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": {
+      "options": [
+        "Calcium from dairy leafy greens",
+        "Sugar",
+        "Salt",
+        "Fat only"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Calcium plus vitamin D from sunlight helps bones teeth strong. Lack causes weak bones rickets.",
+    "funFact": "99 percent of body's calcium stored in bones and teeth!"
+  },
+  {
+    "id": "animals-07",
+    "topic": "animals",
+    "title": "Vertebrate Check",
+    "prompt": "What do vertebrates have that invertebrates lack?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": {
+      "options": [
+        "Backbone spine inside",
+        "Shell only outside",
+        "Six legs always",
+        "No bones at all"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Vertebrates mammals birds fish reptiles amphibians have backbone. Invertebrates insects worms jellyfish octopus do not.",
+    "funFact": "Blue whale largest vertebrate ever lived heart size small car!"
+  },
+  {
+    "id": "animals-08",
+    "topic": "animals",
+    "title": "Herbivore Carnivore Omnivore",
+    "prompt": "Human eats plants and animals so human is...",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": {
+      "options": [
+        "Omnivore",
+        "Herbivore eats plants only",
+        "Carnivore eats meat only",
+        "Insectivore"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Herbivore plant eater cow rabbit. Carnivore meat eater lion tiger. Omnivore both human bear pig.",
+    "funFact": "Pandas are bears order Carnivora but eat almost only bamboo herbivore diet funny!"
+  },
+  {
+    "id": "animals-09",
+    "topic": "animals",
+    "title": "Muscle Pairs",
+    "prompt": "When biceps contracts to bend arm what does triceps do?",
+    "type": "predict-choice",
+    "difficulty": 3,
+    "config": {
+      "options": [
+        "Relaxes lengthens",
+        "Contracts too",
+        "Disappears",
+        "Pushes bone"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Muscles work antagonistic pairs. Biceps contracts bends elbow triceps relaxes. To straighten opposite.",
+    "funFact": "You have over 600 muscles in body about 40 percent body weight!"
+  },
+  {
+    "id": "animals-10",
+    "topic": "animals",
+    "title": "Water Why",
+    "prompt": "Why is water important in diet besides not being food group?",
+    "type": "predict-choice",
+    "difficulty": 3,
+    "config": {
+      "options": [
+        "Transports nutrients regulates temperature removes waste hydrates",
+        "Makes bones hard alone",
+        "Stores fat",
+        "No use"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Water makes up about 60 percent body weight vital for every cell function transport temperature waste.",
+    "funFact": "You could survive weeks without food but only days without water!"
+  }
+]

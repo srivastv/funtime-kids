@@ -1,0 +1,192 @@
+[
+  {
+    "id": "forces-01",
+    "topic": "forces",
+    "title": "Push Pull",
+    "prompt": "What is a force simplified?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Push or pull",
+        "Colour",
+        "Sound",
+        "Smell"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Forces push or pull objects making them start move stop speed up slow down or change direction or shape.",
+    "funFact": "You use forces every time you kick ball or open door!"
+  },
+  {
+    "id": "forces-02",
+    "topic": "forces",
+    "title": "Friction Slow",
+    "prompt": "Which surface will toy car travel furthest on after ramp?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Smooth ice polished wood",
+        "Thick carpet",
+        "Sand",
+        "Long grass"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Smooth surfaces have low friction so car keeps moving further. Rough surfaces have high friction slowing quickly.",
+    "funFact": "Ice skaters glide because ice has very low friction!"
+  },
+  {
+    "id": "forces-03",
+    "topic": "forces",
+    "title": "High Friction",
+    "prompt": "Which surface has most friction to stop quickly?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Rough carpet sandpaper",
+        "Ice",
+        "Polished table",
+        "Glass smooth"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Rough surfaces grip more increasing friction slowing movement.",
+    "funFact": "Sandpaper is used to increase friction to smooth wood by rubbing!"
+  },
+  {
+    "id": "forces-04",
+    "topic": "forces",
+    "title": "Magnetic Materials",
+    "prompt": "Which materials are magnetic attract to magnet?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Iron steel nickel cobalt",
+        "Wood plastic",
+        "Copper aluminium",
+        "Glass paper"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Only iron nickel cobalt and steel alloys containing iron are strongly magnetic.",
+    "funFact": "Fridge magnets stick because fridge door has steel sheet inside!"
+  },
+  {
+    "id": "forces-05",
+    "topic": "forces",
+    "title": "Poles Repel",
+    "prompt": "What happens when north pole faces north pole of another magnet?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Repel push away",
+        "Attract pull together",
+        "Nothing",
+        "Stick then fall"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Like poles repel, opposite poles attract. North-north repel, south-south repel, north-south attract.",
+    "funFact": "Earth itself acts like giant magnet with north and south magnetic poles!"
+  },
+  {
+    "id": "forces-06",
+    "topic": "forces",
+    "title": "Poles Attract",
+    "prompt": "What happens north faces south?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Attract pull together",
+        "Repel",
+        "Nothing",
+        "Explode"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Opposite poles attract each other pulling together.",
+    "funFact": "Compass needle north points to Earth's magnetic north because opposite attract!"
+  },
+  {
+    "id": "forces-07",
+    "topic": "forces",
+    "title": "Gravity Down",
+    "prompt": "Which force pulls everything down to Earth?",
+    "type": "predict-choice",
+    "difficulty": 1,
+    "config": {
+      "options": [
+        "Gravity",
+        "Magnetism",
+        "Friction",
+        "Push"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Gravity pulls objects towards centre of Earth giving weight. Without gravity we'd float away.",
+    "funFact": "On Moon gravity is weaker so astronauts bounce higher!"
+  },
+  {
+    "id": "forces-08",
+    "topic": "forces",
+    "title": "Ramp Height",
+    "prompt": "How to make toy car go faster down ramp?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": {
+      "options": [
+        "Make ramp steeper higher",
+        "Make ramp flat",
+        "Add carpet rough",
+        "Add sand"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Higher steeper ramp gives more gravitational potential energy converting to speed.",
+    "funFact": "Roller coasters start high to gain speed for whole ride!"
+  },
+  {
+    "id": "forces-09",
+    "topic": "forces",
+    "title": "Contact vs Non Contact",
+    "prompt": "Which is contact force needing touch?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": {
+      "options": [
+        "Push pull friction",
+        "Gravity",
+        "Magnetism at distance",
+        "Both gravity and magnetism"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Contact forces need touching surfaces push pull friction air resistance water resistance. Non-contact work at distance gravity magnetism.",
+    "funFact": "You feel contact forces every step when shoe pushes ground!"
+  },
+  {
+    "id": "forces-10",
+    "topic": "forces",
+    "title": "Magnet Through Paper",
+    "prompt": "Will magnet attract paperclip through thin card paper?",
+    "type": "predict-choice",
+    "difficulty": 2,
+    "config": {
+      "options": [
+        "Yes magnetic force passes through thin non-magnetic materials",
+        "No never",
+        "Only through metal",
+        "Only through wood thick"
+      ],
+      "correctIndex": 0
+    },
+    "explanation": "Magnetic field passes through paper plastic wood glass thin card but not thick steel sheet.",
+    "funFact": "You can move paperclip under paper with magnet on top like magic trick!"
+  }
+]

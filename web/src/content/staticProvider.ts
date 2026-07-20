@@ -25,7 +25,10 @@ import { DRAWINGS } from './data/draw/drawings'
 import geographyItems from './data/geography/items.json'
 import plants from './data/odd/plants.json'
 import rocks from './data/odd/rocks.json'
-import lightSound from './data/odd/light_sound.json'
+import light from './data/odd/light.json'
+import sound from './data/odd/sound.json'
+import forces from './data/odd/forces.json'
+import animalsOdd from './data/odd/animals.json'
 import numberRiverLevels from './data/numberriver/levels.json'
 
 const banks: Record<string, Question[]> = {
@@ -77,7 +80,10 @@ export const staticProvider: ContentProvider = {
     return [
       ...(plants as OddExperiment[]),
       ...(rocks as OddExperiment[]),
-      ...(lightSound as OddExperiment[]),
+      ...(light as OddExperiment[]),
+      ...(sound as OddExperiment[]),
+      ...(forces as OddExperiment[]),
+      ...(animalsOdd as OddExperiment[]),
     ]
   },
   async getNumberRiverLevels(): Promise<NumberRiverLevel[]> {
