@@ -116,6 +116,6 @@ export function scoreTrace(guide: Pt[], strokes: Pt[][], tol: number): TraceScor
   const neatness = all.length ? neat / all.length : 0
 
   const score = Math.round(100 * (0.7 * coverage + 0.3 * neatness))
-  const stars: 0 | 1 | 2 | 3 = score >= 85 ? 3 : score >= 65 ? 2 : score >= 45 ? 1 : 0
+  const stars: 0 | 1 | 2 | 3 = score >= 70 ? 3 : score >= 50 ? 2 : score >= 30 ? 1 : 0
   return { coverage, neatness, score, stars }
 }

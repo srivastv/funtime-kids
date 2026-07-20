@@ -32,6 +32,14 @@ export const ROUTE_LEVELS: Level[] = [
     id: 'r7', cols: 5, rows: 5, start: { x: 0, y: 0 }, goal: { x: 4, y: 4 }, walls: [], gems: [], allowRepeat: true,
     hint: 'A repeating staircase — build one step, then repeat it.',
   },
+  {
+    id: 'r8', cols: 6, rows: 4, start: { x: 0, y: 0 }, goal: { x: 5, y: 3 }, walls: [{ x: 2, y: 1 }, { x: 2, y: 2 }, { x: 4, y: 1 }], gems: [{ x: 1, y: 3 }, { x: 3, y: 0 }], allowRepeat: true,
+    hint: 'Collect gems then navigate maze — plan repeat carefully!',
+  },
+  {
+    id: 'r9', cols: 7, rows: 3, start: { x: 0, y: 1 }, goal: { x: 6, y: 1 }, walls: [], gems: [{ x: 2, y: 1 }, { x: 4, y: 1 }], allowRepeat: true,
+    hint: 'Long straight run collecting gems — repeat helps but watch count!',
+  },
 ]
 
 // Debug It! — each program is almost right. Fix it so the robot reaches the cheese.
@@ -55,5 +63,10 @@ export const DEBUG_LEVELS: Level[] = [
     id: 'd4', cols: 4, rows: 4, start: { x: 0, y: 0 }, goal: { x: 0, y: 3 }, walls: [], gems: [{ x: 2, y: 0 }],
     buggy: { commands: ['D', 'D', 'D'] }, // forgets to collect the gem
     hint: 'It skipped the gem!',
+  },
+  {
+    id: 'd5', cols: 5, rows: 3, start: { x: 0, y: 1 }, goal: { x: 4, y: 1 }, walls: [], gems: [],
+    buggy: { commands: ['R'], repeat: 3 }, // should repeat 4 times to reach goal, only 3 set
+    hint: 'Almost there but repeat count is one short!',
   },
 ]
