@@ -14,10 +14,15 @@ const ROUNDS: Round[] = [
   { kind: 'set', h: 3, m: 0 },
   { kind: 'set', h: 6, m: 30 },
   { kind: 'set', h: 9, m: 15 },
+  { kind: 'set', h: 12, m: 0 },
   { kind: 'set', h: 1, m: 45, roman: true },
   { kind: 'set', h: 4, m: 25, roman: true },
+  { kind: 'set', h: 7, m: 5, roman: true },
+  { kind: 'set', h: 11, m: 55 },
   { kind: 'dur', start: { h: 2, m: 0 }, delta: 30 },
   { kind: 'dur', start: { h: 7, m: 50 }, delta: 20 },
+  { kind: 'dur', start: { h: 9, m: 15 }, delta: 45 },
+  { kind: 'dur', start: { h: 11, m: 40 }, delta: 35 },
 ]
 
 function targetTime(r: Round): Time {
@@ -82,7 +87,7 @@ export default function TimeBomb({ onExit, onHome }: Props) {
   }
 
   if (finished) {
-    const stars = correct >= 6 ? 3 : correct >= 4 ? 2 : correct >= 2 ? 1 : 0
+    const stars = correct >= 10 ? 3 : correct >= 7 ? 2 : correct >= 4 ? 1 : 0
     const best = loadBest(BEST_KEY)
     const isNew = correct > best
     if (isNew) saveBest(BEST_KEY, correct)

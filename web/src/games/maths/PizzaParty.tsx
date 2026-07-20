@@ -12,13 +12,21 @@ type Order =
 
 const ORDERS: Order[] = [
   { kind: 'slice', num: 1, den: 2 },
-  { kind: 'set', num: 1, den: 3, total: 6, emoji: '🍪', name: 'cookies' },
+  { kind: 'set', num: 1, den: 2, total: 4, emoji: '🍪', name: 'cookies' },
+  { kind: 'slice', num: 1, den: 4 },
+  { kind: 'set', num: 1, den: 4, total: 8, emoji: '🧁', name: 'cupcakes' },
   { kind: 'slice', num: 3, den: 4 },
-  { kind: 'set', num: 1, den: 4, total: 12, emoji: '🧁', name: 'cupcakes' },
+  { kind: 'set', num: 3, den: 4, total: 12, emoji: '🍬', name: 'sweets' },
+  { kind: 'slice', num: 1, den: 3 },
+  { kind: 'set', num: 1, den: 3, total: 6, emoji: '🍓', name: 'strawberries' },
+  { kind: 'slice', num: 2, den: 3 },
+  { kind: 'set', num: 2, den: 3, total: 9, emoji: '🍇', name: 'grapes' },
+  { kind: 'slice', num: 1, den: 5 },
+  { kind: 'set', num: 2, den: 5, total: 10, emoji: '🍒', name: 'cherries' },
   { kind: 'slice', num: 3, den: 8 },
-  { kind: 'set', num: 2, den: 5, total: 10, emoji: '🍓', name: 'strawberries' },
-  { kind: 'slice', num: 7, den: 10 },
-  { kind: 'set', num: 3, den: 4, total: 8, emoji: '🍬', name: 'sweets' },
+  { kind: 'set', num: 3, den: 8, total: 16, emoji: '🥕', name: 'carrots' },
+  { kind: 'slice', num: 1, den: 10 },
+  { kind: 'set', num: 7, den: 10, total: 20, emoji: '🍕', name: 'pizza slices' },
 ]
 
 type Props = { onExit: () => void; onHome: () => void }
@@ -60,7 +68,7 @@ export default function PizzaParty({ onExit, onHome }: Props) {
   }
 
   if (finished) {
-    const stars = correct >= 7 ? 3 : correct >= 5 ? 2 : correct >= 3 ? 1 : 0
+    const stars = correct >= 12 ? 3 : correct >= 8 ? 2 : correct >= 4 ? 1 : 0
     const best = loadBest(BEST_KEY)
     const isNew = correct > best
     if (isNew) saveBest(BEST_KEY, correct)

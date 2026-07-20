@@ -20,6 +20,10 @@ const ROUNDS: Round[] = [
   { kind: 'frac', num: 7, den: 10 },
   { kind: 'pct', pct: 50 },
   { kind: 'frac', num: 1, den: 4 },
+  { kind: 'pct', pct: 75 },
+  { kind: 'frac', num: 2, den: 5 },
+  { kind: 'pct', pct: 20 },
+  { kind: 'frac', num: 3, den: 5 },
 ]
 
 function target(r: Round): number {
@@ -57,7 +61,7 @@ export default function PotionMixer({ onExit, onHome }: Props) {
   }
 
   if (finished) {
-    const stars = correct >= 7 ? 3 : correct >= 5 ? 2 : correct >= 3 ? 1 : 0
+    const stars = correct >= 10 ? 3 : correct >= 7 ? 2 : correct >= 4 ? 1 : 0
     const best = loadBest(BEST_KEY)
     const isNew = correct > best
     if (isNew) saveBest(BEST_KEY, correct)
