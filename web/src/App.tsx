@@ -11,6 +11,8 @@ import OddSciencePage from './games/odd/OddSciencePage'
 import NumberRiverPage from './games/numberriver/NumberRiverPage'
 import CodePage from './games/code/CodePage'
 import MathsPage from './games/maths/MathsPage'
+import DinoPage from './games/dino/DinoPage'
+import FashionPage from './games/fashion/FashionPage'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,8 @@ const router = createBrowserRouter([
       { path: 'numberriver', element: <NumberRiverPage /> },
       { path: 'code', element: <CodePage /> },
       { path: 'maths', element: <MathsPage /> },
+      { path: 'dino', element: <DinoPage /> },
+      { path: 'fashion', element: <FashionPage /> },
       { path: 'backpack', element: <Backpack /> },
     ],
   },

@@ -31,7 +31,6 @@ export default function FallingPage() {
   if (errW || errL || !words || !letters || words.length === 0 || letters.length === 0) return <ErrorScreen />
 
   const bestKey = mode === 'letter' ? 'falling:letter' : 'falling:word'
-  const bestOverallKey = 'falling' // for backward compat migration display maybe
 
   if (phase === 'playing') {
     const isLetter = mode === 'letter'

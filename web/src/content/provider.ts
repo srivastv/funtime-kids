@@ -8,7 +8,7 @@ import type {
   GeoItem,
   OddExperiment,
   NumberRiverLevel,
-}
+} from './types'
 
 export interface ContentProvider {
   getQuizCategories(): Promise<Category[]>

@@ -5,6 +5,8 @@ const games = [
   { to: '/quiz', name: 'Who Wants to Be a Smarty?', icon: '🧠' },
   { to: '/typing', name: 'Typing Adventure', icon: '⌨️' },
   { to: '/falling', name: 'Word Rain', icon: '🌧️' },
+  { to: '/dino', name: 'Dino Dash', icon: '🦖' },
+  { to: '/fashion', name: 'Fashion Show', icon: '👗' },
   { to: '/draw', name: 'Draw Along', icon: '🎨' },
   { to: '/geo', name: 'World Hop', icon: '🗺️' },
   { to: '/odd', name: "Odd Science Lab", icon: '🧪' },
