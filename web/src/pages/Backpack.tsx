@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { sound } from '../lib/sound'
-import { useRewards, buyAvatar, equipAvatar, AVATARS, STICKERS, ACHIEVEMENTS } from '../lib/rewards'
+import { useRewards, buyAvatar, equipAvatar, AVATARS, STICKERS, ACHIEVEMENTS, THEMES, equipTheme } from '../lib/rewards'
 
-type Tab = 'avatars' | 'stickers' | 'trophies'
+type Tab = 'avatars' | 'stickers' | 'trophies' | 'themes'
 
 export default function Backpack() {
   const r = useRewards()
@@ -22,14 +22,16 @@ export default function Backpack() {
           <li>🎮 <b>Play any game</b> — you get coins just for trying!</li>
           <li>⭐ <b>Earn more stars</b> to get more coins.</li>
           <li>🏅 <b>Beat your best score</b> for a bonus and a surprise sticker!</li>
-          <li>🛍️ <b>Spend coins</b> here on cool avatars.</li>
+          <li>🛍️ <b>Spend coins</b> here on cool avatars and themes.</li>
           <li>🏆 Keep playing to unlock <b>trophies</b> and fill your <b>sticker album</b>!</li>
+          <li>🎨 Try different <b>themes</b> to change colours across the whole app!</li>
         </ul>
       </div>
 
-      <div className="mb-6 flex justify-center gap-2">
+      <div className="mb-6 flex justify-center gap-2 flex-wrap">
         {([
           { id: 'avatars', label: '🧑‍🚀 Avatars' },
+          { id: 'themes', label: `🎨 Themes (${(r.ownedThemes?.length ?? 0)}/${THEMES.length})` },
           { id: 'stickers', label: `🌟 Stickers (${r.stickers.length}/${STICKERS.length})` },
           { id: 'trophies', label: `🏆 Trophies (${r.achievements.length}/${ACHIEVEMENTS.length})` },
         ] as const).map((t) => (
@@ -68,6 +70,45 @@ export default function Backpack() {
                     className="mt-2 rounded-full bg-amber-400 px-4 py-1.5 text-sm font-bold text-amber-900 shadow hover:bg-amber-300 disabled:opacity-40"
                   >
                     🪙 {a.price}
+                  </button>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      )}
+
+      {tab === 'themes' && (
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {THEMES.map((t) => {
+            const owned = (r.ownedThemes ?? []).includes(t.id)
+            const equipped = (r.equippedTheme ?? 'sunny') === t.id
+            // For testing phase all themes are free and owned via fresh() default override below, but keep buy logic for future coin integration
+            // const canBuy = !owned && r.coins >= t.price
+            return (
+              <div key={t.id} className={`flex flex-col items-center rounded-2xl border-2 p-4 shadow-sm ${equipped ? 'border-violet-400' : 'border-slate-100'}`} style={{ background: `linear-gradient(135deg, ${t.bgFrom}, ${t.bgTo})` }}>
+                <div className="text-5xl drop-shadow">{t.emoji}</div>
+                <div className="mt-1 font-bold" style={{ color: t.isDark ? '#fff' : '#334155' }}>{t.name}</div>
+                <div className="mt-1 flex gap-1">
+                  <div className="h-4 w-4 rounded-full border border-white shadow" style={{ backgroundColor: t.primary }} title="primary" />
+                  <div className="h-4 w-4 rounded-full border border-white shadow" style={{ backgroundColor: t.secondary }} title="secondary" />
+                  <div className="h-4 w-4 rounded-full border border-white shadow" style={{ backgroundColor: t.cardBg }} title="card" />
+                </div>
+                {owned ? (
+                  <button
+                    onClick={() => { sound.click(); equipTheme(t.id) }}
+                    disabled={equipped}
+                    className={`mt-2 rounded-full px-4 py-1.5 text-sm font-bold ${equipped ? 'bg-violet-100 text-violet-500' : 'bg-violet-500 text-white hover:bg-violet-600'}`}
+                  >
+                    {equipped ? 'Active ✓' : 'Use Theme'}
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => { /* buy disabled for testing phase - themes free via fresh default */ sound.click(); }}
+                    disabled={true}
+                    className="mt-2 rounded-full bg-slate-300 px-4 py-1.5 text-sm font-bold text-slate-600 shadow"
+                  >
+                    Coming Soon
                   </button>
                 )}
               </div>

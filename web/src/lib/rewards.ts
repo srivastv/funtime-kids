@@ -5,8 +5,10 @@ import { useEffect, useState } from 'react'
 export type Avatar = { id: string; emoji: string; name: string; price: number }
 export type Sticker = { id: string; emoji: string }
 export type Achievement = { id: string; emoji: string; name: string; desc: string; test: (s: RewardState) => boolean }
+export type Theme = { id: string; name: string; emoji: string; price: number; bgFrom: string; bgTo: string; primary: string; secondary: string; cardBg: string; pattern?: 'dots'|'stars'|'hearts'|'waves'|'grid'|'confetti'|'none'; isDark?: boolean }
 
 export const DEFAULT_AVATAR = 'bunny'
+export const DEFAULT_THEME = 'sunny'
 
 export const AVATARS: Avatar[] = [
   { id: 'bunny', emoji: '🐰', name: 'Bunny', price: 0 },
@@ -98,6 +100,22 @@ export const AVATARS: Avatar[] = [
   { id: 'police-hat', emoji: '👮‍♀️', name: 'Police Officer', price: 65 },
 ]
 
+export const THEMES: Theme[] = [
+  { id: 'sunny', name: 'Sunny Day', emoji: '☀️', price: 0, bgFrom: '#fff7ed', bgTo: '#fed7aa', primary: '#f59e0b', secondary: '#ea580c', cardBg: '#ffffff', pattern: 'dots' },
+  { id: 'mermaid-lagoon', name: 'Mermaid Lagoon', emoji: '🧜‍♀️', price: 0, bgFrom: '#cffafe', bgTo: '#5eead4', primary: '#06b6d4', secondary: '#0891b2', cardBg: '#ecfeff', pattern: 'waves' },
+  { id: 'enchanted-forest', name: 'Enchanted Forest', emoji: '🌿', price: 0, bgFrom: '#d1fae5', bgTo: '#a7f3d0', primary: '#10b981', secondary: '#059669', cardBg: '#f0fdf4', pattern: 'dots' },
+  { id: 'lavender-dreams', name: 'Lavender Dreams', emoji: '💜', price: 0, bgFrom: '#f5f3ff', bgTo: '#ddd6fe', primary: '#8b5cf6', secondary: '#7c3aed', cardBg: '#ffffff', pattern: 'stars' },
+  { id: 'ocean-sparkle', name: 'Ocean Sparkle', emoji: '🌊', price: 0, bgFrom: '#dbeafe', bgTo: '#7dd3fc', primary: '#0ea5e9', secondary: '#0284c7', cardBg: '#f0f9ff', pattern: 'waves' },
+  { id: 'sunset-glow', name: 'Sunset Glow', emoji: '🌅', price: 0, bgFrom: '#fed7aa', bgTo: '#fda4af', primary: '#f97316', secondary: '#ec4899', cardBg: '#fff7ed', pattern: 'confetti' },
+  { id: 'galaxy-night', name: 'Galaxy Night', emoji: '🌌', price: 0, bgFrom: '#312e81', bgTo: '#6d28d9', primary: '#a855f7', secondary: '#ec4899', cardBg: '#1e1b4b', pattern: 'stars', isDark: true },
+  { id: 'fairy-garden', name: 'Fairy Garden', emoji: '🧚', price: 0, bgFrom: '#ecfdf5', bgTo: '#fce7f3', primary: '#d946ef', secondary: '#10b981', cardBg: '#ffffff', pattern: 'hearts' },
+  { id: 'unicorn-magic', name: 'Unicorn Magic', emoji: '🦄', price: 0, bgFrom: '#fdf2f8', bgTo: '#dbeafe', primary: '#ec4899', secondary: '#8b5cf6', cardBg: '#ffffff', pattern: 'stars' },
+  { id: 'mermaid-princess', name: 'Mermaid Princess', emoji: '🧜‍♀️', price: 0, bgFrom: '#ccfbf1', bgTo: '#fce7f3', primary: '#14b8a6', secondary: '#a78bfa', cardBg: '#f5fffe', pattern: 'waves' },
+  { id: 'royal-castle', name: 'Royal Castle', emoji: '🏰', price: 0, bgFrom: '#fffbeb', bgTo: '#fef3c7', primary: '#d97706', secondary: '#92400e', cardBg: '#fffff7', pattern: 'grid' },
+  { id: 'rainbow-sprinkles', name: 'Rainbow Sprinkles', emoji: '🌈', price: 0, bgFrom: '#ffffff', bgTo: '#fdf4ff', primary: '#ec4899', secondary: '#8b5cf6', cardBg: '#ffffff', pattern: 'confetti' },
+  { id: 'midnight-ocean', name: 'Midnight Ocean', emoji: '🌙', price: 0, bgFrom: '#0f172a', bgTo: '#134e4a', primary: '#22d3ee', secondary: '#a78bfa', cardBg: '#1e293b', pattern: 'dots', isDark: true },
+]
+
 export const STICKERS: Sticker[] = [
   // Starter mix 24 existing kept for backward compat order first 24
   '🐶','🐱','🦊','🐼','🐧','🦁','🐯','🐸','🐵','🦄','🐙','🐢',
@@ -160,6 +178,8 @@ export type RewardState = {
   coins: number
   ownedAvatars: string[]
   equippedAvatar: string
+  ownedThemes?: string[]
+  equippedTheme?: string
   stickers: string[]
   achievements: string[]
   stats: {
@@ -178,6 +198,8 @@ function fresh(): RewardState {
     coins: 0,
     ownedAvatars: [DEFAULT_AVATAR],
     equippedAvatar: DEFAULT_AVATAR,
+    ownedThemes: THEMES.map(t=>t.id), // all themes unlocked for testing phase; later restrict to [DEFAULT_THEME] when coin shop enabled
+    equippedTheme: DEFAULT_THEME,
     stickers: [],
     achievements: [],
     stats: { plays: 0, totalStars: 0, coinsEarnedTotal: 0, gamesPlayed: [], bestStarsByGame: {} },
@@ -288,6 +310,30 @@ export function equipAvatar(id: string): void {
 
 export function avatarEmoji(id: string): string {
   return AVATARS.find((a) => a.id === id)?.emoji ?? '🐰'
+}
+
+export function themeById(id: string) {
+  return THEMES.find((t) => t.id === id) ?? THEMES[0]
+}
+
+export function buyTheme(id: string): boolean {
+  const s = getRewards()
+  const t = THEMES.find((x) => x.id === id)
+  const owned = s.ownedThemes ?? []
+  if (!t || owned.includes(id) || s.coins < t.price) return false
+  s.coins -= t.price
+  s.ownedThemes = [...owned, id]
+  s.equippedTheme = id
+  save(s)
+  return true
+}
+
+export function equipTheme(id: string): void {
+  const s = getRewards()
+  const owned = s.ownedThemes ?? [DEFAULT_THEME]
+  if (!owned.includes(id)) return
+  s.equippedTheme = id
+  save(s)
 }
 
 // ---- Subscription hook ------------------------------------------------------
