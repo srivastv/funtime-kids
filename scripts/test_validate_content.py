@@ -78,6 +78,7 @@ def _valid_tree(root: Path) -> None:
         [{"id": "t1", "title": "A", "text": "cat", "difficulty": 1}],
     )
     _write(root, "falling/words.json", [{"word": "cat", "difficulty": 1}])
+    _write(root, "falling/letters.json", [{"char": "a", "difficulty": 1}])
     geos = []
     for d in (1, 2, 3):
         for i in range(4):
