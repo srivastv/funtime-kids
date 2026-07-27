@@ -9,14 +9,14 @@ export default function Backpack() {
   const [tab, setTab] = useState<Tab>('avatars')
 
   return (
-    <div className="mx-auto max-w-3xl p-6">
+    <div className="mx-auto max-w-3xl p-6" style={{ color: 'var(--text-body)' }}>
       <div className="mb-4 flex items-center justify-between">
-        <h1 className="text-3xl font-extrabold text-violet-700">My Backpack 🎒</h1>
-        <span className="rounded-full bg-amber-100 px-4 py-1.5 font-bold text-amber-800">🪙 {r.coins}</span>
+        <h1 className="text-3xl font-extrabold" style={{ color: 'var(--text-heading)' }}>My Backpack 🎒</h1>
+        <span className="rounded-full px-4 py-1.5 font-bold shadow" style={{ backgroundColor: 'var(--accent)', color: 'var(--text-heading)' }}>🪙 {r.coins}</span>
       </div>
 
       {/* Kid-friendly "how to earn" explainer */}
-      <div className="mb-6 rounded-3xl border-2 border-amber-200 bg-amber-50 p-4 text-amber-900">
+      <div className="mb-6 rounded-3xl border-2 p-4 shadow-sm" style={{ borderColor: 'var(--accent)', backgroundColor: 'var(--card-bg)', color: 'var(--text-body)', borderRadius: 'var(--radius)' }}>
         <p className="text-center text-lg font-extrabold">How do I get coins? 🪙</p>
         <ul className="mx-auto mt-2 max-w-md space-y-1 text-sm font-semibold">
           <li>🎮 <b>Play any game</b> — you get coins just for trying!</li>
@@ -38,7 +38,8 @@ export default function Backpack() {
           <button
             key={t.id}
             onClick={() => { sound.click(); setTab(t.id) }}
-            className={`rounded-full px-4 py-2 text-sm font-bold shadow transition ${tab === t.id ? 'bg-violet-500 text-white' : 'bg-white text-violet-700 hover:bg-violet-50'}`}
+            className="rounded-full px-4 py-2 text-sm font-bold shadow transition"
+            style={ tab === t.id ? { backgroundColor: 'var(--primary)', color: 'white' } : { backgroundColor: 'var(--card-bg)', color: 'var(--text-heading)', border: '2px solid var(--card-border)' } }
           >
             {t.label}
           </button>
@@ -52,14 +53,15 @@ export default function Backpack() {
             const equipped = r.equippedAvatar === a.id
             const canBuy = !owned && r.coins >= a.price
             return (
-              <div key={a.id} className={`flex flex-col items-center rounded-2xl border-2 bg-white p-4 shadow-sm ${equipped ? 'border-violet-400' : 'border-slate-100'}`}>
+              <div key={a.id} className="flex flex-col items-center border-2 p-4 shadow-sm" style={{ backgroundColor: 'var(--card-bg)', borderColor: equipped ? 'var(--primary)' : 'var(--card-border)', borderRadius: 'var(--radius)' }}>
                 <div className="text-5xl">{a.emoji}</div>
-                <div className="mt-1 font-bold text-slate-700">{a.name}</div>
+                <div className="mt-1 font-bold" style={{ color: 'var(--text-body)' }}>{a.name}</div>
                 {owned ? (
                   <button
                     onClick={() => { sound.click(); equipAvatar(a.id) }}
                     disabled={equipped}
-                    className={`mt-2 rounded-full px-4 py-1.5 text-sm font-bold ${equipped ? 'bg-violet-100 text-violet-500' : 'bg-violet-500 text-white hover:bg-violet-600'}`}
+                    className="mt-2 rounded-full px-4 py-1.5 text-sm font-bold shadow"
+                    style={ equipped ? { backgroundColor: 'var(--card-bg)', color: 'var(--primary)', border: '2px solid var(--primary)' } : { backgroundColor: 'var(--primary)', color: 'white' } }
                   >
                     {equipped ? 'Equipped ✓' : 'Wear'}
                   </button>
@@ -67,7 +69,8 @@ export default function Backpack() {
                   <button
                     onClick={() => { if (buyAvatar(a.id)) sound.correct(); else sound.wrong() }}
                     disabled={!canBuy}
-                    className="mt-2 rounded-full bg-amber-400 px-4 py-1.5 text-sm font-bold text-amber-900 shadow hover:bg-amber-300 disabled:opacity-40"
+                    className="mt-2 rounded-full px-4 py-1.5 text-sm font-bold shadow disabled:opacity-40"
+                    style={{ backgroundColor: 'var(--accent)', color: 'var(--text-heading)' }}
                   >
                     🪙 {a.price}
                   </button>
@@ -83,30 +86,35 @@ export default function Backpack() {
           {THEMES.map((t) => {
             const owned = (r.ownedThemes ?? []).includes(t.id)
             const equipped = (r.equippedTheme ?? 'sunny') === t.id
-            // For testing phase all themes are free and owned via fresh() default override below, but keep buy logic for future coin integration
-            // const canBuy = !owned && r.coins >= t.price
+            const rarity = (t as any).rarity || 'common'
+            const rarityBadge = rarity === 'legendary' ? '👑 Legendary' : rarity === 'epic' ? '✨ Epic' : rarity === 'rare' ? '💎 Rare' : '🌱 Common'
+            const rarityColor = rarity === 'legendary' ? '#fbbf24' : rarity === 'epic' ? '#a855f7' : rarity === 'rare' ? '#0ea5e9' : '#10b981'
+            const animClass = t.animation === 'shimmer' ? 'theme-shimmer' : t.animation === 'glow' ? 'theme-glow' : t.animation === 'float' ? 'theme-float' : t.animation === 'pulse' ? 'theme-bounce-slow' : ''
             return (
-              <div key={t.id} className={`flex flex-col items-center rounded-2xl border-2 p-4 shadow-sm ${equipped ? 'border-violet-400' : 'border-slate-100'}`} style={{ background: `linear-gradient(135deg, ${t.bgFrom}, ${t.bgTo})` }}>
-                <div className="text-5xl drop-shadow">{t.emoji}</div>
-                <div className="mt-1 font-bold" style={{ color: t.isDark ? '#fff' : '#334155' }}>{t.name}</div>
+              <div key={t.id} className={`flex flex-col items-center border-2 p-4 shadow-sm relative overflow-hidden ${animClass}`} style={{ background: `linear-gradient(135deg, ${t.bgFrom}, ${t.bgTo})`, borderColor: equipped ? 'var(--primary)' : 'rgba(255,255,255,0.7)', borderRadius: 'var(--radius)', boxShadow: equipped ? '0 0 0 3px var(--accent), 0 10px 28px rgba(0,0,0,0.15)' : '0 6px 16px rgba(0,0,0,0.1)' }}>
+                <div className="absolute top-2 right-2 text-[10px] font-extrabold px-2 py-0.5 rounded-full shadow" style={{ backgroundColor: rarityColor, color: 'white' }}>{rarity.toUpperCase()}</div>
+                <div className="text-5xl drop-shadow" style={{ filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.25))' }}>{t.emoji}</div>
+                <div className="mt-1 font-bold text-center" style={{ color: t.isDark ? '#fff' : '#1e293b', textShadow: t.isDark ? '0 1px 3px rgba(0,0,0,0.6)' : '0 1px 2px rgba(255,255,255,0.9)' }}>{t.name}</div>
+                <div className="text-[10px] opacity-70" style={{ color: t.isDark ? '#ddd' : '#334155' }}>{rarityBadge}</div>
                 <div className="mt-1 flex gap-1">
-                  <div className="h-4 w-4 rounded-full border border-white shadow" style={{ backgroundColor: t.primary }} title="primary" />
-                  <div className="h-4 w-4 rounded-full border border-white shadow" style={{ backgroundColor: t.secondary }} title="secondary" />
-                  <div className="h-4 w-4 rounded-full border border-white shadow" style={{ backgroundColor: t.cardBg }} title="card" />
+                  <div className="h-4 w-4 rounded-full border-2 border-white shadow" style={{ backgroundColor: t.primary }} title="primary" />
+                  <div className="h-4 w-4 rounded-full border-2 border-white shadow" style={{ backgroundColor: t.secondary }} title="secondary" />
+                  <div className="h-4 w-4 rounded-full border-2 border-white shadow" style={{ backgroundColor: t.cardBg }} title="card" />
                 </div>
                 {owned ? (
                   <button
                     onClick={() => { sound.click(); equipTheme(t.id) }}
                     disabled={equipped}
-                    className={`mt-2 rounded-full px-4 py-1.5 text-sm font-bold ${equipped ? 'bg-violet-100 text-violet-500' : 'bg-violet-500 text-white hover:bg-violet-600'}`}
+                    className="mt-2 rounded-full px-4 py-1.5 text-sm font-bold shadow"
+                    style={ equipped ? { backgroundColor: 'rgba(255,255,255,0.85)', color: t.primary, border: '2px solid white' } : { backgroundColor: 'var(--primary)', color: 'white' } }
                   >
                     {equipped ? 'Active ✓' : 'Use Theme'}
                   </button>
                 ) : (
                   <button
-                    onClick={() => { /* buy disabled for testing phase - themes free via fresh default */ sound.click(); }}
                     disabled={true}
-                    className="mt-2 rounded-full bg-slate-300 px-4 py-1.5 text-sm font-bold text-slate-600 shadow"
+                    className="mt-2 rounded-full px-4 py-1.5 text-sm font-bold shadow"
+                    style={{ backgroundColor: 'rgba(100,100,100,0.25)', color: 'rgba(255,255,255,0.9)' }}
                   >
                     Coming Soon
                   </button>

@@ -7,6 +7,86 @@ body,
   min-height: 100vh;
 }
 
+/* Theme system CSS variables defaults fallback */
+:root {
+  --primary: #0ea5e9;
+  --secondary: #0284c7;
+  --accent: #38bdf8;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --text-heading: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --radius: 1.5rem;
+}
+
+/* Theme animations for higher band themes */
+@keyframes theme-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes theme-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+@keyframes theme-pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--accent), 0 0 40px var(--primary) 40; }
+  50% { box-shadow: 0 0 35px var(--accent), 0 0 70px var(--primary) 60; }
+}
+@keyframes theme-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes theme-bounce-slow {
+  0%, 100% { transform: translateY(0) scale(1); }
+  25% { transform: translateY(-8px) scale(1.05); }
+  75% { transform: translateY(4px) scale(0.98); }
+}
+
+.theme-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.theme-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,0.35) 35%, rgba(255,255,255,0.55) 50%, transparent 65%);
+  background-size: 200% 100%;
+  animation: theme-shimmer 3s infinite;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+.theme-glow {
+  animation: theme-pulse-glow 2.5s ease-in-out infinite;
+}
+.theme-float {
+  animation: theme-float 4s ease-in-out infinite;
+}
+.theme-gradient-animated {
+  background-size: 200% 200%;
+  animation: theme-gradient-shift 12s ease infinite;
+}
+.theme-bounce-slow {
+  animation: theme-bounce-slow 3s ease-in-out infinite;
+}
+
+/* Fun shape clip paths for cards based on theme funShape */
+.theme-shape-wavy {
+  clip-path: polygon(0 6%, 6% 0, 12% 5%, 18% 0, 24% 4%, 30% 0, 36% 5%, 42% 0, 48% 4%, 54% 0, 60% 5%, 66% 0, 72% 4%, 78% 0, 84% 5%, 90% 0, 96% 4%, 100% 0, 100% 100%, 0 100%);
+}
+.theme-shape-cloud {
+  border-radius: 2.5rem !important;
+}
+.theme-shape-star {
+  /* subtle star-like feel via extra rounded plus shadow, full star clip too extreme for readability, so use large radius + glow */
+  border-radius: 2rem !important;
+}
+.theme-shape-sharp {
+  border-radius: 0.75rem !important;
+}
+
 /* Word Rain: explosion when a word is popped */
 @keyframes funtime-boom {
   0% {

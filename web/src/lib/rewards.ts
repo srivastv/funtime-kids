@@ -5,7 +5,22 @@ import { useEffect, useState } from 'react'
 export type Avatar = { id: string; emoji: string; name: string; price: number }
 export type Sticker = { id: string; emoji: string }
 export type Achievement = { id: string; emoji: string; name: string; desc: string; test: (s: RewardState) => boolean }
-export type Theme = { id: string; name: string; emoji: string; price: number; bgFrom: string; bgTo: string; primary: string; secondary: string; cardBg: string; pattern?: 'dots'|'stars'|'hearts'|'waves'|'grid'|'confetti'|'none'; isDark?: boolean }
+export type Theme = { 
+  id: string; name: string; emoji: string; price: number; 
+  bgFrom: string; bgTo: string; bgVia?: string;
+  primary: string; secondary: string; accent: string;
+  cardBg: string; cardBorder: string;
+  textHeading: string; textBody: string; textMuted: string;
+  pattern?: 'dots'|'stars'|'hearts'|'waves'|'grid'|'confetti'|'bubbles'|'sparkles'|'clouds'|'scales'|'none'; 
+  isDark?: boolean;
+  radius?: string; // e.g. '1.5rem' '2rem'
+  funEmojis?: string[]; // floating decoration emojis
+  headerEmoji?: string; // replaces default 🎈 in header maybe
+  animation?: 'shimmer'|'float'|'pulse'|'glow'|'none';
+  funShape?: 'wavy'|'rounded'|'sharp'|'cloud'|'star';
+  mascotEmoji?: string;
+  rarity?: 'common'|'rare'|'epic'|'legendary';
+}
 
 export const DEFAULT_AVATAR = 'bunny'
 export const DEFAULT_THEME = 'sunny'
@@ -101,19 +116,19 @@ export const AVATARS: Avatar[] = [
 ]
 
 export const THEMES: Theme[] = [
-  { id: 'sunny', name: 'Sunny Day', emoji: '☀️', price: 0, bgFrom: '#fff7ed', bgTo: '#fed7aa', primary: '#f59e0b', secondary: '#ea580c', cardBg: '#ffffff', pattern: 'dots' },
-  { id: 'mermaid-lagoon', name: 'Mermaid Lagoon', emoji: '🧜‍♀️', price: 0, bgFrom: '#cffafe', bgTo: '#5eead4', primary: '#06b6d4', secondary: '#0891b2', cardBg: '#ecfeff', pattern: 'waves' },
-  { id: 'enchanted-forest', name: 'Enchanted Forest', emoji: '🌿', price: 0, bgFrom: '#d1fae5', bgTo: '#a7f3d0', primary: '#10b981', secondary: '#059669', cardBg: '#f0fdf4', pattern: 'dots' },
-  { id: 'lavender-dreams', name: 'Lavender Dreams', emoji: '💜', price: 0, bgFrom: '#f5f3ff', bgTo: '#ddd6fe', primary: '#8b5cf6', secondary: '#7c3aed', cardBg: '#ffffff', pattern: 'stars' },
-  { id: 'ocean-sparkle', name: 'Ocean Sparkle', emoji: '🌊', price: 0, bgFrom: '#dbeafe', bgTo: '#7dd3fc', primary: '#0ea5e9', secondary: '#0284c7', cardBg: '#f0f9ff', pattern: 'waves' },
-  { id: 'sunset-glow', name: 'Sunset Glow', emoji: '🌅', price: 0, bgFrom: '#fed7aa', bgTo: '#fda4af', primary: '#f97316', secondary: '#ec4899', cardBg: '#fff7ed', pattern: 'confetti' },
-  { id: 'galaxy-night', name: 'Galaxy Night', emoji: '🌌', price: 0, bgFrom: '#312e81', bgTo: '#6d28d9', primary: '#a855f7', secondary: '#ec4899', cardBg: '#1e1b4b', pattern: 'stars', isDark: true },
-  { id: 'fairy-garden', name: 'Fairy Garden', emoji: '🧚', price: 0, bgFrom: '#ecfdf5', bgTo: '#fce7f3', primary: '#d946ef', secondary: '#10b981', cardBg: '#ffffff', pattern: 'hearts' },
-  { id: 'unicorn-magic', name: 'Unicorn Magic', emoji: '🦄', price: 0, bgFrom: '#fdf2f8', bgTo: '#dbeafe', primary: '#ec4899', secondary: '#8b5cf6', cardBg: '#ffffff', pattern: 'stars' },
-  { id: 'mermaid-princess', name: 'Mermaid Princess', emoji: '🧜‍♀️', price: 0, bgFrom: '#ccfbf1', bgTo: '#fce7f3', primary: '#14b8a6', secondary: '#a78bfa', cardBg: '#f5fffe', pattern: 'waves' },
-  { id: 'royal-castle', name: 'Royal Castle', emoji: '🏰', price: 0, bgFrom: '#fffbeb', bgTo: '#fef3c7', primary: '#d97706', secondary: '#92400e', cardBg: '#fffff7', pattern: 'grid' },
-  { id: 'rainbow-sprinkles', name: 'Rainbow Sprinkles', emoji: '🌈', price: 0, bgFrom: '#ffffff', bgTo: '#fdf4ff', primary: '#ec4899', secondary: '#8b5cf6', cardBg: '#ffffff', pattern: 'confetti' },
-  { id: 'midnight-ocean', name: 'Midnight Ocean', emoji: '🌙', price: 0, bgFrom: '#0f172a', bgTo: '#134e4a', primary: '#22d3ee', secondary: '#a78bfa', cardBg: '#1e293b', pattern: 'dots', isDark: true },
+  { id: 'sunny', name: 'Sunny Day', emoji: '☀️', price: 0, bgFrom: '#fff7ed', bgTo: '#fed7aa', bgVia: '#ffe8b5', primary: '#f59e0b', secondary: '#ea580c', accent: '#fcd34d', cardBg: '#ffffff', cardBorder: '#fde68a', textHeading: '#92400e', textBody: '#78350f', textMuted: '#a16207', pattern: 'dots', radius: '1.5rem', funEmojis: ['☀️','🌻','🦋'], headerEmoji: '🎈', rarity: 'common', animation: 'none', funShape: 'rounded' },
+  { id: 'mermaid-lagoon', name: 'Mermaid Lagoon', emoji: '🧜‍♀️', price: 0, bgFrom: '#cffafe', bgTo: '#5eead4', bgVia: '#a5f3fc', primary: '#06b6d4', secondary: '#0891b2', accent: '#67e8f9', cardBg: '#ecfeff', cardBorder: '#a5f3fc', textHeading: '#0e7490', textBody: '#155e75', textMuted: '#0891b2', pattern: 'waves', radius: '2rem', funEmojis: ['🧜‍♀️','🐚','🐬','🌊','💎','🐠'], headerEmoji: '🧜‍♀️', rarity: 'common', animation: 'float', funShape: 'wavy' },
+  { id: 'enchanted-forest', name: 'Enchanted Forest', emoji: '🌿', price: 0, bgFrom: '#d1fae5', bgTo: '#a7f3d0', bgVia: '#bbf7d0', primary: '#10b981', secondary: '#059669', accent: '#6ee7b7', cardBg: '#f0fdf4', cardBorder: '#a7f3d0', textHeading: '#065f46', textBody: '#064e3b', textMuted: '#059669', pattern: 'dots', radius: '1.5rem', funEmojis: ['🌿','🍄','🦋','🐸','🌼','🐞'], headerEmoji: '🌳', rarity: 'common', animation: 'none', funShape: 'rounded' },
+  { id: 'lavender-dreams', name: 'Lavender Dreams', emoji: '💜', price: 0, bgFrom: '#f5f3ff', bgTo: '#ddd6fe', bgVia: '#e9d5ff', primary: '#8b5cf6', secondary: '#7c3aed', accent: '#c4b5fd', cardBg: '#ffffff', cardBorder: '#ddd6fe', textHeading: '#5b21b6', textBody: '#4c1d95', textMuted: '#7c3aed', pattern: 'stars', radius: '2rem', funEmojis: ['💜','🌙','⭐','🦄','🔮','✨'], headerEmoji: '💜', rarity: 'common', animation: 'float', funShape: 'cloud' },
+  { id: 'ocean-sparkle', name: 'Ocean Sparkle', emoji: '🌊', price: 0, bgFrom: '#dbeafe', bgTo: '#7dd3fc', bgVia: '#bae6fd', primary: '#0ea5e9', secondary: '#0284c7', accent: '#38bdf8', cardBg: '#f0f9ff', cardBorder: '#7dd3fc', textHeading: '#075985', textBody: '#0c4a6e', textMuted: '#0284c7', pattern: 'waves', radius: '1.5rem', funEmojis: ['🌊','🐬','🐚','⭐','🐠','💙'], headerEmoji: '🌊', rarity: 'common', animation: 'none', funShape: 'wavy' },
+  { id: 'sunset-glow', name: 'Sunset Glow', emoji: '🌅', price: 0, bgFrom: '#fed7aa', bgTo: '#fda4af', bgVia: '#fecdd3', primary: '#f97316', secondary: '#ec4899', accent: '#fb7185', cardBg: '#fff7ed', cardBorder: '#fed7aa', textHeading: '#9a3412', textBody: '#7c2d12', textMuted: '#c2410c', pattern: 'confetti', radius: '1.5rem', funEmojis: ['🌅','🌞','🌺','🦩','🍉','🧡'], headerEmoji: '🌅', rarity: 'common', animation: 'pulse', funShape: 'rounded' },
+  { id: 'fairy-garden', name: 'Fairy Garden', emoji: '🧚', price: 0, bgFrom: '#ecfdf5', bgTo: '#fce7f3', bgVia: '#f0fdfa', primary: '#d946ef', secondary: '#10b981', accent: '#f9a8d4', cardBg: '#ffffff', cardBorder: '#fbcfe8', textHeading: '#701a75', textBody: '#831843', textMuted: '#be185d', pattern: 'hearts', radius: '2rem', funEmojis: ['🧚','🌸','🦋','🌼','🍄','✨'], headerEmoji: '🧚', rarity: 'rare', animation: 'float', funShape: 'cloud', mascotEmoji: '🧚' },
+  { id: 'rainbow-sprinkles', name: 'Rainbow Sprinkles', emoji: '🌈', price: 0, bgFrom: '#ffffff', bgTo: '#fdf4ff', bgVia: '#fae8ff', primary: '#ec4899', secondary: '#8b5cf6', accent: '#facc15', cardBg: '#ffffff', cardBorder: '#fbcfe8', textHeading: '#831843', textBody: '#4c1d95', textMuted: '#be185d', pattern: 'confetti', radius: '2rem', funEmojis: ['🌈','🍭','🍩','🎈','⭐','🦄'], headerEmoji: '🌈', rarity: 'rare', animation: 'pulse', funShape: 'star' },
+  { id: 'galaxy-night', name: 'Galaxy Night', emoji: '🌌', price: 0, bgFrom: '#312e81', bgTo: '#6d28d9', bgVia: '#4c1d95', primary: '#a855f7', secondary: '#ec4899', accent: '#c084fc', cardBg: '#1e1b4b', cardBorder: '#5b21b6', textHeading: '#f5f3ff', textBody: '#e9d5ff', textMuted: '#c4b5fd', pattern: 'stars', isDark: true, radius: '1.5rem', funEmojis: ['🌌','🌙','⭐','🪐','🚀','✨'], headerEmoji: '🚀', rarity: 'epic', animation: 'shimmer', funShape: 'star', mascotEmoji: '🚀' },
+  { id: 'unicorn-magic', name: 'Unicorn Magic', emoji: '🦄', price: 0, bgFrom: '#fdf2f8', bgTo: '#dbeafe', bgVia: '#fae8ff', primary: '#ec4899', secondary: '#8b5cf6', accent: '#f9a8d4', cardBg: '#ffffff', cardBorder: '#fbcfe8', textHeading: '#831843', textBody: '#701a75', textMuted: '#be185d', pattern: 'stars', radius: '2rem', funEmojis: ['🦄','🌈','⭐','💎','🦋','💖'], headerEmoji: '🦄', rarity: 'epic', animation: 'shimmer', funShape: 'star', mascotEmoji: '🦄' },
+  { id: 'mermaid-princess', name: 'Mermaid Princess', emoji: '🧜‍♀️', price: 0, bgFrom: '#ccfbf1', bgTo: '#fce7f3', bgVia: '#e0e7ff', primary: '#14b8a6', secondary: '#a78bfa', accent: '#5eead4', cardBg: '#f5fffe', cardBorder: '#99f6e4', textHeading: '#0f766e', textBody: '#115e59', textMuted: '#0d9488', pattern: 'waves', radius: '2rem', funEmojis: ['🧜‍♀️','🐚','💎','🌊','🐬','👑'], headerEmoji: '👑', rarity: 'epic', animation: 'glow', funShape: 'wavy', mascotEmoji: '🧜‍♀️' },
+  { id: 'royal-castle', name: 'Royal Castle', emoji: '🏰', price: 0, bgFrom: '#fffbeb', bgTo: '#fef3c7', bgVia: '#fde68a', primary: '#d97706', secondary: '#92400e', accent: '#fbbf24', cardBg: '#fffff7', cardBorder: '#fde68a', textHeading: '#78350f', textBody: '#92400e', textMuted: '#b45309', pattern: 'grid', radius: '1rem', funEmojis: ['🏰','👑','⚔️','🛡️','💎','🐴'], headerEmoji: '🏰', rarity: 'epic', animation: 'glow', funShape: 'sharp', mascotEmoji: '👑' },
+  { id: 'midnight-ocean', name: 'Midnight Ocean', emoji: '🌙', price: 0, bgFrom: '#0f172a', bgTo: '#134e4a', bgVia: '#1e293b', primary: '#22d3ee', secondary: '#a78bfa', accent: '#67e8f9', cardBg: '#1e293b', cardBorder: '#334155', textHeading: '#e0f2fe', textBody: '#bae6fd', textMuted: '#7dd3fc', pattern: 'dots', isDark: true, radius: '1.5rem', funEmojis: ['🌙','⭐','🐋','🌊','💎','🔮'], headerEmoji: '🌙', rarity: 'legendary', animation: 'shimmer', funShape: 'wavy', mascotEmoji: '🐋' },
 ]
 
 export const STICKERS: Sticker[] = [

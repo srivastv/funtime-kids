@@ -31,9 +31,9 @@ export default function ResultScreen({
   }, [reward])
 
   return (
-    <div className="mx-auto max-w-md p-8 text-center">
+    <div className="mx-auto max-w-md p-8 text-center" style={{ color: 'var(--text-body)' }}>
       <div className="text-6xl">🎉</div>
-      <h2 className="mt-4 text-3xl font-extrabold text-sky-700">{title}</h2>
+      <h2 className="mt-4 text-3xl font-extrabold" style={{ color: 'var(--text-heading)' }}>{title}</h2>
 
       {typeof starCount === 'number' && (
         <div className="mt-4 text-4xl" aria-label={`${starCount} out of 3 stars`}>
@@ -42,22 +42,22 @@ export default function ResultScreen({
         </div>
       )}
 
-      <div className="mt-4 space-y-1 text-xl font-semibold text-slate-700">
+      <div className="mt-4 space-y-1 text-xl font-semibold" style={{ color: 'var(--text-body)' }}>
         {lines.map((l) => (
           <p key={l}>{l}</p>
         ))}
       </div>
 
-      {best && <p className="mt-2 text-slate-500">{best}</p>}
+      {best && <p className="mt-2" style={{ color: 'var(--text-muted)' }}>{best}</p>}
 
       {earned && (earned.coins > 0 || earned.stickers.length > 0 || earned.achievements.length > 0) && (
-        <div className="mt-5 rounded-2xl bg-amber-50 border-2 border-amber-200 p-4">
-          <div className="text-xl font-extrabold text-amber-700">+🪙 {earned.coins} coins!</div>
+        <div className="mt-5 rounded-2xl border-2 p-4" style={{ backgroundColor: 'var(--card-bg)', borderColor: 'var(--accent)' }}>
+          <div className="text-xl font-extrabold" style={{ color: 'var(--text-heading)' }}>+🪙 {earned.coins} coins!</div>
           {earned.stickers.length > 0 && (
-            <div className="mt-2 text-sm font-bold text-amber-900">New sticker! {earned.stickers.map((s) => s.emoji).join(' ')}</div>
+            <div className="mt-2 text-sm font-bold" style={{ color: 'var(--text-body)' }}>New sticker! {earned.stickers.map((s) => s.emoji).join(' ')}</div>
           )}
           {earned.achievements.map((a) => (
-            <div key={a.id} className="mt-1 text-sm font-bold text-green-700">🏆 {a.emoji} {a.name} unlocked!</div>
+            <div key={a.id} className="mt-1 text-sm font-bold" style={{ color: 'var(--secondary)' }}>🏆 {a.emoji} {a.name} unlocked!</div>
           ))}
         </div>
       )}
@@ -66,14 +66,16 @@ export default function ResultScreen({
         <button
           type="button"
           onClick={onPlayAgain}
-          className="rounded-full bg-sky-500 px-8 py-3 text-lg font-bold text-white shadow hover:bg-sky-600"
+          className="rounded-full px-8 py-3 text-lg font-bold text-white shadow hover:opacity-90"
+          style={{ backgroundColor: 'var(--primary)' }}
         >
           Play again
         </button>
         <button
           type="button"
           onClick={onHome}
-          className="rounded-full bg-white px-8 py-3 text-lg font-bold text-sky-600 shadow hover:bg-sky-50"
+          className="rounded-full px-8 py-3 text-lg font-bold shadow hover:opacity-90"
+          style={{ backgroundColor: 'var(--card-bg)', color: 'var(--primary)', border: '2px solid var(--card-border)' }}
         >
           Home
         </button>

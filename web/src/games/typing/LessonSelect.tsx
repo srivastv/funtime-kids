@@ -50,8 +50,8 @@ export default function LessonSelect({ onPick, bestFor, mode, onModeChange }: Pr
   }
 
   return (
-    <div className="mx-auto max-w-2xl p-8">
-      <h1 className="mb-2 text-center text-3xl font-extrabold text-sky-700">
+    <div className="mx-auto max-w-2xl p-8" style={{ color: 'var(--text-body)' }}>
+      <h1 className="mb-2 text-center text-3xl font-extrabold" style={{ color: 'var(--text-heading)' }}>
         Pick a difficulty!
       </h1>
 
@@ -67,15 +67,14 @@ export default function LessonSelect({ onPick, bestFor, mode, onModeChange }: Pr
               sound.click()
               onModeChange(m.id)
             }}
-            className={`rounded-full px-5 py-2 font-bold shadow transition ${
-              mode === m.id ? 'bg-sky-500 text-white' : 'bg-white text-sky-700 hover:bg-sky-50'
-            }`}
+            className="rounded-full px-5 py-2 font-bold shadow transition"
+            style={ mode === m.id ? { backgroundColor: 'var(--primary)', color: 'white' } : { backgroundColor: 'var(--card-bg)', color: 'var(--text-heading)', border: '2px solid var(--card-border)' } }
           >
             {m.label}
           </button>
         ))}
       </div>
-      <p className="mb-8 text-center text-sm text-slate-500">
+      <p className="mb-8 text-center text-sm" style={{ color: 'var(--text-muted)' }}>
         {mode === 'race' ? 'Beat the robot to the finish line!' : 'Copy the text — build speed and accuracy.'}
       </p>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
@@ -86,19 +85,20 @@ export default function LessonSelect({ onPick, bestFor, mode, onModeChange }: Pr
               key={d.level}
               type="button"
               onClick={() => pickRandom(d.level as 1 | 2 | 3)}
-              className="rounded-3xl bg-white p-8 text-center shadow-lg transition hover:scale-105 hover:shadow-xl"
+              className="p-8 text-center shadow-lg transition hover:scale-105 hover:shadow-xl border-2"
+              style={{ backgroundColor: 'var(--card-bg)', borderColor: 'var(--card-border)', borderRadius: 'var(--radius)' }}
             >
               <div className="text-6xl">{d.icon}</div>
-              <div className="mt-3 text-2xl font-extrabold text-slate-700">{d.label}</div>
-              <div className="mt-1 text-sm text-slate-500">{d.desc}</div>
+              <div className="mt-3 text-2xl font-extrabold" style={{ color: 'var(--text-heading)' }}>{d.label}</div>
+              <div className="mt-1 text-sm" style={{ color: 'var(--text-muted)' }}>{d.desc}</div>
               {best > 0 && (
-                <div className="mt-2 text-xs font-bold text-sky-600">Best: {best} WPM</div>
+                <div className="mt-2 text-xs font-bold" style={{ color: 'var(--primary)' }}>Best: {best} WPM</div>
               )}
             </button>
           )
         })}
       </div>
-      <p className="mt-6 text-center text-xs text-slate-400">
+      <p className="mt-6 text-center text-xs" style={{ color: 'var(--text-muted)' }}>
         We will pick a random lesson from that level each time — keep practising!
       </p>
     </div>
