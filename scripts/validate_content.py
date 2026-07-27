@@ -105,6 +105,23 @@ def validate_falling(path: Path, errors: list[str]) -> None:
             errors.append(f"{where}: 'difficulty' must be 1, 2, or 3")
 
 
+def validate_falling_letters(path: Path, errors: list[str]) -> None:
+    data = _load_json(path)
+    if not isinstance(data, list) or not data:
+        errors.append(f"{path}: expected a non-empty list of letters")
+        return
+    allowed = set("abcdefghijklmnopqrstuvwxyz0123456789.,?!;'-")
+    for i, entry in enumerate(data):
+        where = f"{path}[{i}]"
+        ch = entry.get("char")
+        if not isinstance(ch, str) or len(ch) != 1:
+            errors.append(f"{where}: 'char' must be a single character string")
+        elif ch.lower() not in allowed:
+            errors.append(f"{where}: 'char' '{ch}' not in allowed set")
+        if entry.get("difficulty") not in VALID_DIFFICULTIES:
+            errors.append(f"{where}: 'difficulty' must be 1, 2, or 3")
+
+
 VALID_CONTINENTS = {
     "Europe",
     "Asia",
@@ -355,6 +372,12 @@ def validate(data_dir: Path) -> list[str]:
         validate_falling(falling_file, errors)
     else:
         errors.append(f"{falling_file}: missing")
+
+    falling_letters_file = data_dir / "falling" / "letters.json"
+    if falling_letters_file.exists():
+        validate_falling_letters(falling_letters_file, errors)
+    else:
+        errors.append(f"{falling_letters_file}: missing")
 
     geography_file = data_dir / "geography" / "items.json"
     validate_geography(geography_file, errors)

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import type { FallingWord } from '../../content/types'
+import type { FallingWord, FallingLetter, FallingMode } from '../../content/types'
 import { sound, startMusic, stopMusic } from '../../lib/sound'
 import {
   initState,
@@ -7,13 +7,18 @@ import {
   tick,
   submitTyped,
   spawnIntervalMs,
+  spawnIntervalLetterMs,
   fallSpeed,
+  fallSpeedLetter,
   pickWord,
+  pickLetter,
   type FallingState,
 } from './engine'
 
 type Props = {
-  words: FallingWord[]
+  words?: FallingWord[]
+  letters?: FallingLetter[]
+  mode?: FallingMode
   onGameOver: (score: number) => void
 }
 
@@ -30,7 +35,7 @@ type Blast = {
 
 const PARTICLE_COLORS = ['#f87171', '#fbbf24', '#34d399', '#60a5fa', '#c084fc']
 
-export default function FallingGame({ words, onGameOver }: Props) {
+export default function FallingGame({ words = [], letters = [], mode = 'word', onGameOver }: Props) {
   const [state, setState] = useState<FallingState>(() => initState())
   const stateRef = useRef(state)
   stateRef.current = state
@@ -54,14 +59,18 @@ export default function FallingGame({ words, onGameOver }: Props) {
       let s = stateRef.current
 
       spawnAccRef.current += dt
-      if (spawnAccRef.current >= spawnIntervalMs(s.score)) {
+      const interval = mode === 'letter' ? spawnIntervalLetterMs(s.score) : spawnIntervalMs(s.score)
+      if (spawnAccRef.current >= interval) {
         spawnAccRef.current = 0
+        const isLetterMode = mode === 'letter'
+        const text = isLetterMode ? pickLetter(letters.length ? letters : [{char:'a',difficulty:1},{char:'s',difficulty:1}] as any, s.score) : pickWord(words.length ? words : [{word:'test',difficulty:1}] as any, s.score)
+        const speedFn = isLetterMode ? fallSpeedLetter : fallSpeed
         s = addFaller(s, {
           id: idRef.current++,
-          word: pickWord(words, s.score),
+          word: text,
           xPct: 5 + Math.random() * 80,
           yPct: 0,
-          speed: fallSpeed(s.score),
+          speed: speedFn(s.score),
         })
       }
 
@@ -123,7 +132,27 @@ export default function FallingGame({ words, onGameOver }: Props) {
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const typed = e.target.value.trim().toLowerCase()
+    const raw = e.target.value
+    const typed = raw.trim().toLowerCase()
+    if (mode === 'letter') {
+      // Letter mode: immediate single key match, no buffer retention, kinder no penalty on miss
+      const key = typed.slice(-1) // take last typed character
+      if (!key) return
+      const target = stateRef.current.fallers.find((f) => f.word.toLowerCase() === key)
+      if (target) {
+        sound.pop()
+        spawnBlast(target.word, target.xPct, target.yPct)
+        const s = submitTyped(stateRef.current, key)
+        stateRef.current = s
+        setState(s)
+      } else {
+        // gentle wobble feedback could go here; for now just clear input and optional wrong sound soft
+        sound.wrong()
+      }
+      // clear input immediately for next letter
+      if (inputRef.current) inputRef.current.value = ''
+      return
+    }
     const target = stateRef.current.fallers.find((f) => f.word === typed)
     if (target) {
       sound.pop()
@@ -134,9 +163,10 @@ export default function FallingGame({ words, onGameOver }: Props) {
     setState(s)
   }
 
+  const isLetter = mode === 'letter'
   return (
-    <div className="mx-auto max-w-2xl p-4">
-      <div className="mb-3 flex items-center justify-between text-xl font-bold text-sky-700">
+    <div className="mx-auto max-w-2xl p-4" style={{ color: 'var(--text-body)' }}>
+      <div className="mb-3 flex items-center justify-between text-xl font-bold" style={{ color: 'var(--text-heading)' }}>
         <span>⭐ {state.score}</span>
         <span aria-label={`${state.lives} lives`}>
           {'❤️'.repeat(state.lives)}
@@ -147,16 +177,29 @@ export default function FallingGame({ words, onGameOver }: Props) {
       </div>
 
       <div
-        className="relative h-96 w-full overflow-hidden rounded-3xl border-2 border-sky-200 bg-gradient-to-b from-sky-50 to-indigo-100"
+        className="relative h-96 w-full overflow-hidden border-2 shadow-inner"
+        style={{ borderRadius: 'var(--radius)', borderColor: 'var(--card-border)', background: `linear-gradient(to bottom, var(--card-bg), var(--bg-to))` }}
         onClick={() => inputRef.current?.focus()}
       >
         {state.fallers.map((f) => (
           <div
             key={f.id}
-            className="absolute -translate-x-1/2 rounded-xl bg-white px-3 py-1 text-lg font-bold text-slate-700 shadow"
-            style={{ top: `${f.yPct}%`, left: `${f.xPct}%` }}
+            className="absolute -translate-x-1/2 font-bold shadow-lg"
+            style={{ 
+              top: `${f.yPct}%`, 
+              left: `${f.xPct}%`,
+              backgroundColor: 'var(--card-bg)',
+              color: 'var(--text-heading)',
+              border: '3px solid var(--primary)',
+              borderRadius: isLetter ? '50%' : 'var(--radius)',
+              padding: isLetter ? '12px 18px' : '6px 12px',
+              fontSize: isLetter ? '2rem' : '1.125rem',
+              minWidth: isLetter ? '56px' : undefined,
+              textAlign: 'center',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15), 0 0 0 2px var(--accent)',
+            }}
           >
-            {f.word}
+            {f.word.toUpperCase()}
           </div>
         ))}
 
@@ -166,10 +209,10 @@ export default function FallingGame({ words, onGameOver }: Props) {
               <>
                 {/* Ghost of the word, sitting still until the bomb lands */}
                 <div
-                  className="absolute -translate-x-1/2 rounded-xl bg-white px-3 py-1 text-lg font-bold text-slate-700 shadow"
-                  style={{ top: `${b.y}%`, left: `${b.x}%` }}
+                  className="absolute -translate-x-1/2 font-bold shadow"
+                  style={{ top: `${b.y}%`, left: `${b.x}%`, backgroundColor: 'var(--card-bg)', color: 'var(--text-heading)', borderRadius: isLetter ? '50%' : '0.75rem', padding: isLetter ? '12px 18px' : '6px 12px', fontSize: isLetter ? '2rem' : '1.125rem', border: '3px solid var(--primary)' }}
                 >
-                  {b.word}
+                  {b.word.toUpperCase()}
                 </div>
                 {/* The flying bomb */}
                 <div
@@ -220,9 +263,10 @@ export default function FallingGame({ words, onGameOver }: Props) {
         autoFocus
         value={state.typed}
         onChange={handleChange}
-        aria-label="Type a falling word"
-        className="mt-4 w-full rounded-2xl border-2 border-sky-200 p-4 text-center text-xl focus:border-sky-500 focus:outline-none"
-        placeholder="Type a word to pop it!"
+        aria-label={isLetter ? "Type a falling letter" : "Type a falling word"}
+        className="mt-4 w-full p-4 text-center text-xl focus:outline-none border-2 shadow"
+        style={{ borderRadius: 'var(--radius)', borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg)', color: 'var(--text-heading)', borderWidth: '2px' }}
+        placeholder={isLetter ? "Type the letter to pop it! 💧" : "Type a word to pop it! 🌧️"}
       />
     </div>
   )

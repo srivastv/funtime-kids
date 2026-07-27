@@ -1,4 +1,4 @@
-import type { FallingWord } from '../../content/types'
+import type { FallingWord, FallingLetter } from '../../content/types'
 
 /** A single word currently falling on screen. Positions are in percent. */
 export type Faller = {
@@ -30,9 +30,17 @@ export function fallSpeed(score: number): number {
   return 6 + Math.min(score, 40) * 0.4 // 6%/s -> ~22%/s
 }
 
+export function fallSpeedLetter(score: number): number {
+  return 4 + Math.min(score, 50) * 0.25 // 4%/s -> ~16.5%/s slower for beginners
+}
+
 /** Milliseconds between spawns; shrinks with score, floored so it stays fair. */
 export function spawnIntervalMs(score: number): number {
   return Math.max(700, 2000 - score * 25)
+}
+
+export function spawnIntervalLetterMs(score: number): number {
+  return Math.max(600, 1800 - score * 20)
 }
 
 /** Longer words are worth more points. */
@@ -57,6 +65,17 @@ export function pickWord(
   const pool = words.filter((w) => w.difficulty <= max)
   const list = pool.length > 0 ? pool : words
   return list[Math.floor(rnd() * list.length)].word
+}
+
+export function pickLetter(
+  letters: FallingLetter[],
+  score: number,
+  rnd: () => number = Math.random,
+): string {
+  const max = maxDifficultyForScore(score)
+  const pool = letters.filter((l) => l.difficulty <= max)
+  const list = pool.length > 0 ? pool : letters
+  return list[Math.floor(rnd() * list.length)].char
 }
 
 export function addFaller(state: FallingState, faller: Faller): FallingState {

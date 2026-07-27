@@ -3,6 +3,7 @@ import type {
   Question,
   TypingLesson,
   FallingWord,
+  FallingLetter,
   DrawingLesson,
   GeoItem,
   OddExperiment,
@@ -21,6 +22,7 @@ import geographyQuiz from './data/quiz/geography.json'
 import computing from './data/quiz/computing.json'
 import lessons from './data/typing/lessons.json'
 import fallingWords from './data/falling/words.json'
+import fallingLetters from './data/falling/letters.json'
 import { DRAWINGS } from './data/draw/drawings'
 import geographyItems from './data/geography/items.json'
 import plants from './data/odd/plants.json'
@@ -69,6 +71,9 @@ export const staticProvider: ContentProvider = {
   },
   async getFallingWords() {
     return fallingWords as FallingWord[]
+  },
+  async getFallingLetters() {
+    return fallingLetters as FallingLetter[]
   },
   async getDrawings(): Promise<DrawingLesson[]> {
     return DRAWINGS

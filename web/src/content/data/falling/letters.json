@@ -1,0 +1,11 @@
+[
+  {"char":"a","difficulty":1},{"char":"s","difficulty":1},{"char":"d","difficulty":1},{"char":"f","difficulty":1},{"char":"j","difficulty":1},{"char":"k","difficulty":1},{"char":"l","difficulty":1},{"char":";","difficulty":1},{"char":"g","difficulty":1},{"char":"h","difficulty":1},
+  {"char":"a","difficulty":1},{"char":"s","difficulty":1},{"char":"d","difficulty":1},{"char":"f","difficulty":1},{"char":"j","difficulty":1},{"char":"k","difficulty":1},{"char":"l","difficulty":1},{"char":";","difficulty":1},{"char":"g","difficulty":1},{"char":"h","difficulty":1},
+  {"char":"q","difficulty":2},{"char":"w","difficulty":2},{"char":"e","difficulty":2},{"char":"r","difficulty":2},{"char":"t","difficulty":2},{"char":"y","difficulty":2},{"char":"u","difficulty":2},{"char":"i","difficulty":2},{"char":"o","difficulty":2},{"char":"p","difficulty":2},
+  {"char":"q","difficulty":2},{"char":"w","difficulty":2},{"char":"e","difficulty":2},{"char":"r","difficulty":2},{"char":"t","difficulty":2},{"char":"y","difficulty":2},{"char":"u","difficulty":2},{"char":"i","difficulty":2},{"char":"o","difficulty":2},{"char":"p","difficulty":2},
+  {"char":"z","difficulty":2},{"char":"x","difficulty":2},{"char":"c","difficulty":2},{"char":"v","difficulty":2},{"char":"b","difficulty":2},{"char":"n","difficulty":2},{"char":"m","difficulty":2},
+  {"char":"z","difficulty":2},{"char":"x","difficulty":2},{"char":"c","difficulty":2},{"char":"v","difficulty":2},{"char":"b","difficulty":2},{"char":"n","difficulty":2},{"char":"m","difficulty":2},
+  {"char":"0","difficulty":3},{"char":"1","difficulty":3},{"char":"2","difficulty":3},{"char":"3","difficulty":3},{"char":"4","difficulty":3},{"char":"5","difficulty":3},{"char":"6","difficulty":3},{"char":"7","difficulty":3},{"char":"8","difficulty":3},{"char":"9","difficulty":3},
+  {"char":".","difficulty":3},{ "char":",","difficulty":3},{"char":"?","difficulty":3},{"char":"!","difficulty":3},{"char":"'","difficulty":3},{"char":"-","difficulty":3},
+  {"char":"0","difficulty":3},{"char":"1","difficulty":3},{"char":"2","difficulty":3},{"char":"3","difficulty":3},{"char":"4","difficulty":3},{"char":"5","difficulty":3},{"char":"6","difficulty":3},{"char":"7","difficulty":3},{"char":"8","difficulty":3},{"char":"9","difficulty":3}
+]

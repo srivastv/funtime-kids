@@ -21,6 +21,13 @@ export type FallingWord = {
   difficulty: 1 | 2 | 3
 }
 
+export type FallingLetter = {
+  char: string
+  difficulty: 1 | 2 | 3
+}
+
+export type FallingMode = 'word' | 'letter'
+
 /** Guide shapes for drawing lessons, in normalized 0..1 coordinates. */
 export type DrawShape =
   | { kind: 'circle'; cx: number; cy: number; r: number }

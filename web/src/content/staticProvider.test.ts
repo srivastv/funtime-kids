@@ -51,4 +51,11 @@ describe('staticProvider', () => {
     expect(levels[0]).toHaveProperty('target')
     expect(levels[0]).toHaveProperty('availableOps')
   })
+
+  it('returns falling letters', async () => {
+    const letters = await staticProvider.getFallingLetters()
+    expect(letters.length).toBeGreaterThan(0)
+    expect(letters[0]).toHaveProperty('char')
+    expect(letters[0].char.length).toBe(1)
+  })
 })

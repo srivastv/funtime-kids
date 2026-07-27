@@ -2,16 +2,19 @@ import { describe, it, expect } from 'vitest'
 import {
   initState,
   fallSpeed,
+  fallSpeedLetter,
   spawnIntervalMs,
+  spawnIntervalLetterMs,
   pointsFor,
   maxDifficultyForScore,
   pickWord,
+  pickLetter,
   addFaller,
   tick,
   submitTyped,
   type Faller,
 } from './engine'
-import type { FallingWord } from '../../content/types'
+import type { FallingWord, FallingLetter } from '../../content/types'
 
 const faller = (id: number, word: string, yPct = 0): Faller => ({
   id,
@@ -90,5 +93,25 @@ describe('falling engine', () => {
     expect(s.fallers).toHaveLength(1)
     expect(s.score).toBe(0)
     expect(s.typed).toBe('ca')
+  })
+
+  it('letter mode picks only allowed difficulty letters and is slower', () => {
+    const letters: FallingLetter[] = [
+      { char: 'a', difficulty: 1 },
+      { char: 'z', difficulty: 3 },
+    ]
+    expect(pickLetter(letters, 0, () => 0)).toBe('a')
+    expect(pickLetter(letters, 0, () => 0.999)).toBe('a')
+    expect(fallSpeedLetter(0)).toBeLessThan(fallSpeed(0))
+    expect(spawnIntervalLetterMs(0)).toBeLessThan(2000)
+    expect(spawnIntervalLetterMs(100)).toBeGreaterThanOrEqual(600)
+  })
+
+  it('letter mode scores 1 point per letter popped', () => {
+    let s = initState()
+    s = addFaller(s, faller(1, 'a'))
+    s = submitTyped(s, 'a')
+    expect(s.score).toBe(1)
+    expect(s.fallers).toHaveLength(0)
   })
 })
