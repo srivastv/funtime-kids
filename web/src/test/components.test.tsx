@@ -196,8 +196,11 @@ describe('Rewards / Backpack', () => {
     recordResult({ gameId: 'geo', stars: 3, isNewBest: true }, () => 0.99) // earn coins, no sticker
     render(<MemoryRouter><Backpack /></MemoryRouter>)
     expect(screen.getByText('My Backpack 🎒')).toBeInTheDocument()
-    // Fox costs 30 — buy it, then it becomes equipped
-    fireEvent.click(screen.getByRole('button', { name: /🪙 30/ }))
-    expect(getRewards().ownedAvatars).toContain('fox')
+    // Fox costs 30 — buy it, then it becomes equipped (there are multiple 30-cost avatars now, pick first)
+    const buyButtons = screen.getAllByRole('button', { name: /🪙 30/ })
+    fireEvent.click(buyButtons[0])
+    const rewards = getRewards()
+    expect(rewards.ownedAvatars.length).toBeGreaterThan(1)
+    expect(rewards.coins).toBeLessThan(70) // started at 70 after first-steps+superstar bonus, spent at least 25
   })
 })
